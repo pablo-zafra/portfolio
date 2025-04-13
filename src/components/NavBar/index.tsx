@@ -14,7 +14,7 @@ export const NavBar: React.FC = () => {
   };
 
   return (
-    <nav className="relative flex items-center justify-between py-4 px-6">
+    <nav className="relative flex items-center justify-between py-4 px-6 p-10">
       {/* Logo (lado izquierdo) */}
       <Link href="/" legacyBehavior>
         <a className="flex items-center">
