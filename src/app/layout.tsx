@@ -1,20 +1,28 @@
-import { NavBar } from '../components';
-import type { Metadata } from 'next';
-import './globals.css';
+import { NavBar } from "../components";
+import type { Metadata } from "next";
+import { Inter } from "@next/font/google";
+import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
-  title: 'Pablo Zafra',
-  description: 'Frontend developer, UI/UX designer, Motion Designer'
+  title: "Pablo Zafra",
+  description: "Frontend developer, UI/UX designer, Motion Designer",
 };
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="bg-dark-gray">
+    <html lang="es" className="scroll-smooth">
+      <body
+        className={`${inter.variable} bg-gray-dark-X font-Inter text-white`}
+      >
         <NavBar />
         {children}
       </body>
