@@ -25,7 +25,7 @@ const PencilModel: React.FC = () => {
 
 export const Pencil: React.FC = () => {
   return (
-    <div style={{ width: "100%", height: "100%" }}>
+    <div className="w-full h-full">
       <Canvas dpr={[1, 2]} camera={{ position: [0, 15, 20], fov: 11 }}>
         <ambientLight intensity={0.6} />
         <directionalLight position={[10, 10, 5]} intensity={3} />

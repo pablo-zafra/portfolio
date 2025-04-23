@@ -10,11 +10,11 @@ import { Pencil } from "../3dModels";
 const Hero: React.FC = () => {
   return (
     <div className="w-screen h-screen bg-background flex justify-center items-center">
+      <div className="absolute w-full h-full ml-120">
+        <Pencil />
+      </div>
       <div className="flex justify-center items-center gap-10">
-        <div className="absolute w-full h-full -z-1 ml-120">
-          <Pencil />
-        </div>
-        <h1 className="text-8xl/tight font-semibold">
+        <h1 className="text-8xl/tight font-semibold z-1">
           <span className="ml-11 relative">
             Hi!{" "}
             <span className="inline-block bg-gray size-[1.15em] rounded-full align-text-top transition-all overflow-hidden">
@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
           <span className="ml-23">& UX/UI designer</span>
           <br />
         </h1>
-        <div className="mt-96 w-72">
+        <div className="mt-96 w-72  z-1">
           <h2 className="text-base font-extralight">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam iaculis
             tellus erat. Morbi finibus odio nec felis iaculis dapibus ac ac
