@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
   return (
     <div className="w-screen h-screen bg-background flex justify-center items-center">
       <div className="flex justify-center items-center gap-10">
-        <div className="absolute w-160 h-160 -z-1 ml-36">
+        <div className="absolute w-full h-full -z-1 ml-120">
           <Pencil />
         </div>
         <h1 className="text-8xl/tight font-semibold">

@@ -21,8 +21,8 @@ const NavBar: React.FC = () => {
           className="h-8 w-auto mr-2"
           src={logo}
           alt="Logo"
-          width={32}
-          height={32}
+          width={undefined}
+          height={undefined}
         />
       </Link>
 
