@@ -10,7 +10,7 @@ import { Pencil } from "../3dModels";
 const Hero: React.FC = () => {
   return (
     <div className="w-screen h-screen bg-background flex justify-center items-center">
-      <div className="absolute w-full h-full ml-120">
+      <div className="absolute w-full h-full ml-96">
         <Pencil />
       </div>
       <div className="flex justify-center items-center gap-10">

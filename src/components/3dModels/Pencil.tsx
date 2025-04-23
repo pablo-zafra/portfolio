@@ -27,16 +27,17 @@ export const Pencil: React.FC = () => {
   return (
     <div className="w-full h-full">
       <Canvas dpr={[1, 2]} camera={{ position: [0, 15, 20], fov: 11 }}>
-        <ambientLight intensity={0.6} />
-        <directionalLight position={[10, 10, 5]} intensity={3} />
-        <Environment preset="forest" background={false} />
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[10, 10, 5]} intensity={0.1} />
+        <Environment preset="city" background={false} />
         <OrbitControls
           enableZoom={false}
           autoRotate={true}
           rotateSpeed={1}
-          autoRotateSpeed={Math.PI / 2}
+          autoRotateSpeed={1}
           minPolarAngle={Math.PI / 2}
           maxPolarAngle={Math.PI / 2}
+          // setPolarAngle={Math.PI / 2}
         />
         <PencilModel />
       </Canvas>
