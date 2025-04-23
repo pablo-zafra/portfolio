@@ -1,13 +1,19 @@
-import Image from "next/image";
-import profilePhoto from "../../public/img/profile-photo.jpg";
-import reactLogo from "../../public/img/react.png";
-import nextLogo from "../../public/img/nextjs.png";
-import tsLogo from "../../public/img/typescritp.png";
+"use client";
 
-export const Hero: React.FC = () => {
+import Image from "next/image";
+import profilePhoto from "../../../public/img/profile-photo.jpg";
+import reactLogo from "../../../public/img/react.png";
+import nextLogo from "../../../public/img/nextjs.png";
+import tsLogo from "../../../public/img/typescript.png";
+import { Pencil } from "../3dModels";
+
+const Hero: React.FC = () => {
   return (
     <div className="w-screen h-screen bg-background flex justify-center items-center">
       <div className="flex justify-center items-center gap-10">
+        <div className="absolute w-160 h-160 -z-1 ml-36">
+          <Pencil />
+        </div>
         <h1 className="text-8xl/tight font-semibold">
           <span className="ml-11 relative">
             Hi!{" "}
@@ -64,3 +70,5 @@ export const Hero: React.FC = () => {
     </div>
   );
 };
+
+export default Hero;

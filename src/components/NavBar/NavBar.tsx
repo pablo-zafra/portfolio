@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import Link from "next/link";
 import logo from "../../../public/img/pablo-zafra-logo.svg";
 import Image from "next/image";
-import BtnHamburguesa from "../BtnHamburguesa";
+import BtnHamburguesa from "../BtnHamburguesa/BtnHamburguesa";
 
-export const NavBar: React.FC = () => {
+const NavBar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -40,3 +40,5 @@ export const NavBar: React.FC = () => {
     </nav>
   );
 };
+
+export default NavBar;

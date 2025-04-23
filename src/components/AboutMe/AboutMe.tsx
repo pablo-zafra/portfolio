@@ -32,3 +32,6 @@ export const AboutMe: React.FC = () => {
     </div>
   );
 };
+
+export default AboutMe;
+//       </div>
