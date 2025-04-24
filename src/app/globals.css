@@ -3,7 +3,7 @@
 @theme {
   --color-turquesa: #1ec598;
   --color-gray: #888888;
-  --color-gray-dark: #3b3b3b;
+  --color-gray-dark: #353535;
   --color-gray-dark-X: #2a2a2a;
   --color-gray-light: #d9d9d9;
   --font-Inter: "Inter", sans-serif;
@@ -22,4 +22,14 @@ body::selection {
       transparent 1px
     ),
     linear-gradient(to bottom, var(--color-gray-dark) 1px, transparent 1px);
+}
+
+.word {
+  display: inline-block;
+  vertical-align: bottom;
+  overflow: hidden;
+}
+
+.word-inner {
+  display: inline-block;
 }
