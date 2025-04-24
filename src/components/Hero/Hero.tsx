@@ -25,6 +25,7 @@ const Hero: React.FC = () => {
   const logosRef = useElementReveal({
     duration: 0.8,
     stagger: 0.15,
+    y: "40px",
     delay: 1.5,
   });
 

@@ -4,22 +4,6 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Hook to animate elements on scroll
-// This hook uses GSAP and ScrollTrigger to animate elements when they come into view.
-//
-// Example usage:
-// const elementRef = useElementReveal({
-//   duration: 1,
-//   stagger: 0.2,
-//   y: "50px"
-// });
-//
-// <div ref={elementRef}>
-//   <div className="reveal-element">Logo 1</div>
-//   <div className="reveal-element">Logo 2</div>
-//   <div className="reveal-element">Logo 3</div>
-// </div>
-
 interface UseElementRevealOptions {
   trigger?: string;
   start?: string;
@@ -28,19 +12,40 @@ interface UseElementRevealOptions {
   y?: string;
   delay?: number;
   opacity?: number;
+  animation?: "fadeInUp" | "fadeIn" | "scaleIn";
+}
+
+// Añadimos interfaces para los tipos de GSAP
+interface GSAPFromVars {
+  y?: string;
+  opacity?: number;
+  scale?: number;
+  width?: number | string;
+  height?: number | string;
+}
+
+interface GSAPToVars extends GSAPFromVars {
+  duration: number;
+  stagger: number;
+  delay: number;
+  ease: string;
+  scrollTrigger: {
+    trigger: HTMLDivElement;
+    start: string;
+  };
 }
 
 export const useElementReveal = (options: UseElementRevealOptions = {}) => {
   const elementRef = useRef<HTMLDivElement>(null);
 
   const {
-    trigger = "bottom right-=100",
     start = "bottom right-=100",
     duration = 1,
     stagger = 0.2,
     y = "50px",
     delay = 0,
     opacity = 0,
+    animation = "fadeInUp",
   } = options;
 
   useEffect(() => {
@@ -51,30 +56,60 @@ export const useElementReveal = (options: UseElementRevealOptions = {}) => {
 
     const elements = element.querySelectorAll(".reveal-element");
 
-    const animation = gsap.fromTo(
-      elements,
-      {
-        y,
-        opacity,
+    let fromVars: GSAPFromVars = {};
+    let toVars: GSAPToVars = {
+      duration,
+      stagger,
+      delay,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: element,
+        start,
       },
-      {
-        y: "0",
-        opacity: 1,
-        duration,
-        stagger,
-        delay,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: element,
-          start,
-        },
-      }
-    );
+    };
+
+    switch (animation) {
+      case "fadeInUp":
+        fromVars = {
+          y,
+          opacity,
+        };
+        toVars = {
+          ...toVars,
+          y: "0",
+          opacity: 1,
+        };
+        break;
+
+      case "fadeIn":
+        fromVars = {
+          opacity,
+        };
+        toVars = {
+          ...toVars,
+          opacity: 1,
+        };
+        break;
+
+      case "scaleIn":
+        fromVars = {
+          opacity,
+          scale: 0,
+        };
+        toVars = {
+          ...toVars,
+          opacity: 1,
+          scale: 1,
+        };
+        break;
+    }
+
+    const tween = gsap.fromTo(elements, fromVars, toVars);
 
     return () => {
-      animation.kill();
+      tween.kill();
     };
-  }, [trigger, start, duration, stagger, y, delay, opacity]);
+  }, [start, duration, stagger, y, delay, opacity, animation]);
 
   return elementRef;
 };
