@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <body
-        className={`${inter.variable} bg-gray-dark-X font-Inter text-white antialiased`}
+        className={`${inter.variable} bg-gray-dark-X font-Inter text-white antialiased grid-pattern`}
       >
         <NavBar />
         {children}

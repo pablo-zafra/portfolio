@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
             I&apos;m Pablo:
           </span>
           <br />
-          <span className="">Frontend developer</span>
+          <span className="">Creative developer</span>
           <br />
           <span className="ml-23">& UX/UI designer</span>
           <br />

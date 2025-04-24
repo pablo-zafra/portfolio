@@ -8,9 +8,9 @@ import { Vector3, Object3D } from "three";
 const PencilModel: React.FC = () => {
   const { scene } = useGLTF("/3dmodels/pencil/scene.gltf");
   const ref = useRef<Object3D>(null);
-  const [position] = useState(() => new Vector3(0, -11, 0));
-  const targetPosition = new Vector3(0, -1.8, 0);
-  const animationSpeed = 0.05;
+  const [position] = useState(() => new Vector3(0, 0, 600));
+  const targetPosition = new Vector3(0, -1.7, 0);
+  const animationSpeed = 0.03;
 
   useFrame(() => {
     if (ref.current) {
@@ -26,9 +26,9 @@ const PencilModel: React.FC = () => {
 export const Pencil: React.FC = () => {
   return (
     <div className="w-full h-full">
-      <Canvas dpr={[1, 2]} camera={{ position: [0, 15, 20], fov: 11 }}>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={0.1} />
+      <Canvas dpr={[1, 2]} camera={{ position: [0, 15, 20], fov: 9 }}>
+        <ambientLight intensity={0.2} />
+        <directionalLight position={[0, -10, 0]} intensity={2.1} />
         <Environment preset="city" background={false} />
         <OrbitControls
           enableZoom={false}
@@ -37,7 +37,6 @@ export const Pencil: React.FC = () => {
           autoRotateSpeed={1}
           minPolarAngle={Math.PI / 2}
           maxPolarAngle={Math.PI / 2}
-          // setPolarAngle={Math.PI / 2}
         />
         <PencilModel />
       </Canvas>
