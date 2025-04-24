@@ -8,6 +8,7 @@ import tsLogo from "../../../public/img/typescript.png";
 import { Pencil } from "../3dModels";
 import { useTextReveal } from "@/hooks/useTextReveal";
 import { useElementReveal } from "@/hooks/useElementReveal";
+import DottedLine from "../DottedLine/DottedLine";
 
 const Hero: React.FC = () => {
   const animatedH1 = useTextReveal({
@@ -33,9 +34,12 @@ const Hero: React.FC = () => {
         <Pencil />
       </div>
       <div className="flex justify-center items-center gap-10">
-        <h1 ref={animatedH1} className="text-8xl/tight font-semibold z-1">
+        <h1
+          ref={animatedH1}
+          className="text-8xl/tight font-semibold z-1 relative"
+        >
           <span className="ml-11 relative reveal-text">Hi! </span>
-          <span className="inline-block bg-gray size-[1.15em] rounded-full align-text-top transition-all overflow-hidden">
+          <span className="inline-block bg-gray w-[1.15em] rounded-full align-middle transition-all overflow-hidden">
             <Image
               src={profilePhoto}
               alt="Pablo"
@@ -44,14 +48,52 @@ const Hero: React.FC = () => {
               height={undefined}
             />
           </span>
-          <span className="reveal-text"> I&apos;m Pablo:</span>
+          <span className="relative">
+            <span className="reveal-text"> I&apos;m Pablo:</span>
+            <span>
+              <DottedLine
+                long="300%"
+                direction="vertical"
+                duration={11}
+                delay={3}
+                className="-top-4/10 -right-6 animate-[fadeIn_13s] opacity-80"
+              />
+            </span>
+          </span>
           <br />
+          <DottedLine
+            long="140%"
+            duration={13}
+            delay={1}
+            className="-left-2/10 animate-[fadeIn_4s]"
+          />
           <span className="reveal-text">Creative developer</span>
           <br />
-          <span className="ml-23 reveal-text">& UX/UI designer</span>
-          <br />
+          <DottedLine
+            long="140%"
+            duration={11}
+            delay={4}
+            className="-left-1/10 animate-[fadeIn_9s]"
+          />
+          <span className="ml-23 relative">
+            <span>
+              <DottedLine
+                long="300%"
+                direction="vertical"
+                duration={14}
+                className="-top-1/10 -left-6 animate-[fadeIn_8s]  opacity-60"
+              />
+            </span>
+            <span className="reveal-text">& UX/UI designer</span>
+          </span>
         </h1>
-        <div className="mt-96 w-72  z-1">
+        <div className="mt-96 w-72 z-1 relative">
+          <DottedLine
+            long="200%"
+            direction="vertical"
+            duration={9}
+            className="top-[-30%] -left-6 animate-[fadeIn_11s]  opacity-80"
+          />
           <h2 ref={animatedH2} className="text-base font-extralight">
             <span className="reveal-text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam

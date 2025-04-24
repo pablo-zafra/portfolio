@@ -1,0 +1,89 @@
+.lineContainer {
+  position: absolute;
+  overflow: hidden;
+}
+
+.horizontal {
+  height: 1px;
+}
+
+.vertical {
+  width: 1px;
+}
+
+.dottedLine {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+}
+
+.horizontal .dottedLine {
+  background-image: linear-gradient(to right, white 50%, transparent 50%);
+  background-size: 8px 1px;
+  -webkit-mask-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.2) 25%,
+      white 50%,
+      rgba(255, 255, 255, 0.2) 75%
+    ),
+    linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+  mask-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.2) 25%,
+      white 50%,
+      rgba(255, 255, 255, 0.2) 75%
+    ),
+    linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+  -webkit-mask-size: 200% 100%, 100% 100%;
+  mask-size: 200% 100%, 100% 100%;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  animation: slideMaskHorizontal linear infinite;
+}
+
+.vertical .dottedLine {
+  background-image: linear-gradient(to bottom, white 50%, transparent 50%);
+  background-size: 1px 8px;
+  -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.2) 25%,
+      white 50%,
+      rgba(255, 255, 255, 0.2) 75%
+    ),
+    linear-gradient(to bottom, transparent, white 10%, white 90%, transparent);
+  mask-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.2) 25%,
+      white 50%,
+      rgba(255, 255, 255, 0.2) 75%
+    ),
+    linear-gradient(to bottom, transparent, white 10%, white 90%, transparent);
+  -webkit-mask-size: 100% 200%, 100% 100%;
+  mask-size: 100% 200%, 100% 100%;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  animation: slideMaskVertical linear infinite;
+}
+
+@keyframes slideMaskHorizontal {
+  from {
+    -webkit-mask-position: 200% 0;
+    mask-position: 200% 0;
+  }
+  to {
+    -webkit-mask-position: -200% 0;
+    mask-position: -200% 0;
+  }
+}
+
+@keyframes slideMaskVertical {
+  from {
+    -webkit-mask-position: 0 200%;
+    mask-position: 0 200%;
+  }
+  to {
+    -webkit-mask-position: 0 -200%;
+    mask-position: 0 -200%;
+  }
+}
