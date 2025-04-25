@@ -8,7 +8,7 @@ import { Vector3, Object3D } from "three";
 const PencilModel: React.FC = () => {
   const { scene } = useGLTF("/3dmodels/pencil/scene.gltf");
   const ref = useRef<Object3D>(null);
-  const [position] = useState(() => new Vector3(0, 0, 600));
+  const [position] = useState(() => new Vector3(3, 0, 10));
   const targetPosition = new Vector3(0, -1.7, 0);
   const animationSpeed = 0.03;
 
