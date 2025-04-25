@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "../components";
+import { LoadingScreen } from "@/components/LoadingScreen/LoadingScreen";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({
         className={`${inter.variable} bg-gray-dark-X font-Inter text-white antialiased grid-pattern`}
       >
         <NavBar />
+        <LoadingScreen />
         {children}
       </body>
     </html>
