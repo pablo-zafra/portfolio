@@ -158,13 +158,13 @@ const Hero: React.FC = () => {
             className="-bottom-4/10 -right-11 opacity-80 reveal-element"
           />
         </h1>
-        <div className="mt-96 w-72 z-1 relative">
+        <div className="mt-92 w-80 z-1 relative">
           <h2 ref={revealH2} className="text-base font-extralight">
             <span className="reveal-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-              iaculis tellus erat. Morbi finibus odio nec felis iaculis dapibus
-              ac ac quam. Nunc bibendum dui vel neque mattis, sed sodales lorem
-              semper.
+              Driven by a passion for crafting interactive and accessible
+              solutions, I bring a meticulous approach to development, design,
+              and animation. I love to write clean and scalable lines of magic
+              code.
             </span>
           </h2>
           <div ref={revealLogos} className="flex mt-6 gap-4">
