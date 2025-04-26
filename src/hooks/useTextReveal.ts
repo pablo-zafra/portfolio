@@ -65,7 +65,7 @@ export const useTextReveal = (options: UseTextRevealOptions = {}) => {
     const animation = gsap.fromTo(
       element.querySelectorAll(".word-inner"),
       {
-        y,
+        y, // usar la variable y en lugar del valor fijo
         opacity: 0,
       },
       {
@@ -73,7 +73,7 @@ export const useTextReveal = (options: UseTextRevealOptions = {}) => {
         opacity: 1,
         duration,
         stagger,
-        delay, // add delay here
+        delay,
         ease: "power3.out",
         scrollTrigger: {
           trigger: element,

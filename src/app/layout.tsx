@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <body
-        className={`${inter.variable} bg-gray-dark-X font-Inter text-white antialiased grid-pattern`}
+        className={`${inter.variable} bg-gray-dark-X font-Inter text-white antialiased grid-pattern overflow-x-hidden w-screen`}
       >
         <NavBar />
         <LoadingScreen />

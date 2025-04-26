@@ -87,8 +87,8 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-screen h-screen bg-background flex justify-center items-center">
-      <div className="absolute w-full h-full ml-96">
+    <div className="relative w-screen h-screen flex justify-center items-center overflow-hidden">
+      <div className="absolute w-7/10 h-full left-3/10">
         <Pencil />
       </div>
       <div className="flex justify-center items-center gap-21 mb-21">
@@ -115,7 +115,7 @@ const Hero: React.FC = () => {
               <DottedLine
                 long="300%"
                 direction="vertical"
-                duration={11}
+                duration={3}
                 delay={3}
                 className="-top-8/10 -right-6 opacity-80 reveal-element"
               />
@@ -125,7 +125,7 @@ const Hero: React.FC = () => {
           <DottedLine
             long="140%"
             direction="horizontal"
-            duration={13}
+            duration={5}
             delay={1}
             className="-left-2/10 reveal-element"
           />
@@ -134,7 +134,7 @@ const Hero: React.FC = () => {
           <DottedLine
             long="140%"
             direction="horizontal"
-            duration={11}
+            duration={5}
             delay={4}
             className="-left-1/10 reveal-element rotate-180"
           />
@@ -143,7 +143,7 @@ const Hero: React.FC = () => {
               <DottedLine
                 long="300%"
                 direction="vertical"
-                duration={14}
+                duration={4}
                 delay={0}
                 className="-top-1/10 -left-6 opacity-60 rotate-180 reveal-element"
               />
@@ -153,7 +153,7 @@ const Hero: React.FC = () => {
           <DottedLine
             long="110%"
             direction="vertical"
-            duration={9}
+            duration={4}
             delay={0}
             className="-bottom-4/10 -right-11 opacity-80 reveal-element"
           />
