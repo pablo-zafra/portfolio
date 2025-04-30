@@ -21,9 +21,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="scroll-smooth">
+    <html lang="es">
       <body
-        className={`${inter.variable} bg-gray-dark-X font-Inter text-white antialiased grid-pattern overflow-x-hidden w-screen`}
+        className={`${inter.variable} bg-gray-dark-X font-Inter text-white antialiased grid-pattern overflow-x-hidden w-screen scroll-smooth`}
       >
         <NavBar />
         <LoadingScreen />

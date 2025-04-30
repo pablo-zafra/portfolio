@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./BtnHamburguesa.module.css"; // Importa el archivo CSS como un módulo
 
 interface BtnHamburguesaProps {

@@ -1,11 +1,11 @@
-import { Hero } from "@/components";
-import { AboutMe } from "@/components/AboutMe/AboutMe";
+import { Hero, AboutMe, FunDivider } from "../components";
 
 export default function Home() {
   return (
     <>
       <Hero />
       <AboutMe />
+      <FunDivider />
     </>
   );
 }

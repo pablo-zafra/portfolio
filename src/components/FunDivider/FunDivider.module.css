@@ -1,0 +1,12 @@
+@keyframes left-scrolling {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.left-scrolling {
+  animation: left-scrolling 180s linear infinite;
+}

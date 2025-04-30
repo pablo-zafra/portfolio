@@ -1,4 +1,3 @@
-import { FC } from "react";
 import styles from "./DottedLine.module.css";
 
 interface DottedLineProps {
@@ -9,7 +8,7 @@ interface DottedLineProps {
   delay?: number;
 }
 
-const DottedLine: FC<DottedLineProps> = ({
+const DottedLine: React.FC<DottedLineProps> = ({
   long = "100%",
   direction = "horizontal",
   className = "",
