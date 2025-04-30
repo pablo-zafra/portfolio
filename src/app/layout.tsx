@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { NavBar } from "../components";
+import { NavBar, SmoothScroll } from "../components";
 import { LoadingScreen } from "@/components/LoadingScreen/LoadingScreen";
 
 const inter = Inter({
@@ -23,11 +23,13 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${inter.variable} bg-gray-dark-X font-Inter text-white antialiased grid-pattern overflow-x-hidden w-screen scroll-smooth`}
+        className={`${inter.variable} bg-gray-dark-X font-Inter text-white antialiased grid-pattern overflow-x-hidden w-screen`}
       >
-        <NavBar />
-        <LoadingScreen />
-        {children}
+        <SmoothScroll>
+          <NavBar />
+          <LoadingScreen />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );
