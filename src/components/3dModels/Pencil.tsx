@@ -32,6 +32,7 @@ export const Pencil: React.FC = () => {
         <Environment preset="city" background={false} />
         <OrbitControls
           enableZoom={false}
+          enablePan={false}
           autoRotate={true}
           rotateSpeed={1}
           autoRotateSpeed={1}
