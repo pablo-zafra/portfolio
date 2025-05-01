@@ -159,14 +159,14 @@ const Hero: React.FC = () => {
           />
         </h1>
         <div className="mt-92 w-80 z-1 relative">
-          <h2 ref={revealH2} className="text-base font-extralight">
+          <p ref={revealH2} className="text-base font-extralight">
             <span className="reveal-text">
               Driven by a passion for crafting interactive and accessible
               solutions, I bring a meticulous approach to development, design,
               and animation. I love to write clean and scalable lines of magic
               code.
             </span>
-          </h2>
+          </p>
           <div ref={revealLogos} className="flex mt-6 gap-4">
             <Image
               src={reactLogo}

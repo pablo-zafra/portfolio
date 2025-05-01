@@ -1,0 +1,326 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 1501,
+      "max": [
+        0.6561989188194275,
+        0.07968560606241226,
+        3.892974376678467
+      ],
+      "min": [
+        -0.6561989784240723,
+        -0.07968561351299286,
+        3.2868340015411377
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 18012,
+      "componentType": 5126,
+      "count": 1501,
+      "max": [
+        0.987464189529419,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -0.987464189529419,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1501,
+      "max": [
+        0.8037631511688232,
+        0.8897994160652161
+      ],
+      "min": [
+        0.7279988527297974,
+        0.5875926613807678
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 8016,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 36024,
+      "componentType": 5126,
+      "count": 9599,
+      "max": [
+        0.777429461479187,
+        0.3832826018333435,
+        3.3947744369506836
+      ],
+      "min": [
+        -0.777429461479187,
+        -0.3832826614379883,
+        2.5436623096466064
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 151212,
+      "componentType": 5126,
+      "count": 9599,
+      "max": [
+        1.0,
+        0.9999992847442627,
+        0.9999991655349731
+      ],
+      "min": [
+        -1.0,
+        -0.9999992847442627,
+        -0.9999991655349731
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 12008,
+      "componentType": 5126,
+      "count": 9599,
+      "max": [
+        0.4341883957386017,
+        0.8887184262275696
+      ],
+      "min": [
+        0.06873348355293274,
+        0.05390876531600952
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 32064,
+      "componentType": 5125,
+      "count": 44544,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "giga (https://sketchfab.com/gits3d)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/headphone-c6278518c51e496a82687982f545ac3a",
+      "title": "Headphone"
+    },
+    "generator": "Sketchfab-12.66.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 210240,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 88800,
+      "byteOffset": 210240,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 266400,
+      "byteOffset": 299040,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 565440,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Part_baseColor.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Part",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.518851424928813
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Headphone",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.5856143921178494
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Headphone Part_Part_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Headphone Part_Headphone_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 5,
+            "POSITION": 4,
+            "TEXCOORD_0": 6
+          },
+          "indices": 7,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.009999999776482582,
+        0.0,
+        0.0,
+        -0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "6d229dca99094769911b45e7631699e6.fbx"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4,
+        5
+      ],
+      "matrix": [
+        88.73030090332031,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.4456000905810578e-05,
+        -88.73030090331915,
+        0.0,
+        0.0,
+        88.73030090331915,
+        -1.4456000905810578e-05,
+        0.0,
+        2.2390871379229793e-07,
+        -224.63540649414063,
+        0.0,
+        1.0
+      ],
+      "name": "Headphone Part"
+    },
+    {
+      "mesh": 0,
+      "name": "Headphone Part_Part_0"
+    },
+    {
+      "mesh": 1,
+      "name": "Headphone Part_Headphone_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    }
+  ]
+}

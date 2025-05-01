@@ -1,0 +1,37 @@
+@keyframes drawIn {
+  from {
+    stroke-dashoffset: 430%;
+  }
+  to {
+    stroke-dashoffset: 0%;
+  }
+}
+
+@keyframes drawOut {
+  from {
+    stroke-dashoffset: 0%;
+  }
+  to {
+    stroke-dashoffset: -430%;
+  }
+}
+
+.hand-ellipse-draw {
+  stroke-dasharray: 430%;
+  animation: drawIn 0.25s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
+  display: none;
+}
+
+.hand-ellipse-undraw {
+  stroke-dasharray: 430%;
+  animation: drawOut 0.15s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
+  display: block;
+}
+
+svg:hover .hand-ellipse-draw {
+  display: block;
+}
+
+svg:hover .hand-ellipse-undraw {
+  display: none;
+}
