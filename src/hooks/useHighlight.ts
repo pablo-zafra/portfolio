@@ -50,8 +50,8 @@ export const useHighlight = (options?: HighlightAnimationOptions) => {
       ],
       scrollTrigger: {
         trigger: element,
-        start: "bottom 95%",
-        end: "bottom 80%",
+        start: "bottom 98%",
+        end: "bottom 65%",
         scrub: true,
       },
     });

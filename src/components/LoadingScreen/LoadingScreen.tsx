@@ -1,10 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FC } from "react";
 import styles from "./LoadingScreen.module.css";
 
-export const LoadingScreen: FC = () => {
+export const LoadingScreen: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

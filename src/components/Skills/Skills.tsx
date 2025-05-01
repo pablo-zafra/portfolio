@@ -5,7 +5,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Skills = () => {
+const Skills: React.FC = () => {
   return (
     <div className="relative w-full flex items-center justify-center overflow-hidden">
       <div className="absolute w-8/10 h-13/10 -left-26/100 -top-20/100 -rotate-16">
@@ -28,7 +28,7 @@ const Skills = () => {
           </li>
           <li className="relative w-fit h-fit ml-[3em] px-6 py-3 skill-">
             Prototyping
-            <HandEllipse flipY={true} flipX={true} />
+            <HandEllipse flipY={true} />
           </li>
           <li className="relative w-fit h-fit ml-[6em] px-6 py-3 skill-">
             Rich Media

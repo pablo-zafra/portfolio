@@ -1,4 +1,4 @@
-import { Hero, AboutMe, FunDivider, Skills } from "../components";
+import { Hero, AboutMe, FunDivider, Skills, Works } from "../components";
 
 export default function Home() {
   return (
@@ -7,6 +7,7 @@ export default function Home() {
       <AboutMe />
       <FunDivider />
       <Skills />
+      <Works />
     </>
   );
 }

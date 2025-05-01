@@ -2,7 +2,9 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 
-const SmoothScroll = ({ children }) => {
+const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const lenis = new Lenis({
@@ -14,7 +16,7 @@ const SmoothScroll = ({ children }) => {
         // infinite: false,
       });
 
-      function raf(time) {
+      function raf(time: number) {
         lenis.raf(time);
         requestAnimationFrame(raf);
       }
