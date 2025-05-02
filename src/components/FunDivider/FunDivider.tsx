@@ -9,7 +9,7 @@ const FunDivider: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-[calc(100vw+11rem)] bg-white overflow-hidden text-gray-dark text-xs uppercase py-2 font-mono">
+    <div className="w-full bg-white overflow-hidden text-gray-dark text-xs uppercase py-2 font-mono">
       <div
         className={`${styles["left-scrolling"]} flex flex-row gap-4 w-fit px-2`}
       >

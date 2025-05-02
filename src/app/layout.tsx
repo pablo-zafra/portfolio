@@ -27,8 +27,8 @@ export default function RootLayout({
       >
         <SmoothScroll>
           <NavBar />
-          <LoadingScreen />
           {children}
+          <LoadingScreen />
         </SmoothScroll>
       </body>
     </html>
