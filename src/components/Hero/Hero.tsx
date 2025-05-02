@@ -87,7 +87,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-screen h-screen flex justify-center items-center overflow-hidden">
+    <div className="relative h-screen flex justify-center items-center overflow-hidden">
       <div className="absolute w-7/10 h-full left-3/10">
         <Pencil />
       </div>

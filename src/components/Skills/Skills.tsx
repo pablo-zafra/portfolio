@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Skills: React.FC = () => {
   return (
-    <div className="relative w-full flex items-center justify-center overflow-hidden">
+    <div className="relative flex items-center justify-center overflow-hidden">
       <div className="absolute w-8/10 h-13/10 -left-26/100 -top-20/100 -rotate-16">
         <Headphones />
       </div>

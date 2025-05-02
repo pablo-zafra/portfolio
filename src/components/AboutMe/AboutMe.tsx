@@ -9,10 +9,10 @@ export const AboutMe: React.FC = () => {
   return (
     <div>
       <div
-        className={"w-screen pb-[12%] bg-no-repeat bg-cover bg-top"}
+        className={"pb-[12%] bg-no-repeat bg-cover bg-top"}
         style={{ backgroundImage: `url(${topCurve.src})` }}
       ></div>
-      <div className="w-screen flex justify-center items-center bg-gray-light">
+      <div className="flex justify-center items-center bg-gray-light">
         <div className="flex flex-col-reverse max-w-5xl -mt-[3vw] text-gray-dark">
           <h2 className="text-6xl text-center font-bold mt-42 mb-42">
             Based in <span ref={highlightRef01}>Málaga</span>

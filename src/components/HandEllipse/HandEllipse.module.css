@@ -24,7 +24,7 @@
 
 .hand-ellipse-undraw {
   stroke-dasharray: 430%;
-  animation: drawOut 0.15s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
+  animation: drawOut 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
   display: block;
 }
 

@@ -9,11 +9,10 @@ const FunDivider: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full bg-white overflow-hidden text-gray-dark text-xs uppercase py-2 font-mono">
+    <div className=" bg-white overflow-hidden text-gray-dark text-xs uppercase py-2 font-mono">
       <div
         className={`${styles["left-scrolling"]} flex flex-row gap-4 w-fit px-2`}
       >
-        {/* Primera copia del contenido */}
         <div className="flex flex-row gap-3 shrink-0">
           {randomizedLogs.map((log, index) => (
             <div key={`first-${index}`} className="flex flex-row gap-3">
@@ -22,7 +21,6 @@ const FunDivider: React.FC = () => {
             </div>
           ))}
         </div>
-        {/* Segunda copia del contenido */}
         <div className="flex flex-row gap-3 shrink-0">
           {randomizedLogs.map((log, index) => (
             <div key={`second-${index}`} className="flex flex-row gap-3">
