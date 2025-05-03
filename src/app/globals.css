@@ -9,10 +9,6 @@
   --font-Inter: "Inter", sans-serif;
 }
 
-body {
-  transition: all 1s ease-in-out;
-}
-
 body::selection {
   background-color: var(--color-turquesa);
   color: white;
