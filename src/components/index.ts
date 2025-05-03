@@ -6,4 +6,5 @@ export { default as FunDivider } from "./FunDivider/FunDivider";
 export { default as SmoothScroll } from "./SmoothScroll/SmoothScroll";
 export { default as Skills } from "./Skills/Skills";
 export { default as Works } from "./Works/Works";
+export { default as Footer } from "./Footer/Footer";
 export * from "./3dModels";

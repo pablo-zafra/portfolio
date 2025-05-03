@@ -10,10 +10,10 @@ const Works: React.FC = () => {
         <p className="hidden">Take a look to some selected projects</p>
       </div>
       <div className="flex flex-col flex-1 items-end text-right gap-16 py-86 pr-32">
-        <WorkItem />
-        <WorkItem />
-        <WorkItem />
-        <WorkItem />
+        <WorkItem key={1} itemKey={1} />
+        <WorkItem key={2} itemKey={2} />
+        <WorkItem key={3} itemKey={3} />
+        <WorkItem key={4} itemKey={4} />
       </div>
     </div>
   );

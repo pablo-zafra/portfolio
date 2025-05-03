@@ -8,35 +8,33 @@ import mainImg from "../../../../public/img/work/custom-brand-days/main.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const WorkItem = () => {
+const WorkItem: React.FC<{ key: number; itemKey: number }> = ({ itemKey }) => {
   const imgWrapperRef = useRef(null);
   const txtWrapperRef = useRef(null);
 
   useEffect(() => {
     const imgWrapper = imgWrapperRef.current;
 
-    // Crear un timeline para controlar los tamaños en los puntos específicos
     const workItemImgAnim = gsap.timeline({
       scrollTrigger: {
         trigger: imgWrapper,
-        start: "bottom 85%",
-        end: "top 5%",
+        start: "center 90%",
+        end: "center 10%",
         scrub: true,
+        invalidateOnRefresh: true,
+        id: `imgWrapperTrigger-${itemKey}`,
       },
     });
 
     workItemImgAnim
+      .from(imgWrapper, { width: "50%" })
       .to(imgWrapper, { width: "100%", duration: 1, ease: "power1.inOut" })
       .to(imgWrapper, { width: "50%", duration: 1, ease: "power1.inOut" });
 
-    const workItemImgAnimTrigger = workItemImgAnim.scrollTrigger;
-
     return () => {
-      if (workItemImgAnimTrigger) {
-        workItemImgAnimTrigger.kill();
-      }
+      workItemImgAnim.scrollTrigger?.kill();
     };
-  }, []);
+  }, [itemKey]);
 
   useEffect(() => {
     const txtWrapper = txtWrapperRef.current;
@@ -45,9 +43,11 @@ const WorkItem = () => {
     const workItemTxtAnim = gsap.timeline({
       scrollTrigger: {
         trigger: txtWrapper,
-        start: "bottom 75%",
-        end: "top 10%",
+        start: "center 50%",
+        end: "top 20%",
         scrub: true,
+        invalidateOnRefresh: true,
+        id: `txtWrapperTrigger-${itemKey}`,
       },
     });
 
@@ -64,7 +64,7 @@ const WorkItem = () => {
         workItemTxtAnimTrigger.kill();
       }
     };
-  }, []);
+  }, [itemKey]);
 
   return (
     <div className="work-item w-full flex flex-row gap-11">
@@ -80,7 +80,7 @@ const WorkItem = () => {
       <div className="flex-1 flex-col flex items-end">
         <div
           ref={imgWrapperRef}
-          className="flex items-center w-1/2 aspect-4/3 overflow-hidden bg-white rounded-lg"
+          className="flex items-center w-full aspect-4/3 overflow-hidden bg-white rounded-lg"
         >
           <Image
             width={1920}
