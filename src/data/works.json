@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Mediakit El País",
+    "tags": ["Frontend", "UX/UI"],
+    "slug": "mediakit-elpais",
+    "link": "https://adops.prisabs.com/test/ftp/mediakits/elpais/index.html",
+    "newTab": true
+  },
+  {
+    "title": "Custom Brand Days",
+    "tags": ["Rich Media", "UX/UI", "Visual Design"],
+    "slug": "custom-brand-days",
+    "link": "https://www.youtube.com/watch?v=WqaLhw7b0T4",
+    "newTab": true
+  },
+  {
+    "title": "ADN Motion Graphics",
+    "tags": ["Motion Graphics", "Visual Design"],
+    "slug": "adn-motion-graphics",
+    "link": "https://www.youtube.com/watch?v=6Mnc9KzrhIw",
+    "newTab": true
+  },
+  {
+    "title": "Wedding Invitation",
+    "tags": ["Wordpress", "UX/UI"],
+    "slug": "wedding-invitation",
+    "link": "http://melitayhector.pablozafra.es/",
+    "newTab": true
+  },
+  {
+    "title": "Cafe web menu",
+    "tags": ["Wordpress", "UX/UI", "Visual Design"],
+    "slug": "cafe-web-menu",
+    "link": "https://linda-specialty-coffee-and-brunch.com/carta/",
+    "newTab": true
+  }
+]

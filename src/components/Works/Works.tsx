@@ -1,4 +1,5 @@
 import WorkItem from "./WorkItem/WorkItem";
+import workData from "../../data/works.json";
 
 const Works: React.FC = () => {
   return (
@@ -8,10 +9,17 @@ const Works: React.FC = () => {
         <p className="hidden">Take a look to some selected projects</p>
       </div>
       <div className="flex flex-col flex-1 items-end text-right gap-16 py-86 pr-32">
-        <WorkItem key={1} itemKey={1} />
-        <WorkItem key={2} itemKey={2} />
-        <WorkItem key={3} itemKey={3} />
-        <WorkItem key={4} itemKey={4} />
+        {workData.map((work, index) => (
+          <WorkItem
+            key={index}
+            itemKey={index}
+            title={work.title}
+            tags={work.tags}
+            slug={work.slug}
+            link={work.link}
+            newTab={work.newTab}
+          />
+        ))}
       </div>
     </div>
   );

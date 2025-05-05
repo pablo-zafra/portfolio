@@ -4,11 +4,23 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import mainImg from "../../../../public/img/work/custom-brand-days/main.jpg";
+import Link from "next/link";
+
+interface WorkItemProps {
+  itemKey: number;
+  title: string;
+  tags: string[];
+  slug: string;
+  link?: string;
+  newTab?: boolean;
+}
 
 gsap.registerPlugin(ScrollTrigger);
 
-const WorkItem: React.FC<{ key: number; itemKey: number }> = ({ itemKey }) => {
+const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
+  const { itemKey, title, tags, slug, link, newTab } = WorkItemProps;
+  const mainImg = `/img/work/${slug}/${slug}.jpg`;
+
   const imgWrapperRef = useRef(null);
   const txtWrapperRef = useRef(null);
 
@@ -39,7 +51,6 @@ const WorkItem: React.FC<{ key: number; itemKey: number }> = ({ itemKey }) => {
   useEffect(() => {
     const txtWrapper = txtWrapperRef.current;
 
-    // Crear un timeline para controlar los tamaños en los puntos específicos
     const workItemTxtAnim = gsap.timeline({
       scrollTrigger: {
         trigger: txtWrapper,
@@ -73,8 +84,21 @@ const WorkItem: React.FC<{ key: number; itemKey: number }> = ({ itemKey }) => {
           ref={txtWrapperRef}
           className="sticky top-1/2 bottom-1/2 h-0 opacity-0"
         >
-          <h3 className="text-4xl font-semibold">Custom Brand Days</h3>
-          <p className="text-lg text-gray mt-2.5">Rich Media, Visual Design</p>
+          {link ? (
+            <Link href={link} legacyBehavior>
+              <a
+                target={newTab ? "_blank" : "_self"}
+                rel={newTab ? "noopener noreferrer" : undefined}
+              >
+                <h3 className="text-4xl font-semibold hover:underline">
+                  {title}
+                </h3>
+              </a>
+            </Link>
+          ) : (
+            <h3 className="text-4xl font-semibold">{title}</h3>
+          )}
+          <p className="text-lg text-gray mt-2.5">{tags.join(", ")}</p>
         </div>
       </div>
       <div className="flex-1 flex-col flex items-end">
@@ -82,13 +106,30 @@ const WorkItem: React.FC<{ key: number; itemKey: number }> = ({ itemKey }) => {
           ref={imgWrapperRef}
           className="flex items-center w-full aspect-4/3 overflow-hidden bg-white rounded-lg"
         >
-          <Image
-            width={1920}
-            height={1080}
-            src={mainImg.src}
-            alt="Custom Brand Days"
-            className="w-full h-auto"
-          />
+          {link ? (
+            <Link href={link} legacyBehavior>
+              <a
+                target={newTab ? "_blank" : "_self"}
+                rel={newTab ? "noopener noreferrer" : undefined}
+              >
+                <Image
+                  width={1920}
+                  height={1080}
+                  src={mainImg}
+                  alt={title}
+                  className="w-full h-auto"
+                />
+              </a>
+            </Link>
+          ) : (
+            <Image
+              width={1920}
+              height={1080}
+              src={mainImg}
+              alt={title}
+              className="w-full h-auto"
+            />
+          )}
         </div>
       </div>
     </div>
