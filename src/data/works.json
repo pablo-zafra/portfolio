@@ -1,7 +1,7 @@
 [
   {
     "title": "Mediakit El País",
-    "tags": ["Frontend", "UX/UI"],
+    "tags": ["Front-end", "UX/UI"],
     "slug": "mediakit-elpais",
     "link": "https://adops.prisabs.com/test/ftp/mediakits/elpais/index.html",
     "newTab": true
@@ -14,10 +14,22 @@
     "newTab": true
   },
   {
-    "title": "ADN Motion Graphics",
-    "tags": ["Motion Graphics", "Visual Design"],
-    "slug": "adn-motion-graphics",
-    "link": "https://www.youtube.com/watch?v=6Mnc9KzrhIw",
+    "title": "Mobile Game App: Run Eggplant",
+    "tags": ["Front-end", "Visual Design", "2D Animation"],
+    "slug": "mobile-game-app-run-eggplant",
+    "link": "https://www.youtube.com/watch?v=QowZzHUOhzM",
+    "newTab": true
+  },
+  {
+    "title": "Local TV Network Brand Restyling",
+    "tags": ["Visual Design", "UX/UI", "Motion Graphics"],
+    "slug": "local-tv-network-brand-restyling"
+  },
+  {
+    "title": "Startup Agency Web Design",
+    "tags": ["Visual Design", "UX/UI"],
+    "slug": "startup-agency-web-design",
+    "link": "https://dogmacreative.com/creators/",
     "newTab": true
   },
   {
@@ -28,10 +40,17 @@
     "newTab": true
   },
   {
-    "title": "Cafe web menu",
+    "title": "Cafe Custom Responsive Web Menu",
     "tags": ["Wordpress", "UX/UI", "Visual Design"],
-    "slug": "cafe-web-menu",
+    "slug": "cafe-custom-responsive-web-menu",
     "link": "https://linda-specialty-coffee-and-brunch.com/carta/",
+    "newTab": true
+  },
+  {
+    "title": "ADN Motion Graphics",
+    "tags": ["Motion Graphics", "Visual Design"],
+    "slug": "adn-motion-graphics",
+    "link": "https://www.youtube.com/watch?v=6Mnc9KzrhIw",
     "newTab": true
   }
 ]
