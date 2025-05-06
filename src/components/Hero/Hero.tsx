@@ -87,14 +87,14 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative h-screen flex justify-center items-center overflow-hidden">
-      <div className="absolute w-7/10 h-full left-3/10">
+    <div className="relative min-h-screen w-full flex justify-center items-center overflow-hidden">
+      <div className="absolute max-h-full max-w-9/10 object-contain aspect-7/8 ">
         <Pencil />
       </div>
-      <div className="flex justify-center items-center gap-21 mb-21">
+      <div className="flex flex-col lg:flex-row justify-center items-end max-w-[1340px] gap-12 xl:gap-16 2xl:gap-21 lg:mb-21">
         <h1
           ref={revealTitular}
-          className="text-8xl/tight font-semibold z-1 relative"
+          className="flex-auto text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl/tight leading-tight font-semibold z-1 relative whitespace-nowrap"
         >
           <span className="ml-13 relative reveal-text">Hi! </span>
           <span
@@ -158,8 +158,8 @@ const Hero: React.FC = () => {
             className="-bottom-4/10 -right-11 opacity-80 reveal-element"
           />
         </h1>
-        <div className="mt-92 w-80 z-1 relative">
-          <p ref={revealH2} className="text-base font-extralight">
+        <div className="shrink max-w-80 lg:translate-y-3/4 z-1 relative">
+          <p ref={revealH2} className="font-light">
             <span className="reveal-text">
               Driven by a passion for crafting interactive and accessible
               solutions, I bring a meticulous approach to development, design,

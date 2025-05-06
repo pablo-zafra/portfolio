@@ -4,11 +4,11 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <AboutMe />
+      {/* <AboutMe />
       <FunDivider />
       <Skills />
       <Works />
-      <FunDivider />
+      <FunDivider /> */}
     </>
   );
 }
