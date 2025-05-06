@@ -85,18 +85,25 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
           className="sticky top-1/2 bottom-1/2 h-0 opacity-0"
         >
           {link ? (
-            <Link href={link} legacyBehavior>
-              <a
-                target={newTab ? "_blank" : "_self"}
-                rel={newTab ? "noopener noreferrer" : undefined}
+            <Link
+              href={link}
+              target={newTab ? "_blank" : "_self"}
+              rel={newTab ? "noopener noreferrer" : undefined}
+            >
+              <h3
+                className="text-4xl pl-36 font-semibold hover:underline"
+                style={{ whiteSpace: "pre-wrap" }}
               >
-                <h3 className="text-4xl font-semibold hover:underline">
-                  {title}
-                </h3>
-              </a>
+                {title}
+              </h3>
             </Link>
           ) : (
-            <h3 className="text-4xl font-semibold">{title}</h3>
+            <h3
+              className="text-4xl pl-36 font-semibold"
+              style={{ whiteSpace: "pre-wrap" }}
+            >
+              {title}
+            </h3>
           )}
           <p className="text-lg text-gray mt-2.5">{tags.join(", ")}</p>
         </div>
@@ -107,19 +114,19 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
           className="flex items-center w-full aspect-4/3 overflow-hidden bg-white rounded-lg"
         >
           {link ? (
-            <Link href={link} legacyBehavior>
-              <a
-                target={newTab ? "_blank" : "_self"}
-                rel={newTab ? "noopener noreferrer" : undefined}
-              >
-                <Image
-                  width={1920}
-                  height={1080}
-                  src={mainImg}
-                  alt={title}
-                  className="w-full h-auto"
-                />
-              </a>
+            <Link
+              href={link}
+              target={newTab ? "_blank" : "_self"}
+              rel={newTab ? "noopener noreferrer" : undefined}
+              className="w-full h-auto"
+            >
+              <Image
+                width={1920}
+                height={1080}
+                src={mainImg}
+                alt={title}
+                className="w-full h-auto"
+              />
             </Link>
           ) : (
             <Image
