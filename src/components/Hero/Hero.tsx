@@ -89,18 +89,18 @@ const Hero: React.FC = () => {
   return (
     <div className="relative h-screen w-screen flex justify-center items-center text-center md:text-left overflow-hidden">
       <div className="absolute w-screen h-screen flex justify-center items-center">
-        <div className="hidden absolute w-7/10 max-w-200 max-h-screen aspect-7/8 -translate-y-1/3 sm:-translate-y-1/5 lg:translate-x-1/4 xl:translate-x-1/3">
+        <div className="hidden absolute w-8/10 max-h-screen aspect-7/8 -translate-y-1/3 sm:-translate-y-1/5 lg:translate-x-1/4 xl:translate-x-1/3">
           <Pencil />
         </div>
       </div>
-      <div className="relative flex flex-col lg:flex-row justify-center items-center md:items-end max-w-[1340px] gap-26 xl:gap-12 2xl:gap-21 translate-y-1/6 lg:-translate-y-1/6">
+      <div className="relative flex flex-col lg:flex-row justify-center items-center md:items-end max-w-[1340px] gap-26 md:gap-12 2xl:gap-21 translate-y-1/6 lg:-translate-y-1/6">
         <div className="relative flex justify-center items-center">
-          <div className="absolute w-9/10 md:w-7/10 max-w-200 max-h-screen aspect-7/8 sm:translate-x-1/4 xl:translate-x-1/3">
+          <div className="absolute w-9/10 max-h-screen aspect-7/8 lg:translate-x-1/2 lg:translate-y-1/15">
             <Pencil />
           </div>
           <h1
             ref={revealTitular}
-            className="top-1/2 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl/tight leading-tight font-semibold z-1 relative whitespace-nowrap"
+            className="top-1/2 text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl/tight leading-tight font-semibold z-1 relative whitespace-nowrap"
           >
             <span className="md:ml-13 relative reveal-text">Hi! </span>
             <span
@@ -110,7 +110,7 @@ const Hero: React.FC = () => {
               <Image
                 src={profilePhoto}
                 alt="Pablo"
-                className="absolute w-full h-auto rounded-full -bottom-3"
+                className="absolute w-full h-auto rounded-full bottom-0 translate-y-1/10"
                 width={undefined}
                 height={undefined}
               />
@@ -165,8 +165,8 @@ const Hero: React.FC = () => {
             />
           </h1>
         </div>
-        <div className="shrink max-w-56 xl:max-w-80 flex flex-col items-center justify-center md:items-start lg:translate-y-3/4 z-1 relative">
-          <p ref={revealH2} className="font-light text-xs lg:text-base">
+        <div className="shrink max-w-54 xl:max-w-80 flex flex-col items-center justify-center md:items-start lg:translate-y-full z-1 relative">
+          <p ref={revealH2} className="font-light text-sm xl:text-base">
             <span className="reveal-text">
               Driven by a passion for crafting interactive and accessible
               solutions, I bring a meticulous approach to development, design,
