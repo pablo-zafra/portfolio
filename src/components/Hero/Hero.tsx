@@ -87,79 +87,86 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full flex justify-center items-center overflow-hidden">
-      <div className="absolute max-h-full max-w-9/10 object-contain aspect-7/8 ">
-        <Pencil />
+    <div className="relative h-screen w-screen flex justify-center items-center text-center md:text-left overflow-hidden">
+      <div className="absolute w-screen h-screen flex justify-center items-center">
+        <div className="hidden absolute w-7/10 max-w-200 max-h-screen aspect-7/8 -translate-y-1/3 sm:-translate-y-1/5 lg:translate-x-1/4 xl:translate-x-1/3">
+          <Pencil />
+        </div>
       </div>
-      <div className="flex flex-col lg:flex-row justify-center items-end max-w-[1340px] gap-12 xl:gap-16 2xl:gap-21 lg:mb-21">
-        <h1
-          ref={revealTitular}
-          className="flex-auto text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl/tight leading-tight font-semibold z-1 relative whitespace-nowrap"
-        >
-          <span className="ml-13 relative reveal-text">Hi! </span>
-          <span
-            ref={profileRef}
-            className="relative inline-block w-0 h-0 align-baseline overflow-visible"
+      <div className="relative flex flex-col lg:flex-row justify-center items-center md:items-end max-w-[1340px] gap-26 xl:gap-12 2xl:gap-21 translate-y-1/6 lg:-translate-y-1/6">
+        <div className="relative flex justify-center items-center">
+          <div className="absolute w-9/10 md:w-7/10 max-w-200 max-h-screen aspect-7/8 sm:translate-x-1/4 xl:translate-x-1/3">
+            <Pencil />
+          </div>
+          <h1
+            ref={revealTitular}
+            className="top-1/2 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl/tight leading-tight font-semibold z-1 relative whitespace-nowrap"
           >
-            <Image
-              src={profilePhoto}
-              alt="Pablo"
-              className="absolute w-full h-auto rounded-full -bottom-3"
-              width={undefined}
-              height={undefined}
+            <span className="md:ml-13 relative reveal-text">Hi! </span>
+            <span
+              ref={profileRef}
+              className="relative inline-block w-0 h-0 align-baseline overflow-visible"
+            >
+              <Image
+                src={profilePhoto}
+                alt="Pablo"
+                className="absolute w-full h-auto rounded-full -bottom-3"
+                width={undefined}
+                height={undefined}
+              />
+            </span>
+            <span className="relative">
+              <span className="reveal-text"> I&apos;m Pablo:</span>
+              <span>
+                <DottedLine
+                  long="300%"
+                  direction="vertical"
+                  duration={3}
+                  delay={3}
+                  className="-top-8/10 -right-6 opacity-80 reveal-element"
+                />
+              </span>
+            </span>
+            <br />
+            <DottedLine
+              long="140%"
+              direction="horizontal"
+              duration={5}
+              delay={1}
+              className="-left-2/10 reveal-element"
             />
-          </span>
-          <span className="relative">
-            <span className="reveal-text"> I&apos;m Pablo:</span>
-            <span>
-              <DottedLine
-                long="300%"
-                direction="vertical"
-                duration={3}
-                delay={3}
-                className="-top-8/10 -right-6 opacity-80 reveal-element"
-              />
+            <span className="reveal-text">Creative developer</span>
+            <br />
+            <DottedLine
+              long="140%"
+              direction="horizontal"
+              duration={5}
+              delay={4}
+              className="-left-1/10 reveal-element rotate-180"
+            />
+            <span className="md:ml-36 relative">
+              <span>
+                <DottedLine
+                  long="300%"
+                  direction="vertical"
+                  duration={4}
+                  delay={0}
+                  className="-top-1/10 -left-6 opacity-60 rotate-180 reveal-element"
+                />
+              </span>
+              <span className="reveal-text">& UX/UI designer</span>
             </span>
-          </span>
-          <br />
-          <DottedLine
-            long="140%"
-            direction="horizontal"
-            duration={5}
-            delay={1}
-            className="-left-2/10 reveal-element"
-          />
-          <span className="reveal-text">Creative developer</span>
-          <br />
-          <DottedLine
-            long="140%"
-            direction="horizontal"
-            duration={5}
-            delay={4}
-            className="-left-1/10 reveal-element rotate-180"
-          />
-          <span className="ml-36 relative">
-            <span>
-              <DottedLine
-                long="300%"
-                direction="vertical"
-                duration={4}
-                delay={0}
-                className="-top-1/10 -left-6 opacity-60 rotate-180 reveal-element"
-              />
-            </span>
-            <span className="reveal-text">& UX/UI designer</span>
-          </span>
-          <DottedLine
-            long="110%"
-            direction="vertical"
-            duration={4}
-            delay={0}
-            className="-bottom-4/10 -right-11 opacity-80 reveal-element"
-          />
-        </h1>
-        <div className="shrink max-w-80 lg:translate-y-3/4 z-1 relative">
-          <p ref={revealH2} className="font-light">
+            <DottedLine
+              long="110%"
+              direction="vertical"
+              duration={4}
+              delay={0}
+              className="-bottom-4/10 -right-11 opacity-80 reveal-element"
+            />
+          </h1>
+        </div>
+        <div className="shrink max-w-56 xl:max-w-80 flex flex-col items-center justify-center md:items-start lg:translate-y-3/4 z-1 relative">
+          <p ref={revealH2} className="font-light text-xs lg:text-base">
             <span className="reveal-text">
               Driven by a passion for crafting interactive and accessible
               solutions, I bring a meticulous approach to development, design,
@@ -167,11 +174,11 @@ const Hero: React.FC = () => {
               code.
             </span>
           </p>
-          <div ref={revealLogos} className="flex mt-6 gap-4">
+          <div ref={revealLogos} className="flex mt-6 h-5 md:h-8 gap-4">
             <Image
               src={reactLogo}
               alt="React"
-              className="w-auto h-8 reveal-element"
+              className="w-auto h-full reveal-element"
               width={undefined}
               height={40}
             />
@@ -179,7 +186,7 @@ const Hero: React.FC = () => {
             <Image
               src={nextLogo}
               alt="Next.js"
-              className="w-auto h-8 reveal-element"
+              className="w-auto h-full reveal-element"
               width={undefined}
               height={40}
             />
@@ -187,7 +194,7 @@ const Hero: React.FC = () => {
             <Image
               src={tsLogo}
               alt="TypeScript"
-              className="w-auto h-8 reveal-element"
+              className="w-auto h-full reveal-element"
               width={undefined}
               height={40}
             />
