@@ -1,0 +1,23 @@
+@keyframes fadeInMaxWidth {
+  0% {
+    max-width: 0;
+  }
+  100% {
+    max-width: 1.2em;
+  }
+}
+
+.profileImgWrapper {
+  max-width: 0;
+  width: 1em;
+  animation: fadeInMaxWidth 2s cubic-bezier(0.22, 0.61, 0.08, 1) 2s forwards;
+  -webkit-animation: fadeInMaxWidth 2s cubic-bezier(0.22, 0.61, 0.08, 1) 2s
+    forwards;
+  transition: width 1s cubic-bezier(0.22, 0.61, 0.08, 1);
+  display: inline-block;
+  position: relative;
+}
+
+.profileImgWrapper:hover {
+  width: 1.4em;
+}

@@ -1,0 +1,16 @@
+@keyframes slide-in {
+  from {
+    transform: translate(600%, -50%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  transform: translate(600%, -50%);
+  animation: slide-in 4s cubic-bezier(0, 0.765, 0.079, 1) 1s forwards;
+  -webkit-animation: slide-in 4s cubic-bezier(0, 0.765, 0.079, 1) 1s forwards;
+}

@@ -9,8 +9,7 @@ import { Pencil } from "../3dModels";
 import { useTextReveal } from "@/hooks/useTextReveal";
 import { useElementReveal } from "@/hooks/useElementReveal";
 import DottedLine from "../DottedLine/DottedLine";
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import styles from "./Hero.module.css";
 
 const Hero: React.FC = () => {
   const revealH1 = useTextReveal({
@@ -43,69 +42,20 @@ const Hero: React.FC = () => {
     revealLines.current = e;
   };
 
-  const profileRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    // FadeIn
-    gsap.fromTo(
-      profileRef.current,
-      { width: 0 },
-      {
-        width: "1em",
-        duration: 1.1,
-        ease: "power2.out",
-        delay: 2.6,
-      }
-    );
-
-    // Hover
-    const element = profileRef.current;
-    if (element) {
-      element.addEventListener("mouseenter", () => {
-        gsap.to(element, {
-          width: "1.2em",
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      });
-
-      element.addEventListener("mouseleave", () => {
-        gsap.to(element, {
-          width: "1em",
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      });
-    }
-
-    return () => {
-      if (element) {
-        element.removeEventListener("mouseenter", () => {});
-        element.removeEventListener("mouseleave", () => {});
-      }
-    };
-  }, []);
-
   return (
-    <div className="relative h-screen w-screen flex justify-center items-center text-center md:text-left overflow-hidden">
-      <div className="absolute w-screen h-screen flex justify-center items-center">
-        <div className="hidden absolute w-8/10 max-h-screen aspect-7/8 -translate-y-1/3 sm:-translate-y-1/5 lg:translate-x-1/4 xl:translate-x-1/3">
-          <Pencil />
-        </div>
-      </div>
-      <div className="relative flex flex-col lg:flex-row justify-center items-center md:items-end max-w-[1340px] gap-26 md:gap-12 2xl:gap-21 translate-y-1/6 lg:-translate-y-1/6">
+    <div className="relative h-screen w-screen flex justify-center items-center text-left overflow-hidden">
+      <div className="relative flex flex-col lg:flex-row justify-center items-center md:items-end max-w-[1480px] gap-26 md:gap-12 2xl:gap-21 translate-y-1/6 lg:-translate-y-1/6">
         <div className="relative flex justify-center items-center">
           <div className="absolute w-9/10 max-h-screen aspect-7/8 lg:translate-x-1/2 lg:translate-y-1/15">
             <Pencil />
           </div>
           <h1
             ref={revealTitular}
-            className="top-1/2 text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl/tight leading-tight font-semibold z-1 relative whitespace-nowrap"
+            className="top-1/2 text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl leading-tight font-semibold z-1 relative whitespace-nowrap"
           >
-            <span className="md:ml-13 relative reveal-text">Hi! </span>
+            <span className="ml-[0.7em] relative reveal-text">Hi! </span>
             <span
-              ref={profileRef}
-              className="relative inline-block w-0 h-0 align-baseline overflow-visible"
+              className={`relative inline-block align-baseline overflow-visible ${styles.profileImgWrapper}`}
             >
               <Image
                 src={profilePhoto}
@@ -122,18 +72,16 @@ const Hero: React.FC = () => {
                   long="300%"
                   direction="vertical"
                   duration={3}
-                  delay={3}
-                  className="-top-8/10 -right-6 opacity-80 reveal-element"
+                  className="bottom-[-0.3em] right-[-0.3em] opacity-80 reveal-element"
                 />
               </span>
             </span>
             <br />
             <DottedLine
-              long="140%"
+              long="120%"
               direction="horizontal"
               duration={5}
-              delay={1}
-              className="-left-2/10 reveal-element"
+              className="left-[-2em] reveal-element"
             />
             <span className="reveal-text">Creative developer</span>
             <br />
@@ -141,32 +89,30 @@ const Hero: React.FC = () => {
               long="140%"
               direction="horizontal"
               duration={5}
-              delay={4}
-              className="-left-1/10 reveal-element rotate-180"
+              className="left-[-2em] reveal-element rotate-180"
             />
-            <span className="md:ml-36 relative">
-              <span>
-                <DottedLine
-                  long="300%"
-                  direction="vertical"
-                  duration={4}
-                  delay={0}
-                  className="-top-1/10 -left-6 opacity-60 rotate-180 reveal-element"
-                />
-              </span>
+            <span className="ml-[1.8em] relative">
+              <DottedLine
+                long="260%"
+                direction="vertical"
+                duration={4}
+                className="top-[-0.1em] left-[-0.3em] opacity-60 rotate-180 reveal-element"
+              />
               <span className="reveal-text">& UX/UI designer</span>
+              <DottedLine
+                long="250%"
+                direction="vertical"
+                duration={4}
+                className="hidden xs:block top-[-1em] right-[-0.3em] opacity-80 reveal-element"
+              />
             </span>
-            <DottedLine
-              long="110%"
-              direction="vertical"
-              duration={4}
-              delay={0}
-              className="-bottom-4/10 -right-11 opacity-80 reveal-element"
-            />
           </h1>
         </div>
-        <div className="shrink max-w-54 xl:max-w-80 flex flex-col items-center justify-center md:items-start lg:translate-y-full z-1 relative">
-          <p ref={revealH2} className="font-light text-sm xl:text-base">
+        <div className="shrink max-w-44 xs:max-w-54 xl:max-w-68 2xl:max-w-80 flex flex-col justify-center items-center md:items-start lg:translate-y-full z-1 relative">
+          <p
+            ref={revealH2}
+            className="font-light text-xs xs:text-sm xl:text-base text-center md:text-left"
+          >
             <span className="reveal-text">
               Driven by a passion for crafting interactive and accessible
               solutions, I bring a meticulous approach to development, design,
