@@ -5,10 +5,10 @@ export default function Home() {
     <>
       <Hero />
       <AboutMe />
-      {/* <FunDivider />
+      <FunDivider />
       <Skills />
-      <Works />
-      <FunDivider /> */}
+      {/* <Works /> */}
+      <FunDivider />
     </>
   );
 }

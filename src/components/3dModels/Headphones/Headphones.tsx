@@ -1,22 +1,15 @@
 "use client";
 
 import { Environment, OrbitControls, useGLTF } from "@react-three/drei";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef, useState } from "react";
-import { Vector3, Object3D } from "three";
+import { Canvas } from "@react-three/fiber";
+import { useRef } from "react";
+import { Object3D, Vector3 } from "three";
+import styles from "./Headphones.module.css";
 
 const PencilModel: React.FC = () => {
   const { scene } = useGLTF("/3dmodels/headphones/scene.gltf");
   const ref = useRef<Object3D>(null);
-  const [position] = useState(() => new Vector3(-1.8, -0.5, 0));
-  const targetPosition = new Vector3(0, -0.3, 0);
-  const animationSpeed = 0.03;
-
-  useFrame(() => {
-    if (ref.current) {
-      ref.current.position.lerp(targetPosition, animationSpeed);
-    }
-  });
+  const position = new Vector3(0, -0.6, 0);
 
   return (
     <primitive ref={ref} object={scene} dispose={null} position={position} />
@@ -25,14 +18,8 @@ const PencilModel: React.FC = () => {
 
 export const Pencil: React.FC = () => {
   return (
-    <div className="w-full h-full">
-      <Canvas
-        dpr={[1, 2]}
-        camera={{
-          position: [0, 0, 16],
-          fov: 11,
-        }}
-      >
+    <div className={`w-full h-full ${styles["slide-in"]}`}>
+      <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 16], fov: 13 }}>
         <ambientLight intensity={0.2} />
         <directionalLight position={[0, -10, 0]} intensity={2.1} />
         <Environment preset="city" background={false} />

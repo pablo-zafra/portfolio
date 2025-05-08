@@ -7,34 +7,34 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Skills: React.FC = () => {
   return (
-    <div className="relative flex items-center justify-center overflow-hidden">
-      <div className="absolute w-8/10 h-13/10 -left-26/100 -top-20/100 -rotate-16">
-        <Headphones />
-      </div>
-      <div className="flex flex-row-reverse gap-11 text-gray-light mt-36 mb-36 ml-36 h-fit">
-        <div className="border-l-1 border-gray-light border-solid px-6">
-          <h2 className="text-lg font-light rotate-90 origin-bottom-left leading-0">
+    <div className="relative flex items-center justify-center overflow-hidden md:pl-[10vw] 2xl:pl-0">
+      <div className="relative flex flex-col md:flex-row-reverse text-gray-light my-44 sm:my-52 md:my-64 gap-8 md:gap-14 max-md:-translate-y-20">
+        <div className="absolute w-3/2 aspect-square top-4/10 md:-top-14/10 lg:-top-16/10 right-0 md:right-65/100  -rotate-16">
+          <Headphones />
+        </div>
+        <div className="max-md:border-b-1 md:border-l-1 border-gray-light border-solid">
+          <h2 className="text-lg font-light max-md:text-right md:rotate-90 origin-left-middle md:origin-top-left md:translate-x-[2em] mb-2">
             Skills
           </h2>
         </div>
-        <ul className="flex flex-col gap-3 text-6xl leading-none font-semibold">
-          <li className="relative w-fit h-fit ml-0 px-8 py-3 skill-">
-            Frontend Development
+        <ul className="flex flex-col gap-3 text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl leading-snug sm:my-[-0.3em] font-semibold whitespace-nowrap">
+          <li className="relative w-fit h-fit md:px-8">
+            Front-end Development
             <HandEllipse flipY={true} />
           </li>
-          <li className="relative w-fit h-fit ml-[5em] px-6 py-3 skill-">
+          <li className="relative w-fit h-fit ml-[2em] md:ml-[3em] lg:ml-[5em] md:px-6">
             UX/UI Design
             <HandEllipse flipX={true} />
           </li>
-          <li className="relative w-fit h-fit ml-[3em] px-6 py-3 skill-">
+          <li className="relative w-fit h-fit ml-[1em] md:ml-[2em] lg:ml-[3em] md:px-6">
             Prototyping
             <HandEllipse flipY={true} />
           </li>
-          <li className="relative w-fit h-fit ml-[6em] px-6 py-3 skill-">
+          <li className="relative w-fit h-fit ml-[3em] md:ml-[4em] lg:ml-[6em] md:px-6">
             Rich Media
             <HandEllipse />
           </li>
-          <li className="relative w-fit h-fit ml-[7em] px-6 py-3 skill-">
+          <li className="relative w-fit h-fit ml-[4em] md:ml-[5em] lg:ml-[7em] md:px-6">
             Motion Design
             <HandEllipse flipX={true} />
           </li>
