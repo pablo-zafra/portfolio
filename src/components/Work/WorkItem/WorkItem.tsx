@@ -79,10 +79,10 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
 
   return (
     <div className="work-item w-full flex flex-row gap-11">
-      <div className="flex justify-center items-end flex-col flex-1">
+      <div className="flex-1 py-6">
         <div
           ref={txtWrapperRef}
-          className="sticky top-1/2 bottom-1/2 h-0 opacity-0"
+          className="sticky flex flex-col items-end justify-center top-1/2 right-0 h-0 opacity-0"
         >
           {link ? (
             <Link
@@ -91,7 +91,7 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
               rel={newTab ? "noopener noreferrer" : undefined}
             >
               <h3
-                className="text-4xl pl-36 font-semibold hover:underline"
+                className="text-2xl xl:text-4xl pl-14 xl:pl-36 font-semibold hover:underline"
                 style={{ whiteSpace: "pre-wrap" }}
               >
                 {title}
@@ -99,13 +99,15 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
             </Link>
           ) : (
             <h3
-              className="text-4xl pl-36 font-semibold"
+              className="text-2xl xl:text-4xl pl-14 xl:pl-36 font-semibold"
               style={{ whiteSpace: "pre-wrap" }}
             >
               {title}
             </h3>
           )}
-          <p className="text-lg text-gray mt-2.5">{tags.join(", ")}</p>
+          <p className="text-base xl:text-lg text-gray mt-2.5">
+            {tags.join(", ")}
+          </p>
         </div>
       </div>
       <div className="flex-1 flex-col flex items-end">

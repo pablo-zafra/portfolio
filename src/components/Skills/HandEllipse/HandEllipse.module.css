@@ -1,6 +1,22 @@
+:root {
+  --hand-ellipse-stroke-width: 3;
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --hand-ellipse-stroke-width: 2;
+  }
+}
+
+@media (max-width: 639px) {
+  :root {
+    --hand-ellipse-stroke-width: 1;
+  }
+}
+
 @keyframes drawIn {
   from {
-    stroke-dashoffset: 430%;
+    stroke-dashoffset: 440%;
   }
   to {
     stroke-dashoffset: 0%;
@@ -12,18 +28,18 @@
     stroke-dashoffset: 0%;
   }
   to {
-    stroke-dashoffset: -430%;
+    stroke-dashoffset: -440%;
   }
 }
 
 .hand-ellipse-draw {
-  stroke-dasharray: 430%;
+  stroke-dasharray: 440%;
   animation: drawIn 0.25s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
   display: none;
 }
 
 .hand-ellipse-undraw {
-  stroke-dasharray: 430%;
+  stroke-dasharray: 440%;
   animation: drawOut 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
   display: block;
 }

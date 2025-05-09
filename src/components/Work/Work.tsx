@@ -1,14 +1,16 @@
 import WorkItem from "./WorkItem/WorkItem";
 import workData from "../../data/works.json";
 
-const Works: React.FC = () => {
+const Work: React.FC = () => {
   return (
-    <div className="relative flex flex-row items-stretch">
-      <div className="sticky top-0 w-[22.5vh] h-screen flex items-center justify-center">
-        <h2 className="uppercase font-semibold -rotate-90 text-[24vh]">Work</h2>
+    <div className="relative flex items-stretch">
+      <div className="sticky top-0 md:w-36 xl:w-[22.5vh] h-screen flex items-center justify-center">
+        <h2 className="uppercase font-semibold -rotate-90 text-5xl md:text-9xl xl:text-[24vh]">
+          Work
+        </h2>
         <p className="hidden">Take a look to some selected projects</p>
       </div>
-      <div className="flex flex-col flex-1 items-end text-right gap-16 py-86 pr-32">
+      <div className="flex flex-col flex-1 items-end text-right gap-16 pt-24 pb-86 pr-20 xl:pr-32">
         {workData.map((work, index) => (
           <WorkItem
             key={index}
@@ -25,4 +27,4 @@ const Works: React.FC = () => {
   );
 };
 
-export default Works;
+export default Work;
