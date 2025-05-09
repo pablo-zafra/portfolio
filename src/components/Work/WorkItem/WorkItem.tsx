@@ -15,13 +15,23 @@ interface WorkItemProps {
   link?: string;
   newTab?: boolean;
   windowWidth: number;
+  itemsContainerRef: React.RefObject<HTMLDivElement>;
 }
 
 gsap.registerPlugin(ScrollTrigger);
 
 const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
-  const { itemKey, title, tags, slug, bg, link, newTab, windowWidth } =
-    WorkItemProps;
+  const {
+    itemKey,
+    title,
+    tags,
+    slug,
+    bg,
+    link,
+    newTab,
+    windowWidth,
+    itemsContainerRef,
+  } = WorkItemProps;
   const bgColor = bg! ? bg : "white";
   const mainImg = `/img/work/${slug}/${slug}.jpg`;
 
@@ -34,7 +44,7 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
     (imgWrapper as HTMLElement).removeAttribute("style");
     if (windowWidth < 768) return;
 
-    const workItemImgAnim = gsap.timeline({
+    const imgAnimDesktop = gsap.timeline({
       scrollTrigger: {
         trigger: imgWrapper,
         start: "center 90%",
@@ -45,14 +55,45 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
       },
     });
 
-    workItemImgAnim
-      .from(imgWrapper, { width: "50%" })
+    imgAnimDesktop
+      .from(imgWrapper, { width: "50%", duration: 1, ease: "power1.inOut" })
       .to(imgWrapper, { width: "100%", duration: 1, ease: "power1.inOut" })
       .to(imgWrapper, { width: "50%", duration: 1, ease: "power1.inOut" });
 
     return () => {
-      workItemImgAnim.scrollTrigger?.kill();
+      imgAnimDesktop.scrollTrigger?.kill();
     };
+  }, [itemKey, windowWidth]);
+
+  useEffect(() => {
+    const imgWrapper = imgWrapperRef.current;
+    const scroller = itemsContainerRef.current;
+    if (!imgWrapper || !scroller) return;
+    (imgWrapper as HTMLElement).removeAttribute("style");
+    if (windowWidth >= 768) return;
+
+    const imgAnimMobile = gsap.timeline({
+      scrollTrigger: {
+        trigger: imgWrapper,
+        start: "right 100%",
+        end: "right 6rem",
+        scrub: true,
+        horizontal: true,
+        invalidateOnRefresh: true,
+        id: `imgWrapperTrigger-${itemKey}`,
+        scroller: scroller || undefined,
+      },
+    });
+
+    imgAnimMobile
+      .from(imgWrapper, { height: "50%", duration: 1, ease: "power1.inOut" })
+      .to(imgWrapper, { height: "100%", duration: 2, ease: "power1.inOut" })
+      .to(imgWrapper, { height: "50%", duration: 1, ease: "power1.inOut" });
+
+    return () => {
+      imgAnimMobile.scrollTrigger?.kill();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemKey, windowWidth]);
 
   useEffect(() => {
@@ -126,11 +167,11 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
           </ul>
         </div>
       </div>
-      <div className="max-md:h-[60vw] md:flex-1 flex-col flex items-end">
+      <div className="max-md:h-[70vw] md:flex-1 flex-col flex items-end">
         <div
           ref={imgWrapperRef}
           className={
-            "h-full aspect-2/3 md:w-full md:h-auto md:aspect-4/3 rounded-lg overflow-hidden"
+            "h-full aspect-2/3 md:w-1/2 md:h-auto md:aspect-4/3 rounded-lg overflow-hidden"
           }
         >
           <div
@@ -142,6 +183,7 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
                 href={link}
                 target={newTab ? "_blank" : "_self"}
                 rel={newTab ? "noopener noreferrer" : undefined}
+                draggable={false}
                 className="w-full h-auto"
               >
                 <Image
@@ -149,6 +191,7 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
                   height={1080}
                   src={mainImg}
                   alt={title}
+                  draggable={false}
                   className="w-full h-auto"
                 />
               </Link>
@@ -158,6 +201,7 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
                 height={1080}
                 src={mainImg}
                 alt={title}
+                draggable={false}
                 className="w-full h-auto"
               />
             )}
