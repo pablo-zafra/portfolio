@@ -93,8 +93,7 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
     return () => {
       imgAnimMobile.scrollTrigger?.kill();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [itemKey, windowWidth]);
+  }, [itemKey, windowWidth, itemsContainerRef]);
 
   useEffect(() => {
     const txtWrapper = txtWrapperRef.current;

@@ -41,10 +41,15 @@ const Work: React.FC = () => {
       });
     }, 600);
 
+    let scrollTimeout: NodeJS.Timeout | null = null;
+
     const onScroll = () => {
-      if (el.scrollLeft < minScroll) {
-        el.scrollLeft = minScroll;
-      }
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        if (el.scrollLeft < minScroll) {
+          el.scrollTo({ left: minScroll, behavior: "smooth" });
+        }
+      }, 50);
     };
     el.addEventListener("scroll", onScroll);
 
@@ -96,7 +101,6 @@ const Work: React.FC = () => {
       <div
         ref={scrollRef}
         className="relative flex max-md:pl-[50vw] max-md:pr-[50vw] max-md:select-none md:h-auto md:flex-col md:flex-1 md:items-end text-right gap-4 md:gap-16 md:pt-24 md:pb-86 md:pr-20 xl:pr-32 max-md:overflow-x-scroll [&::-webkit-scrollbar]:hidden"
-        style={{ cursor: windowWidth <= 768 ? "grab" : undefined }}
       >
         {workData.map(({ title, tags, slug, bg, link, newTab }, index) => (
           <WorkItem

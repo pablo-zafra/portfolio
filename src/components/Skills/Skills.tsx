@@ -1,9 +1,5 @@
 import HandEllipse from "./HandEllipse/HandEllipse";
 import { Headphones } from "../3dModels";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Skills: React.FC = () => {
   return (
