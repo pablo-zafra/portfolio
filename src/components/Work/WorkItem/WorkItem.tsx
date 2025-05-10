@@ -128,11 +128,11 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
   }, [itemKey, windowWidth]);
 
   return (
-    <div className="w-fit md:w-full flex flex-row gap-11">
+    <div className="w-fit md:w-full flex flex-col-reverse md:flex-row gap-11">
       <div className="max-md:hidden md:flex-1 py-6">
         <div
           ref={txtWrapperRef}
-          className="md:sticky flex flex-col md:items-end justify-center top-1/2 pl-10 xl:pl-26 right-0 h-0 opacity-0"
+          className="sticky flex flex-col md:items-end justify-center left-0 md:left-auto md:top-1/2 xl:pl-26 md:right-0 md:h-0 opacity-0 overflow-visible"
         >
           {link ? (
             <Link

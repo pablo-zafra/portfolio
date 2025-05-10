@@ -20,9 +20,13 @@ export const Pencil: React.FC = () => {
   return (
     <div className={`w-full h-full ${styles["slide-in"]}`}>
       <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 16], fov: 13 }}>
-        <ambientLight intensity={0.2} />
-        <directionalLight position={[0, -10, 0]} intensity={2.1} />
-        <Environment preset="city" background={false} />
+        {/* <ambientLight intensity={1.3} />
+        <directionalLight position={[0, -10, 0]} intensity={2.1} /> */}
+        {/* <Environment preset="city" background={false} /> */}
+        <ambientLight intensity={0.8} />
+        <directionalLight position={[-3, 10, -2]} intensity={0.6} />
+        <directionalLight position={[5, 10, 10]} intensity={0.9} />
+        <directionalLight position={[0, -5, 0]} intensity={3} />0
         <OrbitControls
           enableZoom={false}
           enablePan={false}
