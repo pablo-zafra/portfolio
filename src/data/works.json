@@ -1,6 +1,6 @@
 [
   {
-    "title": "Custom\n Brand Days\n Collection",
+    "titleLines": ["Custom", "Brand Days", "Collection"],
     "tags": ["Rich Media", "UX/UI", "Visual Design"],
     "slug": "custom-brand-days-collection",
     "bg": "#fff",
@@ -8,7 +8,7 @@
     "newTab": true
   },
   {
-    "title": "Mediakit El País",
+    "titleLines": ["Mediakit El País"],
     "tags": ["Front-end", "UX/UI"],
     "slug": "mediakit-elpais",
     "bg": "#59e0db",
@@ -16,7 +16,7 @@
     "newTab": true
   },
   {
-    "title": "Mobile Game App:\n Run Eggplant",
+    "titleLines": ["Mobile Game App:", "Run Eggplant"],
     "tags": ["Front-end", "Visual Design", "2D Animation"],
     "slug": "mobile-game-app-run-eggplant",
     "bg": "#6b1c96",
@@ -24,13 +24,13 @@
     "newTab": true
   },
   {
-    "title": "Local TV Network\n Brand Restyling",
+    "titleLines": ["Local TV Network", "Brand Restyling"],
     "tags": ["Visual Design", "UX/UI", "Motion Graphics"],
     "slug": "local-tv-network-brand-restyling",
     "bg": "#d2d2d2"
   },
   {
-    "title": "Startup Agency\n Web Design",
+    "titleLines": ["Startup Agency", "Web Design"],
     "tags": ["Visual Design", "UX/UI"],
     "slug": "startup-agency-web-design",
     "bg": "#000",
@@ -38,7 +38,7 @@
     "newTab": true
   },
   {
-    "title": "Wedding Invitation\n Landing Page",
+    "titleLines": ["Wedding Invitation", "Landing Page"],
     "tags": ["Wordpress", "UX/UI"],
     "slug": "wedding-invitation",
     "bg": "#a83636",
@@ -46,7 +46,7 @@
     "newTab": true
   },
   {
-    "title": "Cafe Custom\n Website Menu",
+    "titleLines": ["Cafe Custom", "Website Menu"],
     "tags": ["Wordpress", "UX/UI", "Visual Design"],
     "slug": "cafe-custom-responsive-web-menu",
     "bg": "#59a892",
@@ -54,7 +54,7 @@
     "newTab": true
   },
   {
-    "title": "Motion Graphics\n Corporate Video",
+    "titleLines": ["Motion Graphics", "Corporate Video"],
     "tags": ["Motion Graphics", "Visual Design"],
     "slug": "adn-motion-graphics",
     "bg": "#ffecd4",
