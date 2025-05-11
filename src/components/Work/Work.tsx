@@ -33,6 +33,7 @@ const Work: React.FC = () => {
     if (!el || windowWidth > 768) return;
 
     const minScroll = window.innerWidth * 0.5 - 16;
+    const maxScroll = el.scrollWidth - 16;
 
     const timeout = setTimeout(() => {
       el.scrollTo({
@@ -48,6 +49,8 @@ const Work: React.FC = () => {
       scrollTimeout = setTimeout(() => {
         if (el.scrollLeft < minScroll) {
           el.scrollTo({ left: minScroll, behavior: "smooth" });
+        } else if (el.scrollLeft > maxScroll) {
+          el.scrollTo({ left: maxScroll, behavior: "smooth" });
         }
       }, 50);
     };
@@ -100,7 +103,7 @@ const Work: React.FC = () => {
       </div>
       <div
         ref={scrollRef}
-        className="relative flex max-md:pl-[50vw] max-md:pr-[50vw] max-md:select-none md:h-auto md:flex-col md:flex-1 md:items-end text-right gap-4 md:gap-16 md:pt-24 md:pb-86 md:pr-20 xl:pr-32 max-md:overflow-x-scroll [&::-webkit-scrollbar]:hidden"
+        className="relative flex max-md:pl-[50vw] max-md:pr-[50vw] max-md:select-none md:h-auto md:flex-col md:flex-1 md:items-end gap-4 md:gap-16 md:pt-24 md:pb-86 md:pr-20 xl:pr-32 max-md:overflow-x-scroll [&::-webkit-scrollbar]:hidden"
       >
         {workData.map(({ title, tags, slug, bg, link, newTab }, index) => (
           <WorkItem

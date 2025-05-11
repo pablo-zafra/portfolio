@@ -8,9 +8,10 @@ const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     if (typeof window !== "undefined") {
       const lenis = new Lenis({
-        duration: 1.6,
+        duration: 1.2,
         smoothWheel: true,
-        wheelMultiplier: 0.8,
+        wheelMultiplier: 0.7,
+        lerp: 3,
         // touchMultiplier: 2,
         // normalizeWheel: false,
         // infinite: false,

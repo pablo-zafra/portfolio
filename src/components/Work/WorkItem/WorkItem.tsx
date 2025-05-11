@@ -101,7 +101,7 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
     (txtWrapper as HTMLElement).removeAttribute("style");
     if (windowWidth < 768) return;
 
-    const workItemTxtAnim = gsap.timeline({
+    const TxtAnimDesktop = gsap.timeline({
       scrollTrigger: {
         trigger: txtWrapper,
         start: "center 50%",
@@ -112,27 +112,26 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
       },
     });
 
-    workItemTxtAnim
-      .to(txtWrapper, { opacity: "0", duration: 1, ease: "power1.inOut" })
+    TxtAnimDesktop.to(txtWrapper, {
+      opacity: "0",
+      duration: 1,
+      ease: "power1.inOut",
+    })
       .to(txtWrapper, { opacity: "1", duration: 1, ease: "power1.inOut" })
       .to(txtWrapper, { opacity: "1", duration: 1, ease: "power1.inOut" })
       .to(txtWrapper, { opacity: "0", duration: 1, ease: "power1.inOut" });
 
-    const workItemTxtAnimTrigger = workItemTxtAnim.scrollTrigger;
-
     return () => {
-      if (workItemTxtAnimTrigger) {
-        workItemTxtAnimTrigger.kill();
-      }
+      TxtAnimDesktop.scrollTrigger?.kill();
     };
   }, [itemKey, windowWidth]);
 
   return (
-    <div className="w-fit md:w-full flex flex-col-reverse md:flex-row gap-11">
-      <div className="max-md:hidden md:flex-1 py-6">
+    <div className="relative flex flex-col-reverse md:flex-row justify-end gap-11 md:w-full">
+      <div className="flex flex-col items-start justify-start md:items-end md:flex-1 md:py-6">
         <div
           ref={txtWrapperRef}
-          className="sticky flex flex-col md:items-end justify-center left-0 md:left-auto md:top-1/2 xl:pl-26 md:right-0 md:h-0 opacity-0 overflow-visible"
+          className="max-md:w-0 sticky left-[-50vw] flex flex-col md:items-end md:justify-center md:top-1/2 xl:pl-26 md:right-0 md:h-0 md:opacity-0 md:text-right overflow-visible"
         >
           {link ? (
             <Link
@@ -140,22 +139,16 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
               target={newTab ? "_blank" : "_self"}
               rel={newTab ? "noopener noreferrer" : undefined}
             >
-              <h3
-                className="text-2xl xl:text-4xl font-semibold hover:underline"
-                style={{ whiteSpace: "pre-wrap" }}
-              >
+              <h3 className="text-2xl xl:text-4xl font-semibold hover:underline whitespace-nowrap md:whitespace-pre-wrap">
                 {title}
               </h3>
             </Link>
           ) : (
-            <h3
-              className="text-2xl xl:text-4xl font-semibold"
-              style={{ whiteSpace: "pre-wrap" }}
-            >
+            <h3 className="text-2xl xl:text-4xl font-semibold whitespace-nowrap md:whitespace-pre-wrap">
               {title}
             </h3>
           )}
-          <ul className="flex flex-wrap justify-end text-base xl:text-lg text-gray mt-2.5 list-none p-0 m-0 gap-x-1">
+          <ul className="flex flex-wrap md:justify-end text-base xl:text-lg text-gray mt-2.5 list-none p-0 m-0 gap-x-1">
             {tags.map((tag, idx) => (
               <li key={idx} className="flex items-center">
                 {idx > 0 && <span>&nbsp;</span>}
@@ -166,7 +159,7 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
           </ul>
         </div>
       </div>
-      <div className="max-md:h-[70vw] md:flex-1 flex-col flex items-end">
+      <div className="max-md:h-[70vw] md:flex-1 flex flex-col items-start md:items-end">
         <div
           ref={imgWrapperRef}
           className={
