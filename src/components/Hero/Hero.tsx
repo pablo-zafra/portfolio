@@ -10,6 +10,7 @@ import { useTextReveal } from "@/hooks/useTextReveal";
 import { useElementReveal } from "@/hooks/useElementReveal";
 import DottedLine from "../DottedLine/DottedLine";
 import styles from "./Hero.module.css";
+import { useCursor } from "../../hooks";
 
 const Hero: React.FC = () => {
   const revealH1 = useTextReveal({
@@ -42,11 +43,21 @@ const Hero: React.FC = () => {
     revealLines.current = e;
   };
 
+  const spinCursor = useCursor({
+    className:
+      "w-22! rotate-26! text-md -translate-y-2/3 -translate-x-3/5 transition-[width,transform]!",
+    message: "Spin it!",
+    icon: "threeDRotation",
+  });
+
   return (
     <div className="relative h-screen w-full flex justify-center items-center text-left overflow-hidden">
       <div className="relative flex flex-col lg:flex-row justify-center items-center md:items-end max-w-[1480px] gap-26 md:gap-12 2xl:gap-21 translate-y-1/6 lg:-translate-y-1/6">
         <div className="relative flex justify-center items-center">
-          <div className="absolute w-9/10 max-h-screen aspect-7/8 lg:translate-x-1/2 lg:translate-y-1/15">
+          <div
+            ref={spinCursor}
+            className="absolute w-9/10 max-h-screen aspect-7/8 lg:translate-x-1/2 lg:translate-y-1/15"
+          >
             <Pencil />
           </div>
           <h1

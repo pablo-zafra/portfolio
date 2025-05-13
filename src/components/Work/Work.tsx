@@ -92,7 +92,7 @@ const Work: React.FC = () => {
 
   return (
     <div className="relative flex flex-col md:flex-row mb-40 md:mb-0 gap-6">
-      <div className="max-md:px-4 md:sticky md:top-0 md:w-28 xl:w-[19vh] md:h-screen flex md:items-center md:justify-center">
+      <div className="max-md:px-4 md:sticky md:top-0 md:w-36 xl:w-[22vh] md:h-screen flex md:items-center md:justify-center">
         <h2 className="uppercase font-semibold md:-rotate-90 text-5xl md:text-9xl xl:text-[24vh]">
           Work
         </h2>
