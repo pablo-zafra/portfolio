@@ -1,11 +1,23 @@
+"use client";
 import HandEllipse from "./HandEllipse/HandEllipse";
 import { Headphones } from "../3dModels";
+import { useCursor } from "../../hooks";
 
 const Skills: React.FC = () => {
+  const spinCursor = useCursor({
+    className:
+      "w-20! rotate-26! text-md -translate-y-2/3 -translate-x-3/5 transition-[width,transform]!",
+    message: "Spin it!",
+    icon: "threeDRotation",
+  });
+
   return (
     <div className="relative flex items-center justify-center overflow-hidden md:pl-[20vw] 2xl:pl-60">
       <div className="relative flex flex-col md:flex-row-reverse text-gray-light my-44 sm:my-52 gap-8 md:gap-14 max-md:-translate-y-20">
-        <div className="absolute w-3/2 aspect-square top-4/10 md:-top-14/10 lg:-top-16/10 right-0 md:right-65/100  -rotate-16">
+        <div
+          ref={spinCursor}
+          className="absolute w-3/2 aspect-square top-4/10 md:-top-14/10 lg:-top-16/10 right-0 md:right-65/100  -rotate-16"
+        >
           <Headphones />
         </div>
         <div className="max-md:border-b-1 md:border-l-1 border-gray-light border-solid">

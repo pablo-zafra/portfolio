@@ -1,5 +1,7 @@
+"use client";
+
 import { useCursorContext } from "../context/CursorContext";
-import { useRef, useEffect, useCallback } from "react";
+import { useRef, useEffect, RefObject } from "react";
 
 interface SetCursorOptions {
   className?: string;
@@ -13,13 +15,9 @@ export const useCursor = ({
   message,
   icon,
   bgImg,
-}: SetCursorOptions = {}) => {
+}: SetCursorOptions = {}): RefObject<HTMLDivElement> => {
   const { setCursorData } = useCursorContext();
-  const elementRef = useRef<HTMLElement>(null);
-
-  const setRef = useCallback((node: HTMLElement | null) => {
-    elementRef.current = node;
-  }, []);
+  const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const element = elementRef.current;
@@ -42,7 +40,7 @@ export const useCursor = ({
 
     const handleMouseDown = () => {
       setCursorData({
-        className: "transition-[width,transform]!",
+        className: "",
         message: "",
         icon: undefined,
         bgImg: undefined,
@@ -71,7 +69,7 @@ export const useCursor = ({
     };
   }, [className, message, icon, bgImg, setCursorData]);
 
-  return setRef;
+  return elementRef as RefObject<HTMLDivElement>;
 };
 
 export default useCursor;

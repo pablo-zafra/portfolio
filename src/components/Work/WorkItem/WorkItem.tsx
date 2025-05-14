@@ -39,7 +39,13 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
   const imgWrapperRef = useRef(null);
   const txtWrapperRef = useRef(null);
 
-  const workCursor = useCursor({
+  const imgCursorRef = useCursor({
+    className: "w-22! rotate-26! text-md -translate-y-2/3 -translate-x-3/5",
+    message: "See project",
+    icon: "arrowOutward",
+  });
+
+  const headingCursorRef = useCursor({
     className: "w-22! rotate-26! text-md -translate-y-2/3 -translate-x-3/5",
     message: "See project",
     icon: "arrowOutward",
@@ -174,16 +180,24 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
           ref={txtWrapperRef}
           className="absolute w-[calc(100vw-2rem)] flex flex-col md:items-end opacity-0 md:justify-center md:sticky md:top-1/2 xl:pl-26 md:right-0 md:h-0 md:w-auto md:text-right md:overflow-visible"
         >
-          {link ? (
-            <Link
-              href={link}
-              target={newTab ? "_blank" : "_self"}
-              rel={newTab ? "noopener noreferrer" : undefined}
-            >
-              <h3
-                ref={workCursor}
-                className="text-2xl xl:text-4xl font-semibold hover:underline whitespace-pre-wrap"
+          <div ref={headingCursorRef}>
+            {link ? (
+              <Link
+                href={link}
+                target={newTab ? "_blank" : "_self"}
+                rel={newTab ? "noopener noreferrer" : undefined}
               >
+                <h3 className="text-2xl xl:text-4xl font-semibold hover:underline whitespace-pre-wrap">
+                  {titleLines?.map((line, index) => (
+                    <span key={index}>
+                      <span>{line}</span>
+                      <br />
+                    </span>
+                  ))}
+                </h3>
+              </Link>
+            ) : (
+              <h3 className="text-2xl xl:text-4xl font-semibold whitespace-pre-wrap">
                 {titleLines?.map((line, index) => (
                   <span key={index}>
                     <span>{line}</span>
@@ -191,20 +205,8 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
                   </span>
                 ))}
               </h3>
-            </Link>
-          ) : (
-            <h3
-              ref={workCursor}
-              className="text-2xl xl:text-4xl font-semibold whitespace-pre-wrap"
-            >
-              {titleLines?.map((line, index) => (
-                <span key={index}>
-                  <span>{line}</span>
-                  <br />
-                </span>
-              ))}
-            </h3>
-          )}
+            )}
+          </div>
           <ul className="flex flex-wrap md:justify-end text-base xl:text-lg text-gray mt-2.5 list-none p-0 m-0 gap-x-1">
             {tags.map((tag, idx) => (
               <li key={idx} className="flex items-center">
@@ -224,6 +226,7 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
           }
         >
           <div
+            ref={imgCursorRef}
             style={{ backgroundColor: bgColor }}
             className="relative flex items-center w-full h-full"
           >
@@ -236,7 +239,6 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
                 className="w-full h-auto"
               >
                 <Image
-                  ref={workCursor}
                   width={1920}
                   height={1080}
                   src={mainImg}
@@ -247,7 +249,6 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
               </Link>
             ) : (
               <Image
-                ref={workCursor}
                 width={1920}
                 height={1080}
                 src={mainImg}

@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
 
   const spinCursor = useCursor({
     className:
-      "w-22! rotate-26! text-md -translate-y-2/3 -translate-x-3/5 transition-[width,transform]!",
+      "w-20! rotate-26! text-md -translate-y-2/3 -translate-x-3/5 transition-[width,transform]!",
     message: "Spin it!",
     icon: "threeDRotation",
   });

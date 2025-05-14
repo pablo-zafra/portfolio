@@ -15,7 +15,6 @@ interface UseElementRevealOptions {
   animation?: "fadeInUp" | "fadeIn" | "scaleIn";
 }
 
-// Añadimos interfaces para los tipos de GSAP
 interface GSAPFromVars {
   y?: string;
   opacity?: number;
