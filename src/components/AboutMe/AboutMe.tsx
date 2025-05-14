@@ -1,10 +1,13 @@
 "use client";
 
 import topCurve from "../../../public/img/top-curve.svg";
-import { useHighlight } from "../../hooks";
+import { useCursor, useHighlight } from "../../hooks";
 
 export const AboutMe: React.FC = () => {
   const highlightRef01 = useHighlight();
+  const malagaCursorRef = useCursor({
+    className: "w-36! text-md rounded-xl! bg-[url(/img/malaga.gif)]",
+  });
 
   return (
     <>
@@ -15,7 +18,9 @@ export const AboutMe: React.FC = () => {
       <div className="flex justify-center items-center bg-gray-light -mt-1">
         <div className="flex flex-col-reverse px-10 xs:px-14 md:max-w-3xl xl:max-w-5xl mt-6 xl:-mt-[3vw] text-gray-dark">
           <h2 className="text-3xl xs:text-4xl md:text-6xl leading-relaxed text-center font-bold px-12 my-28 xs:my-36 md:my-42">
-            Based in <span ref={highlightRef01}>Málaga</span>
+            <div ref={malagaCursorRef} className="p-6 cursor-none">
+              Based in <span ref={highlightRef01}>Málaga</span>
+            </div>
           </h2>
           <div className="text-lg sm:text-xl lg:text-2xl font-light">
             <h3 className="inline-block text-[10px] md:text-sm uppercase text-s mr-[1em] align-baseline font-medium">

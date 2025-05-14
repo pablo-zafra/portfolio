@@ -2,6 +2,7 @@
 
 import { useCursorContext } from "../context/CursorContext";
 import { useRef, useEffect, RefObject } from "react";
+import { useBreakpoints } from "../hooks";
 
 interface SetCursorOptions {
   className?: string;
@@ -18,6 +19,62 @@ export const useCursor = ({
 }: SetCursorOptions = {}): RefObject<HTMLDivElement> => {
   const { setCursorData } = useCursorContext();
   const elementRef = useRef<HTMLDivElement>(null);
+  const { isXL } = useBreakpoints();
+  let isMouseOver = false;
+  let isMouseDown = false;
+
+  const applyCursorEffect = () => {
+    setCursorData({ className, message, icon, bgImg });
+  };
+
+  const resetCursorEffect = () => {
+    setCursorData({
+      className: "",
+      message: "",
+      icon: undefined,
+      bgImg: undefined,
+    });
+  };
+
+  const handleMouseEnter = () => {
+    isMouseOver = true;
+    if (!isMouseDown) {
+      applyCursorEffect();
+    }
+  };
+
+  const handleMouseLeave = () => {
+    isMouseOver = false;
+    resetCursorEffect();
+  };
+
+  const handleMouseDown = () => {
+    isMouseDown = true;
+    resetCursorEffect();
+  };
+
+  const handleMouseUp = () => {
+    isMouseDown = false;
+    if (isMouseOver) {
+      applyCursorEffect();
+    }
+  };
+
+  const applyListeners = (element: HTMLDivElement) => {
+    element.addEventListener("mouseenter", handleMouseEnter);
+    element.addEventListener("mouseleave", handleMouseLeave);
+    element.addEventListener("mousedown", handleMouseDown);
+    element.addEventListener("mouseup", handleMouseUp);
+    window.addEventListener("mouseup", handleMouseUp);
+  };
+
+  const removeListeners = (element: HTMLDivElement) => {
+    element.removeEventListener("mouseenter", handleMouseEnter);
+    element.removeEventListener("mouseleave", handleMouseLeave);
+    element.removeEventListener("mousedown", handleMouseDown);
+    element.removeEventListener("mouseup", handleMouseUp);
+    window.removeEventListener("mouseup", handleMouseUp);
+  };
 
   useEffect(() => {
     const element = elementRef.current;
@@ -25,49 +82,17 @@ export const useCursor = ({
       return;
     }
 
-    const handleMouseEnter = () => {
-      setCursorData({ className, message, icon, bgImg });
-    };
-
-    const handleMouseLeave = () => {
-      setCursorData({
-        className: "",
-        message: "",
-        icon: undefined,
-        bgImg: undefined,
-      });
-    };
-
-    const handleMouseDown = () => {
-      setCursorData({
-        className: "",
-        message: "",
-        icon: undefined,
-        bgImg: undefined,
-      });
-    };
-
-    const handleMouseUp = () => {
-      setCursorData({
-        className: "",
-        message: "",
-        icon: undefined,
-        bgImg: undefined,
-      });
-    };
-
-    element.addEventListener("mouseenter", handleMouseEnter);
-    element.addEventListener("mouseleave", handleMouseLeave);
-    element.addEventListener("mousedown", handleMouseDown);
-    element.addEventListener("mouseup", handleMouseUp);
+    if (isXL) {
+      applyListeners(element);
+    } else {
+      removeListeners(element);
+    }
 
     return () => {
-      element.removeEventListener("mouseenter", handleMouseEnter);
-      element.removeEventListener("mouseleave", handleMouseLeave);
-      element.removeEventListener("mousedown", handleMouseDown);
-      element.removeEventListener("mouseup", handleMouseUp);
+      removeListeners(element);
     };
-  }, [className, message, icon, bgImg, setCursorData]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isXL]);
 
   return elementRef as RefObject<HTMLDivElement>;
 };

@@ -2,7 +2,7 @@
 import React, { createContext, useState, useContext, ReactNode } from "react";
 
 interface CursorData {
-  className: string;
+  className?: string;
   message?: string;
   icon?: string;
   bgImg?: string;

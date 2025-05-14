@@ -4,13 +4,13 @@ import {
   FunDivider,
   Skills,
   Work,
-  MouseFollower,
+  CursorFollower,
 } from "../components";
 
 export default function Home() {
   return (
     <>
-      <MouseFollower />
+      <CursorFollower />
       <Hero />
       <AboutMe />
       <FunDivider />

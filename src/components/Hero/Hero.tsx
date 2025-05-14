@@ -44,8 +44,7 @@ const Hero: React.FC = () => {
   };
 
   const spinCursor = useCursor({
-    className:
-      "w-20! rotate-26! text-md -translate-y-2/3 -translate-x-3/5 transition-[width,transform]!",
+    className: "w-20! rotate-26! text-md -translate-y-2/3 -translate-x-3/5",
     message: "Spin it!",
     icon: "threeDRotation",
   });
@@ -56,7 +55,7 @@ const Hero: React.FC = () => {
         <div className="relative flex justify-center items-center">
           <div
             ref={spinCursor}
-            className="absolute w-9/10 max-h-screen aspect-7/8 lg:translate-x-1/2 lg:translate-y-1/15"
+            className="absolute w-9/10 max-h-screen aspect-7/8 lg:translate-x-1/2 lg:translate-y-1/15 cursor-none"
           >
             <Pencil />
           </div>

@@ -41,13 +41,13 @@ const Footer: React.FC = () => {
       className="relative flex flex-col items-start justify-center gap-6 h-60 md:h-100 lg:h-140 p-6 md:p-12 lg:p-16 bg-gray-light text-gray-dark text-4xl w-full overflow-hidden"
     >
       <p className="text-xl md:text-2xl lg:text-3xl">Get in touch:</p>
-      <span ref={emailCursor}>
+      <div ref={emailCursor}>
         {email && (
           <Link href={`mailto:${email}`}>
-            <p className="text-[8vw] 2xl:text-9xl">{email}</p>
+            <p className="text-[8vw] 2xl:text-9xl cursor-none">{email}</p>
           </Link>
         )}
-      </span>
+      </div>
     </footer>
   );
 };
