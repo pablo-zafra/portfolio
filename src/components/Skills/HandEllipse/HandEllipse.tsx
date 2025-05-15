@@ -11,7 +11,7 @@ const HandEllipse: React.FC<Props> = ({ flipX = false, flipY = false }) => {
       viewBox="0 0 543 132"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`absolute top-0 left-0 w-full h-full z-20 ${
+      className={`absolute top-0 left-0 w-full h-full ${
         flipX ? "-scale-x-100" : ""
       } ${flipY ? "-scale-y-100" : ""}`}
       preserveAspectRatio="none"
