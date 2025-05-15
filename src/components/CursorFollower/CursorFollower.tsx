@@ -48,7 +48,7 @@ const CursorFollower: React.FC = () => {
   return (
     <div
       ref={cursorRef}
-      className={`fixed pointer-events-none z-10 -translate-y-1/2 -translate-x-1/2 flex flex-col justify-center items-center text-center transition-[width,transform] duration-300 ease-out origin-center bg-turquesa bg-cover rounded-full w-3 p-1 aspect-square overflow-hidden ${cursorData.className} `}
+      className={`fixed pointer-events-none z-10! -translate-y-1/2 -translate-x-1/2 flex flex-col justify-center items-center text-center transition-[width,transform] duration-300 ease-out origin-center bg-turquesa bg-cover rounded-full w-3 p-1 aspect-square overflow-hidden ${cursorData.className} `}
     >
       {cursorData.message && (
         <span className="text-white">{cursorData.message}</span>

@@ -1,17 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import WorkItem from "./WorkItem/WorkItem";
 import workData from "../../data/works.json";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useBreakpoints } from "../../hooks";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Work: React.FC = () => {
-  const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 0
-  );
+  const { isMobile } = useBreakpoints();
 
   const scrollRef = useRef<HTMLDivElement>(
     null
@@ -21,16 +20,8 @@ const Work: React.FC = () => {
   const scrollLeft = useRef(0);
 
   useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
     const el = scrollRef.current;
-    if (!el || windowWidth > 768) return;
+    if (!el || !isMobile) return;
 
     const minScroll = window.innerWidth * 0.5 - 16;
 
@@ -88,7 +79,7 @@ const Work: React.FC = () => {
       el.removeEventListener("pointerup", onPointerUp);
       el.removeEventListener("pointerleave", onPointerUp);
     };
-  }, [windowWidth]);
+  }, [isMobile]);
 
   return (
     <div className="relative flex flex-col md:flex-row mb-40 md:mb-0 gap-6">
@@ -112,7 +103,7 @@ const Work: React.FC = () => {
             bg={bg}
             link={link}
             newTab={newTab}
-            windowWidth={windowWidth}
+            isMobile={isMobile}
             itemsContainerRef={scrollRef}
           />
         ))}

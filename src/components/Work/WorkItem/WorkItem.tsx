@@ -15,7 +15,7 @@ interface WorkItemProps {
   bg?: string;
   link?: string;
   newTab?: boolean;
-  windowWidth: number;
+  isMobile: boolean;
   itemsContainerRef: React.RefObject<HTMLDivElement>;
 }
 
@@ -30,7 +30,7 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
     bg,
     link,
     newTab,
-    windowWidth,
+    isMobile,
     itemsContainerRef,
   } = WorkItemProps;
   const bgColor = bg! ? bg : "white";
@@ -40,21 +40,21 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
   const txtWrapperRef = useRef(null);
 
   const imgCursorRef = useCursor({
-    className: "w-22! rotate-26! text-md -translate-y-2/3 -translate-x-3/5",
+    className: "w-22! rotate-26! text-md ",
     message: "See project",
     icon: "arrowOutward",
   });
 
   const headingCursorRef = useCursor({
-    className: "w-22! rotate-26! text-md -translate-y-2/3 -translate-x-3/5",
+    className: "w-22! rotate-26! text-md",
     message: "See project",
     icon: "arrowOutward",
   });
 
+  // Animation Img for Desktop
   useEffect(() => {
     const imgWrapper = imgWrapperRef.current;
-    if (!imgWrapper) return;
-    if (windowWidth < 768) return;
+    if (!imgWrapper || isMobile) return;
     (imgWrapper as HTMLElement).removeAttribute("style");
 
     const imgAnimDesktop = gsap.timeline({
@@ -76,13 +76,13 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
     return () => {
       imgAnimDesktop.scrollTrigger?.kill();
     };
-  }, [itemKey, windowWidth]);
+  }, [itemKey, isMobile]);
 
+  // Animation Img for Mobile
   useEffect(() => {
     const imgWrapper = imgWrapperRef.current;
     const scroller = itemsContainerRef.current;
-    if (!imgWrapper || !scroller) return;
-    if (windowWidth >= 768) return;
+    if (!imgWrapper || !scroller || !isMobile) return;
     (imgWrapper as HTMLElement).removeAttribute("style");
 
     const imgAnimMobile = gsap.timeline({
@@ -106,12 +106,12 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
     return () => {
       imgAnimMobile.scrollTrigger?.kill();
     };
-  }, [itemKey, windowWidth, itemsContainerRef]);
+  }, [itemKey, isMobile, itemsContainerRef]);
 
+  // Animation Txt for Desktop
   useEffect(() => {
     const txtWrapper = txtWrapperRef.current;
-    if (!txtWrapper) return;
-    if (windowWidth < 768) return;
+    if (!txtWrapper || isMobile) return;
     (txtWrapper as HTMLElement).removeAttribute("style");
 
     const TxtAnimDesktop = gsap.timeline({
@@ -137,13 +137,13 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
     return () => {
       TxtAnimDesktop.scrollTrigger?.kill();
     };
-  }, [itemKey, windowWidth]);
+  }, [itemKey, isMobile]);
 
+  // Animation Txt for Mobile
   useEffect(() => {
     const txtWrapper = txtWrapperRef.current;
     const scroller = itemsContainerRef.current;
-    if (!txtWrapper || !scroller) return;
-    if (windowWidth >= 768) return;
+    if (!txtWrapper || !scroller || !isMobile) return;
     (txtWrapper as HTMLElement).removeAttribute("style");
 
     const TxtAnimMobile = gsap.timeline({
@@ -171,7 +171,7 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
     return () => {
       TxtAnimMobile.scrollTrigger?.kill();
     };
-  }, [itemKey, windowWidth, itemsContainerRef]);
+  }, [itemKey, isMobile, itemsContainerRef]);
 
   return (
     <div className="relative flex flex-col-reverse w-fit md:flex-row justify-end gap-11 md:w-full overflow-visible">
