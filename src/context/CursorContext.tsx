@@ -5,7 +5,6 @@ interface CursorData {
   className?: string;
   message?: string;
   icon?: string;
-  bgImg?: string;
 }
 
 interface CursorContextType {
@@ -22,7 +21,6 @@ export const CursorProvider: React.FC<{ children: ReactNode }> = ({
     className: "",
     message: "",
     icon: undefined,
-    bgImg: undefined,
   });
 
   return (

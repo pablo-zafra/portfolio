@@ -8,14 +8,12 @@ interface SetCursorOptions {
   className?: string;
   message?: string;
   icon?: string;
-  bgImg?: string;
 }
 
 export const useCursor = ({
   className = "",
   message,
   icon,
-  bgImg,
 }: SetCursorOptions = {}): RefObject<HTMLDivElement> => {
   const { setCursorData } = useCursorContext();
   const elementRef = useRef<HTMLDivElement>(null);
@@ -24,7 +22,7 @@ export const useCursor = ({
   let isMouseDown = false;
 
   const applyCursorEffect = () => {
-    setCursorData({ className, message, icon, bgImg });
+    setCursorData({ className, message, icon });
   };
 
   const resetCursorEffect = () => {
@@ -32,7 +30,6 @@ export const useCursor = ({
       className: "",
       message: "",
       icon: undefined,
-      bgImg: undefined,
     });
   };
 
