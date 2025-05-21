@@ -1,7 +1,7 @@
 "use client";
 import HandEllipse from "./HandEllipse/HandEllipse";
 import { Headphones } from "../3dModels";
-import { useCursor } from "../../hooks";
+import { useCursor, useInViewport } from "../../hooks";
 
 const Skills: React.FC = () => {
   const spinCursor = useCursor({
@@ -31,6 +31,8 @@ const Skills: React.FC = () => {
     className: "w-36! text-md rounded-xl! bg-[url(/img/motion-design.gif)]",
   });
 
+  const { inViewportElemRef, isInView } = useInViewport();
+
   return (
     <div className="relative flex items-center justify-center overflow-hidden md:pl-[20vw] 2xl:pl-60">
       <div className="relative flex flex-col md:flex-row-reverse text-gray-light my-44 sm:my-52 gap-8 md:gap-14 max-md:-translate-y-20">
@@ -38,7 +40,9 @@ const Skills: React.FC = () => {
           ref={spinCursor}
           className="absolute w-3/2 aspect-square top-4/10 md:-top-14/10 lg:-top-16/10 right-0 md:right-65/100  -rotate-16 cursor-none"
         >
-          <Headphones />
+          <div ref={inViewportElemRef} className="w-full h-full">
+            {isInView ? <Headphones /> : null}
+          </div>
         </div>
         <div className="max-md:border-b-1 md:border-l-1 border-gray-light border-solid">
           <h2 className="text-lg font-light max-md:text-right md:rotate-90 origin-left-middle md:origin-top-left md:translate-x-[2em] mb-2">

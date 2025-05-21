@@ -6,11 +6,14 @@ import reactLogo from "../../../public/img/react.png";
 import nextLogo from "../../../public/img/nextjs.png";
 import tsLogo from "../../../public/img/typescript.png";
 import { Pencil } from "../3dModels";
-import { useTextReveal } from "@/hooks/useTextReveal";
-import { useElementReveal } from "@/hooks/useElementReveal";
+import {
+  useTextReveal,
+  useElementReveal,
+  useCursor,
+  useInViewport,
+} from "../../hooks/";
 import DottedLine from "../DottedLine/DottedLine";
 import styles from "./Hero.module.css";
-import { useCursor } from "../../hooks";
 
 const Hero: React.FC = () => {
   const revealH1 = useTextReveal({
@@ -49,6 +52,8 @@ const Hero: React.FC = () => {
     icon: "threeDRotation",
   });
 
+  const { inViewportElemRef, isInView } = useInViewport();
+
   return (
     <div className="relative h-screen w-full flex justify-center items-center text-left overflow-hidden">
       <div className="relative flex flex-col lg:flex-row justify-center items-center md:items-end max-w-[1480px] gap-26 md:gap-12 2xl:gap-21 translate-y-1/6 lg:-translate-y-1/6">
@@ -57,7 +62,9 @@ const Hero: React.FC = () => {
             ref={spinCursor}
             className="absolute w-9/10 max-h-screen aspect-7/8 lg:translate-x-1/2 lg:translate-y-1/15 cursor-none"
           >
-            <Pencil />
+            <div ref={inViewportElemRef} className="w-full h-full">
+              {isInView ? <Pencil /> : null}
+            </div>
           </div>
           <h1
             ref={revealTitular}
