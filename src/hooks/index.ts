@@ -3,4 +3,4 @@ export * from "./useElementReveal";
 export * from "./useTextReveal";
 export * from "./useCursor";
 export * from "./useBreakpoints";
-export * from "./useInViewport";
+export * from "./useInView";

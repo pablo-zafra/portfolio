@@ -10,7 +10,7 @@ import {
   useTextReveal,
   useElementReveal,
   useCursor,
-  useInViewport,
+  useInView,
 } from "../../hooks/";
 import DottedLine from "../DottedLine/DottedLine";
 import styles from "./Hero.module.css";
@@ -52,7 +52,10 @@ const Hero: React.FC = () => {
     icon: "threeDRotation",
   });
 
-  const { inViewportElemRef, isInView } = useInViewport();
+  const { inViewportElemRef, isInView } = useInView({
+    offsetTop: 200,
+    offsetBottom: 500,
+  });
 
   return (
     <div className="relative h-screen w-full flex justify-center items-center text-left overflow-hidden">
