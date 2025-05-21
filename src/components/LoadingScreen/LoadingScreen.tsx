@@ -19,13 +19,17 @@ export const LoadingScreen: React.FC = () => {
   }, []);
 
   return (
-    <div
-      className={`loading-screen fixed w-screen h-screen flex items-center justify-center flex-col gap-11 bg-gray-dark-X z-50 transition-opacity duration-100
-        ${loading ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-    >
-      <div className={`${styles["pencil-icon"]} size-16`}></div>
+    <>
+      {loading ? (
+        <div
+          className={`loading-screen fixed w-screen h-screen flex items-center justify-center flex-col gap-11 bg-gray-dark-X z-50 transition-opacity duration-100
+          ${loading ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        >
+          <div className={`${styles["pencil-icon"]} size-16`}></div>
 
-      <p className="font-light">Loading...</p>
-    </div>
+          <p className="font-light">Loading...</p>
+        </div>
+      ) : null}
+    </>
   );
 };
