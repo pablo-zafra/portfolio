@@ -127,12 +127,28 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
 
     TxtAnimDesktop.to(txtWrapper, {
       opacity: "0",
+      display: "none",
       duration: 1,
       ease: "power1.inOut",
     })
-      .to(txtWrapper, { opacity: "1", duration: 1, ease: "power1.inOut" })
-      .to(txtWrapper, { opacity: "1", duration: 1, ease: "power1.inOut" })
-      .to(txtWrapper, { opacity: "0", duration: 1, ease: "power1.inOut" });
+      .to(txtWrapper, {
+        opacity: "1",
+        display: "flex",
+        duration: 1,
+        ease: "power1.inOut",
+      })
+      .to(txtWrapper, {
+        opacity: "1",
+        display: "flex",
+        duration: 1,
+        ease: "power1.inOut",
+      })
+      .to(txtWrapper, {
+        opacity: "0",
+        display: "none",
+        duration: 1,
+        ease: "power1.inOut",
+      });
 
     return () => {
       TxtAnimDesktop.scrollTrigger?.kill();
