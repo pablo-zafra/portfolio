@@ -38,19 +38,19 @@ export const useCursor = ({
     if (!isMouseDown) {
       applyCursorEffect();
     }
-    console.log("MouseEnter. isOver: ", isMouseOver, " isDown: ", isMouseDown);
+    // console.log("MouseEnter. isOver: ", isMouseOver, " isDown: ", isMouseDown);
   };
 
   const handleMouseLeave = () => {
     isMouseOver = false;
     resetCursorEffect();
-    console.log("MouseLeave. isOver: ", isMouseOver, " isDown: ", isMouseDown);
+    // console.log("MouseLeave. isOver: ", isMouseOver, " isDown: ", isMouseDown);
   };
 
   const handleMouseDown = () => {
     isMouseDown = true;
     resetCursorEffect();
-    console.log("MouseDown. isOver: ", isMouseOver, " isDown: ", isMouseDown);
+    // console.log("MouseDown. isOver: ", isMouseOver, " isDown: ", isMouseDown);
   };
 
   const handleMouseUp = () => {
@@ -58,7 +58,7 @@ export const useCursor = ({
     if (isMouseOver) {
       applyCursorEffect();
     }
-    console.log("MouseUp. isOver: ", isMouseOver, " isDown: ", isMouseDown);
+    // console.log("MouseUp. isOver: ", isMouseOver, " isDown: ", isMouseDown);
   };
 
   const applyListeners = (element: HTMLDivElement) => {

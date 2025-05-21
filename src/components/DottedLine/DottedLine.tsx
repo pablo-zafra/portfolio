@@ -26,7 +26,7 @@ const DottedLine: React.FC<DottedLineProps> = ({
 
   return (
     <div
-      className={`${styles.lineContainer} ${styles[direction]} ${className}`}
+      className={`${styles.lineContainer} ${styles[direction]} ${className} pointer-events-none`}
       style={containerStyle}
     >
       <div className={styles.dottedLine} style={lineStyle}></div>

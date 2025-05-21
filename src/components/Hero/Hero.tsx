@@ -14,6 +14,7 @@ import {
 } from "../../hooks/";
 import DottedLine from "../DottedLine/DottedLine";
 import styles from "./Hero.module.css";
+import SpinThePen from "./SpinThePen/SpinThePen";
 
 const Hero: React.FC = () => {
   const revealH1 = useTextReveal({
@@ -60,6 +61,7 @@ const Hero: React.FC = () => {
   return (
     <div className="relative h-screen w-full flex justify-center items-center text-left overflow-hidden">
       <div className="relative flex flex-col lg:flex-row justify-center items-center md:items-end max-w-[1480px] gap-26 md:gap-12 2xl:gap-21 translate-y-1/6 lg:-translate-y-1/6">
+        <SpinThePen />
         <div className="relative flex justify-center items-center">
           <div
             ref={spinCursor}
