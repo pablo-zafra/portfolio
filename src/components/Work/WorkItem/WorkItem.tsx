@@ -196,13 +196,12 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
           ref={txtWrapperRef}
           className="absolute w-[calc(100vw-2rem)] flex flex-col md:items-end opacity-0 md:justify-center md:sticky md:top-1/2 xl:pl-26 md:right-0 md:h-0 md:w-auto md:text-right md:overflow-visible"
         >
-          <div ref={headingCursorRef} className="cursor-none">
+          <div ref={headingCursorRef}>
             {link ? (
               <Link
                 href={link}
                 target={newTab ? "_blank" : "_self"}
                 rel={newTab ? "noopener noreferrer" : undefined}
-                className="cursor-none"
               >
                 <h3 className="text-2xl xl:text-4xl font-semibold hover:underline whitespace-pre-wrap">
                   {titleLines?.map((line, index) => (
@@ -245,7 +244,7 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
           <div
             ref={imgCursorRef}
             style={{ backgroundColor: bgColor }}
-            className="relative flex items-center w-full h-full cursor-none"
+            className="relative flex items-center w-full h-full "
           >
             {link ? (
               <Link
@@ -253,7 +252,7 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
                 target={newTab ? "_blank" : "_self"}
                 rel={newTab ? "noopener noreferrer" : undefined}
                 draggable={false}
-                className="w-full h-auto cursor-none"
+                className="w-full h-auto "
               >
                 <Image
                   width={1920}

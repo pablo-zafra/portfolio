@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
       <div ref={emailCursor}>
         {email && (
           <Link href={`mailto:${email}`}>
-            <p className="text-[8vw] 2xl:text-9xl cursor-none">{email}</p>
+            <p className="text-[8vw] 2xl:text-9xl">{email}</p>
           </Link>
         )}
       </div>

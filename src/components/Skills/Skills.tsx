@@ -38,7 +38,7 @@ const Skills: React.FC = () => {
       <div className="relative flex flex-col md:flex-row-reverse text-gray-light my-44 sm:my-52 gap-8 md:gap-14 max-md:-translate-y-20">
         <div
           ref={spinCursor}
-          className="absolute w-3/2 aspect-square top-4/10 md:-top-14/10 lg:-top-16/10 right-0 md:right-65/100  -rotate-16 cursor-none"
+          className="absolute w-3/2 aspect-square top-4/10 md:-top-14/10 lg:-top-16/10 right-0 md:right-65/100 -rotate-16"
         >
           <div ref={inViewportElemRef} className="w-full h-full">
             {isInView ? <Headphones /> : null}
@@ -51,31 +51,31 @@ const Skills: React.FC = () => {
         </div>
         <ul className="flex flex-col gap-3 text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl leading-snug sm:my-[-0.3em] font-semibold whitespace-nowrap">
           <li className="relative w-fit h-fit md:px-8">
-            <span ref={frontendCursor} className="relative cursor-none">
+            <span ref={frontendCursor} className="relativeº">
               Front-end Development
               <HandEllipse flipY={true} />
             </span>
           </li>
           <li className="relative w-fit h-fit ml-[2em] md:ml-[3em] lg:ml-[5em] md:px-6">
-            <span ref={uxuiCursor} className="relative cursor-none">
+            <span ref={uxuiCursor} className="relativeº">
               UX/UI Design
               <HandEllipse flipX={true} />
             </span>
           </li>
           <li className="relative w-fit h-fit ml-[1em] md:ml-[2em] lg:ml-[3em] md:px-6">
-            <span ref={prototypingCursor} className="relative cursor-none">
+            <span ref={prototypingCursor} className="relativeº">
               Prototyping
               <HandEllipse flipY={true} />
             </span>
           </li>
           <li className="relative w-fit h-fit ml-[3em] md:ml-[4em] lg:ml-[6em] md:px-6">
-            <span ref={richmediaCursor} className="relative cursor-none">
+            <span ref={richmediaCursor} className="relativeº">
               Rich Media
               <HandEllipse />
             </span>
           </li>
           <li className="relative w-fit h-fit ml-[4em] md:ml-[5em] lg:ml-[7em] md:px-6">
-            <span ref={motiondesignCursor} className="relative cursor-none">
+            <span ref={motiondesignCursor} className="relativeº">
               Motion Design
               <HandEllipse flipX={true} />
             </span>

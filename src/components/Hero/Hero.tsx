@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
         <div className="relative flex justify-center items-center">
           <div
             ref={spinCursor}
-            className="absolute w-9/10 max-h-screen aspect-7/8 lg:translate-x-1/2 lg:translate-y-1/15 cursor-none"
+            className="absolute w-9/10 max-h-screen aspect-7/8 lg:translate-x-1/2 lg:translate-y-1/15"
           >
             <div ref={inViewportElemRef} className="w-full h-full">
               {isInView ? <Pencil /> : null}
