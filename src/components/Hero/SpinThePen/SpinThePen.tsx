@@ -1,7 +1,9 @@
+import styles from "./SpinThePen.module.css";
+
 const SpinThePen: React.FC = () => {
   return (
-    <div className="absolute right-21 bottom-full pointer-events-none flex flex-col justify-center items-center z-20">
-      <div className="w-30 h-auto">
+    <div className="absolute right-1/3 md:top-0 xl:top-6 pointer-events-none flex flex-col justify-center items-center z-20">
+      <div className="w-24 h-auto">
         <svg
           id="Capa_2"
           data-name="Capa 2"
@@ -25,16 +27,28 @@ const SpinThePen: React.FC = () => {
           </g>
         </svg>
       </div>
-      <div className="w-4 h-auto rotate-12 translate-x-full">
+      <div className="w-3 translate-x-full h-auto mb-4">
         <svg
-          id="Capa_2"
-          data-name="Capa 2"
+          viewBox="0 0 53 195"
+          fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 28.39 94"
         >
-          <g id="Capa_1-2" data-name="Capa 1" className="fill-white">
-            <path d="M3.84,2.15c23.42,24.67,14.4,61.31,5.2,90.18h2.41c-1-6.68-4.03-12.72-9.63-16.66l-1.26,2.16c5.33,3.61,7.28,9.1,8.43,15.25.15.78,1.2,1.16,1.84.75,4.76-3.08,10.61-6.5,16.37-6.83,1.6-.09,1.61-2.59,0-2.5-6.22.36-12.5,3.85-17.63,7.17l1.84.75c-1.27-6.83-3.69-12.77-9.57-16.75-1.34-.91-2.57,1.24-1.26,2.16,5.07,3.56,7.59,9.18,8.48,15.17.2,1.31,2.07,1.07,2.41,0C20.96,63.19,29.72,25.78,5.61.38c-1.11-1.17-2.88.6-1.77,1.77h0Z" />
-          </g>
+          <path
+            d="M18.1426 2.96729C54.6167 57.2088 49.3162 125.366 21.5 190"
+            stroke="white"
+            stroke-width="5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            className={`${styles["palo-draw"]}`}
+          />
+          <path
+            d="M11 167C16.5 173.5 19 184 21.1667 192.5C29 187 38 181.5 47.5 179"
+            stroke="white"
+            stroke-width="5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            className={`${styles["punta-draw"]}`}
+          />
         </svg>
       </div>
     </div>
