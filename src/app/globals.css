@@ -71,3 +71,12 @@ body::selection {
   clip-path: inset(0 calc(100% - var(--animate-width)) -0.1em 0 round 100em);
   border-radius: 100em;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

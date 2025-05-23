@@ -1,9 +1,9 @@
-import styles from "./SpinThePen.module.css";
+import { Arrow } from "../.";
 
 const SpinThePen: React.FC = () => {
   return (
-    <div className="absolute right-1/3 md:top-0 xl:top-6 pointer-events-none flex flex-col justify-center items-center z-20">
-      <div className="w-24 h-auto">
+    <div className="absolute right-1/8 lg:right-1/3 top-0 xl:top-6 pointer-events-none flex flex-col justify-center items-center z-20 animate-[fadeIn_3s_2s_forwards]">
+      <div className="w-16 lg:w-20 h-auto">
         <svg
           id="Capa_2"
           data-name="Capa 2"
@@ -27,29 +27,8 @@ const SpinThePen: React.FC = () => {
           </g>
         </svg>
       </div>
-      <div className="w-3 translate-x-full h-auto mb-4">
-        <svg
-          viewBox="0 0 53 195"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M18.1426 2.96729C54.6167 57.2088 49.3162 125.366 21.5 190"
-            stroke="white"
-            stroke-width="5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            className={`${styles["palo-draw"]}`}
-          />
-          <path
-            d="M11 167C16.5 173.5 19 184 21.1667 192.5C29 187 38 181.5 47.5 179"
-            stroke="white"
-            stroke-width="5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            className={`${styles["punta-draw"]}`}
-          />
-        </svg>
+      <div className="w-2 lg:w-3 translate-x-full rotate-22 h-auto mb-4">
+        <Arrow />
       </div>
     </div>
   );

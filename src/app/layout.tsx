@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Footer, NavBar, SmoothScroll } from "../components";
+import { Footer, NavBar, ScrollControll } from "../components";
 import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
-import { CursorProvider } from "../context";
+import { CursorProvider, ScrollProvider } from "../context";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,14 +29,16 @@ export default function RootLayout({
       <body
         className={`${inter.variable} bg-gray-dark-X font-Inter  text-white antialiased grid-pattern`}
       >
-        <SmoothScroll>
-          <CursorProvider>
-            <LoadingScreen />
-            <NavBar />
-            {children}
-            <Footer />
-          </CursorProvider>
-        </SmoothScroll>
+        <ScrollProvider>
+          <ScrollControll>
+            <CursorProvider>
+              <LoadingScreen />
+              <NavBar />
+              {children}
+              <Footer />
+            </CursorProvider>
+          </ScrollControll>
+        </ScrollProvider>
       </body>
     </html>
   );

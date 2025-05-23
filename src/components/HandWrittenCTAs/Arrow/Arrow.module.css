@@ -1,8 +1,11 @@
 @keyframes drawInPalo {
-  from {
+  0% {
     stroke-dashoffset: 160%;
   }
-  to {
+  50% {
+    stroke-dashoffset: 0%;
+  }
+  100% {
     stroke-dashoffset: 0%;
   }
 }
@@ -11,8 +14,11 @@
   0% {
     stroke-dashoffset: -40%;
   }
-  60% {
+  40% {
     stroke-dashoffset: -40%;
+  }
+  50% {
+    stroke-dashoffset: 0%;
   }
   100% {
     stroke-dashoffset: 0%;
@@ -22,11 +28,11 @@
 .palo-draw {
   stroke: white;
   stroke-dasharray: 150%;
-  animation: drawInPalo 2s ease-in-out alternate infinite;
+  animation: drawInPalo 5s ease-in-out alternate infinite;
 }
 
 .punta-draw {
   stroke: white;
   stroke-dasharray: 160%;
-  animation: drawInPunta 2s ease-in-out alternate infinite;
+  animation: drawInPunta 5s ease-in-out alternate infinite;
 }

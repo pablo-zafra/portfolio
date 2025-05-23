@@ -13,10 +13,10 @@ export default function Home() {
       <CursorFollower />
       <Hero />
       <AboutMe />
-      <FunDivider />
+      <FunDivider top="bg-gray-light" />
       <Skills />
       <Work />
-      <FunDivider />
+      <FunDivider bottom="bg-gray-light" />
     </>
   );
 }

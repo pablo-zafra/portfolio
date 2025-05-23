@@ -14,9 +14,12 @@ import {
 } from "../../hooks/";
 import DottedLine from "../DottedLine/DottedLine";
 import styles from "./Hero.module.css";
-import SpinThePen from "./SpinThePen/SpinThePen";
+import SpinThePen from "../HandWrittenCTAs/SpinThePen/SpinThePen";
+import { useState } from "react";
 
 const Hero: React.FC = () => {
+  const [ctaView, setCtaView] = useState(true);
+
   const revealH1 = useTextReveal({
     duration: 1.2,
     stagger: 0.11,
@@ -66,8 +69,22 @@ const Hero: React.FC = () => {
             ref={spinCursor}
             className="absolute w-9/10 max-h-screen aspect-7/8 lg:translate-x-1/2 lg:translate-y-1/15"
           >
-            <div ref={inViewportElemRef} className="w-full h-full">
-              <SpinThePen />
+            <div
+              ref={inViewportElemRef}
+              className="w-full h-full"
+              onMouseDown={() => setCtaView(false)}
+              onMouseUp={() => setCtaView(true)}
+              onTouchStart={() => setCtaView(false)}
+              onTouchEnd={() => setCtaView(true)}
+            >
+              <div
+                className={`${
+                  ctaView ? "" : "opacity-0"
+                } transition-opacity duration-400 z-20`}
+              >
+                <SpinThePen />
+              </div>
+              {/* {ctaView ? <SpinThePen /> : null} */}
               {isInView ? <Pencil /> : null}
             </div>
           </div>
