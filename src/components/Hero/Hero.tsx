@@ -84,7 +84,6 @@ const Hero: React.FC = () => {
               >
                 <SpinThePen />
               </div>
-              {/* {ctaView ? <SpinThePen /> : null} */}
               {isInView ? <Pencil /> : null}
             </div>
           </div>

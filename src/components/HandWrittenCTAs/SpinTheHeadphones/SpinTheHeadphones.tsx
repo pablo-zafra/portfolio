@@ -2,7 +2,7 @@ import { Arrow } from "..";
 
 const SpinTheHeadphones: React.FC = () => {
   return (
-    <div className="absolute right-1/8 lg:right-1/4 bottom-1/15 pointer-events-none flex flex-col-reverse justify-center items-end z-20 animate-[fadeIn_3s_2s_forwards]">
+    <div className="absolute right-1/8 lg:right-1/4 bottom-0 md:bottom-1/15 pointer-events-none flex flex-col-reverse justify-center items-end z-20 animate-[fadeIn_3s_2s_forwards]">
       <div className="w-26 lg:w-38 h-auto rotate-11">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 351.63 102">
           <g className="fill-white">

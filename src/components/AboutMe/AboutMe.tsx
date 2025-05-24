@@ -17,7 +17,7 @@ export const AboutMe: React.FC = () => {
       ></div>
       <div className="flex justify-center items-center bg-gray-light -mt-1">
         <div className="flex flex-col-reverse px-10 xs:px-14 md:max-w-3xl xl:max-w-5xl mt-6 xl:-mt-[3vw] text-gray-dark">
-          <h2 className="text-3xl xs:text-4xl md:text-6xl leading-relaxed text-center font-bold px-12 my-28 xs:my-36 md:my-42">
+          <h2 className="text-3xl xs:text-4xl md:text-6xl leading-relaxed text-center font-bold  my-28 xs:my-36 md:my-42">
             <div ref={malagaCursorRef} className="p-6 ">
               Based in <span ref={highlightRef01}>Málaga</span>
             </div>
