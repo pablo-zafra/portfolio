@@ -37,8 +37,8 @@ const Skills: React.FC = () => {
   const { inViewportElemRef, isInView } = useInView({});
 
   return (
-    <div className="relative flex items-center justify-center overflow-hidden md:pl-[20vw] 2xl:pl-60">
-      <div className="relative flex flex-col md:flex-row-reverse text-gray-light my-44 sm:my-64 gap-8 md:gap-14 max-md:-translate-y-20">
+    <div className="relative flex items-center justify-center overflow-hidden pt-32 md:pl-[20vw] 2xl:pl-60">
+      <div className="relative flex flex-col md:flex-row-reverse text-gray-light my-44 sm:my-52 gap-8 md:gap-14 max-md:-translate-y-20">
         <div
           ref={spinCursor}
           className="absolute w-3/2 aspect-square top-4/10 md:-top-14/10 lg:-top-16/10 right-0 md:right-65/100 -rotate-16"

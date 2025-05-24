@@ -37,37 +37,39 @@ const FunDivider: React.FC<FunDividerOptions> = ({ top, bottom }) => {
   }, [logs]);
 
   return (
-    <div
-      className={`relative z-30 h-0 overflow-visible transition-transform duration-200 ease-linear`}
-      style={{
-        transform: `rotate(${rotation}deg)`,
-      }}
-    >
-      <div className="absolute -translate-y-1/2">
-        {top ? <div className={`${top} pb-30 w-full`}></div> : null}
-        <div className="relative bg-white overflow-x-hidden text-gray-dark text-xs uppercase font-mono">
-          <div
-            className={`${styles["left-scrolling"]} flex flex-row gap-4 w-fit p-2 h-fit`}
-          >
-            <div className="flex flex-row gap-3 shrink-0">
-              {clientRandomizedLogs.map((log, index) => (
-                <div key={`first-${index}`} className="flex flex-row gap-3">
-                  <span className="whitespace-nowrap">{log}</span>
-                  <BinaryValues indexOffset={index} />
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-row gap-3 shrink-0">
-              {clientRandomizedLogs.map((log, index) => (
-                <div key={`second-${index}`} className="flex flex-row gap-3">
-                  <span className="whitespace-nowrap">{log}</span>
-                  <BinaryValues indexOffset={index} />
-                </div>
-              ))}
+    <div className="w-full overflow-x-clip overflow-y-visible">
+      <div
+        className={`relative z-30 h-0 overflow-visible transition-transform duration-400 ease-linear`}
+        style={{
+          transform: `rotate(${rotation}deg)`,
+        }}
+      >
+        <div className="absolute -translate-y-1/2">
+          {top ? <div className={`${top} pb-30 w-full`}></div> : null}
+          <div className="relative bg-white overflow-x-hidden text-gray-dark text-xs uppercase font-mono">
+            <div
+              className={`${styles["left-scrolling"]} flex flex-row gap-4 w-fit p-2 h-fit`}
+            >
+              <div className="flex flex-row gap-3 shrink-0">
+                {clientRandomizedLogs.map((log, index) => (
+                  <div key={`first-${index}`} className="flex flex-row gap-3">
+                    <span className="whitespace-nowrap">{log}</span>
+                    <BinaryValues indexOffset={index} />
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-row gap-3 shrink-0">
+                {clientRandomizedLogs.map((log, index) => (
+                  <div key={`second-${index}`} className="flex flex-row gap-3">
+                    <span className="whitespace-nowrap">{log}</span>
+                    <BinaryValues indexOffset={index} />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
+          {bottom ? <div className={`${bottom} pb-30 w-full`}></div> : null}
         </div>
-        {bottom ? <div className={`${bottom} pb-30 w-full`}></div> : null}
       </div>
     </div>
   );
