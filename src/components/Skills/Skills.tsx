@@ -3,10 +3,9 @@ import HandEllipse from "./HandEllipse/HandEllipse";
 import { Headphones } from "../3dModels";
 import { useCursor, useInView } from "../../hooks";
 import { useState } from "react";
+import { SpinTheHeadphones } from "../HandWrittenCTAs";
 
 const Skills: React.FC = () => {
-  const [ctaView, setCtaView] = useState(true);
-
   const spinCursor = useCursor({
     className:
       "w-20! rotate-26! text-md -translate-y-2/3 -translate-x-3/5 transition-[width,transform]!",
@@ -34,7 +33,11 @@ const Skills: React.FC = () => {
     className: "w-36! text-md rounded-xl! bg-[url(/img/motion-design.gif)]",
   });
 
-  const { inViewportElemRef, isInView } = useInView({});
+  const { inViewportElemRef, isInView } = useInView({
+    offsetTop: 200,
+    offsetBottom: 200,
+  });
+  const [ctaView, setCtaView] = useState(true);
 
   return (
     <div className="relative flex items-center justify-center overflow-hidden pt-32 md:pl-[20vw] 2xl:pl-60">
@@ -43,7 +46,21 @@ const Skills: React.FC = () => {
           ref={spinCursor}
           className="absolute w-3/2 aspect-square top-4/10 md:-top-14/10 lg:-top-16/10 right-0 md:right-65/100 -rotate-16"
         >
-          <div ref={inViewportElemRef} className="w-full h-full">
+          <div
+            ref={inViewportElemRef}
+            className="w-full h-full"
+            onMouseDown={() => setCtaView(false)}
+            onMouseUp={() => setCtaView(true)}
+            onTouchStart={() => setCtaView(false)}
+            onTouchEnd={() => setCtaView(true)}
+          >
+            <div
+              className={`${
+                ctaView ? "" : "opacity-0"
+              } transition-opacity duration-400 z-20`}
+            >
+              <SpinTheHeadphones />
+            </div>
             {isInView ? <Headphones /> : null}
           </div>
         </div>
