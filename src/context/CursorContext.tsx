@@ -5,6 +5,7 @@ interface CursorData {
   className?: string;
   message?: string;
   icon?: string;
+  elementTrigger?: HTMLDivElement | null;
 }
 
 interface CursorContextType {

@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 import Lenis from "lenis";
 
 const ScrollControll: React.FC<{ children: React.ReactNode }> = ({

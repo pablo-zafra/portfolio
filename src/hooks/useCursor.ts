@@ -8,6 +8,7 @@ interface SetCursorOptions {
   className?: string;
   message?: string;
   icon?: string;
+  elementTrigger?: HTMLDivElement | null;
 }
 
 export const useCursor = ({

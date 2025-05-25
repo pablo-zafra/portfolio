@@ -1,5 +1,3 @@
-"use client";
-import { useRef } from "react";
 import style from "./HandEllipse.module.css";
 
 type Props = {
@@ -15,7 +13,7 @@ const HandEllipse: React.FC<Props> = ({
 }) => {
   return (
     <div
-      className="absolute top-0 left-0 w-full h-full"
+      className={`${style["hand-ellipse-wrapper"]} absolute top-0 left-0 w-full h-full`}
       is-selected={highlighted.toString()}
     >
       <svg
@@ -33,6 +31,7 @@ const HandEllipse: React.FC<Props> = ({
           strokeWidth="var(--hand-ellipse-stroke-width)"
           strokeLinecap="round"
           vectorEffect="non-scaling-stroke"
+          className={style["hand-ellipse"]}
         />
       </svg>
     </div>

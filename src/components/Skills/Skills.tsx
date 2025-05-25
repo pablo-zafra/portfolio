@@ -11,8 +11,7 @@ gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger plugin
 
 const Skills: React.FC = () => {
   const spinCursor = useCursor({
-    className:
-      "w-20! rotate-26! text-md -translate-y-2/3 -translate-x-3/5 transition-[width,transform]!",
+    className: "w-20! rotate-26! text-md -translate-y-2/3 -translate-x-3/5",
     message: "Spin it!",
     icon: "threeDRotation",
   });
@@ -48,7 +47,7 @@ const Skills: React.FC = () => {
   const { isMobile } = useBreakpoints();
 
   useEffect(() => {
-    if (isMobile) {
+    if (!isMobile) {
       return;
     }
     const listElement = listRef.current;
@@ -60,9 +59,8 @@ const Skills: React.FC = () => {
     const st = ScrollTrigger.create({
       trigger: listElement,
       start: "top 70%", // Start when the top of the ul hits 70% from the top of the viewport
-      end: "bottom 30%", // End when the bottom of the ul hits 30% from the bottom of the viewport
-      scrub: true, // Link animation directly to scroll
-      markers: true,
+      end: "bottom 40%", // End when the bottom of the ul hits 30% from the bottom of the viewport
+      scrub: true,
       onUpdate: (self) => {
         // Calculate the current step based on scroll progress (0 to 1)
         // Map progress (0 to 1) to steps (1 to numItems)
