@@ -44,10 +44,12 @@
   display: block;
 }
 
-svg:hover .hand-ellipse-draw {
-  display: block;
-}
+@media (min-width: 1280px) {
+  svg:hover .hand-ellipse-draw {
+    display: block;
+  }
 
-svg:hover .hand-ellipse-undraw {
-  display: none;
+  svg:hover .hand-ellipse-undraw {
+    display: none;
+  }
 }

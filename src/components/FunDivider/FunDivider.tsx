@@ -3,7 +3,6 @@ import { logs } from "../../data";
 import { BinaryValues } from "./BinaryValues";
 import { useEffect, useRef, useState } from "react";
 import styles from "./FunDivider.module.css";
-import { useScrollContext } from "../../context/";
 
 interface FunDividerOptions {
   top?: string;
@@ -11,24 +10,6 @@ interface FunDividerOptions {
 }
 
 const FunDivider: React.FC<FunDividerOptions> = ({ top, bottom }) => {
-  const [rotation, setRotation] = useState(0);
-  const { throttledScrollData } = useScrollContext();
-  const { speed, direction } = throttledScrollData;
-  const rotationFactor = 0.4;
-  const rotationLimit = 3;
-
-  useEffect(() => {
-    if (!speed || !direction) {
-      return;
-    }
-    //console.log(speed * rotationFactor);
-    if (Math.abs(speed * rotationFactor) > rotationLimit) {
-      setRotation(rotationLimit * direction);
-      return;
-    }
-    setRotation(speed * rotationFactor);
-  }, [speed]);
-
   const [clientRandomizedLogs, setClientRandomizedLogs] =
     useState<string[]>(logs);
 
@@ -40,9 +21,6 @@ const FunDivider: React.FC<FunDividerOptions> = ({ top, bottom }) => {
     <div className="w-full overflow-x-clip overflow-y-visible">
       <div
         className={`relative z-30 h-0 overflow-visible transition-transform duration-400 ease-linear`}
-        style={{
-          transform: `rotate(${rotation}deg)`,
-        }}
       >
         <div className="absolute -translate-y-1/2">
           {top ? <div className={`${top} pb-30 w-full`}></div> : null}

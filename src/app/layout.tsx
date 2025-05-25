@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Footer, NavBar, ScrollControll } from "../components";
 import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
-import { CursorProvider, ScrollProvider } from "../context";
+import { CursorProvider } from "../context";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,21 +24,19 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="max-h-100 overflow-y-auto [&::-webkit-scrollbar]:w-1  [&::-webkit-scrollbar-track]:bg-gray-dark-X [&::-webkit-scrollbar-thumb]:bg-gray [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-turquesa"
+      className="max-h-100 overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-gray-dark-X [&::-webkit-scrollbar-thumb]:bg-gray [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-turquesa"
     >
       <body
-        className={`${inter.variable} bg-gray-dark-X font-Inter  text-white antialiased grid-pattern`}
+        className={`${inter.variable} bg-gray-dark-X font-Inter text-white antialiased grid-pattern`}
       >
-        <ScrollProvider>
-          <ScrollControll>
-            <CursorProvider>
-              <LoadingScreen />
-              <NavBar />
-              {children}
-              <Footer />
-            </CursorProvider>
-          </ScrollControll>
-        </ScrollProvider>
+        <ScrollControll>
+          <CursorProvider>
+            <LoadingScreen />
+            <NavBar />
+            {children}
+            <Footer />
+          </CursorProvider>
+        </ScrollControll>
       </body>
     </html>
   );
