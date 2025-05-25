@@ -44,6 +44,16 @@
   display: block;
 }
 
+.hand-ellipse[is-selected="true"] {
+  stroke-dasharray: 440%;
+  animation: drawIn 0.25s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
+}
+
+.hand-ellipse[is-selected="false"] {
+  stroke-dasharray: 440%;
+  animation: drawOut 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
+}
+
 @media (min-width: 1280px) {
   svg:hover .hand-ellipse-draw {
     display: block;
