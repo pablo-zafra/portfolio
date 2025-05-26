@@ -10,7 +10,7 @@ const CursorFollower: React.FC = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   const { cursorData } = useCursorContext();
   const { className, message, icon } = cursorData;
-  const { isXL } = useBreakpoints();
+  const { isXL, isTouchDevice } = useBreakpoints();
 
   const avaiableIcons: Record<string, React.ReactNode> = {
     threeDRotation: <ThreeDRotationIcon />,
@@ -41,7 +41,7 @@ const CursorFollower: React.FC = () => {
     };
   }, [isXL]);
 
-  if (!isXL) {
+  if (!isXL || isTouchDevice) {
     return null;
   }
 

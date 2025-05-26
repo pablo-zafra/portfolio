@@ -18,7 +18,7 @@ export const useCursor = ({
 }: SetCursorOptions = {}): RefObject<HTMLDivElement> => {
   const { setCursorData } = useCursorContext();
   const elementRef = useRef<HTMLDivElement>(null);
-  const { isXL } = useBreakpoints();
+  const { isXL, isTouchDevice } = useBreakpoints();
   let isMouseOver = false;
   let isMouseDown = false;
 
@@ -88,9 +88,11 @@ export const useCursor = ({
       return;
     }
 
-    if (isXL) {
+    if (isXL && !isTouchDevice) {
+      // console.log("Applying cursor listeners");
       applyListeners(element);
     } else {
+      // console.log("Removing cursor listeners");
       removeListeners(element);
     }
 
@@ -98,7 +100,7 @@ export const useCursor = ({
       removeListeners(element);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isXL]);
+  }, [isXL, isTouchDevice]);
 
   return elementRef as RefObject<HTMLDivElement>;
 };

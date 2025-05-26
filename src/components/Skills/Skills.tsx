@@ -18,7 +18,7 @@ const Skills: React.FC = () => {
     isActive: false,
     className: "",
   });
-  const { isXL } = useBreakpoints();
+  const { isTouchDevice } = useBreakpoints();
 
   const spinCursor = useCursor({
     className: "w-20! rotate-26! text-md -translate-y-2/3 -translate-x-3/5",
@@ -53,7 +53,7 @@ const Skills: React.FC = () => {
 
   const updateJoinBox = useCallback(
     (step = 0) => {
-      if (isXL) {
+      if (!isTouchDevice) {
         setJoinBoxState({ isActive: false, className: "" });
         return;
       } else {
@@ -62,35 +62,35 @@ const Skills: React.FC = () => {
             setJoinBoxState({
               isActive: true,
               className:
-                "translate-x-[0.5em] translate-y-[-3em] sm:translate-x-[0.5em] sm:translate-y-[-2.8em] md:translate-x-[-0.5em] md:translate-y-[-2.5em] lg:translate-x-[-1em] lg:translate-y-[-2em] bg-[url(/img/front-end.gif)]",
+                "translate-x-[0.5em] translate-y-[-3em] sm:translate-x-[0.5em] sm:translate-y-[-2.8em] md:translate-x-[12em] md:translate-y-[-2.5em] lg:translate-x-[13em] lg:translate-y-[-1em] xl:translate-x-[12.8em] xl:translate-y-[-0.5em] bg-[url(/img/front-end.gif)]",
             });
             break;
           case 2: // UX/UI Design
             setJoinBoxState({
               isActive: true,
               className:
-                "translate-x-[9em] translate-y-[1.5em] md:translate-x-[10.5em] md:translate-y-[1.5em] lg:translate-x-[3.5em] lg:translate-y-[1.1em] bg-[url(/img/ux-ui.gif)]",
+                "translate-x-[9em] translate-y-[1.5em] md:translate-x-[10.5em] md:translate-y-[1.5em] lg:translate-x-[3.5em] lg:translate-y-[1.1em] xl:translate-x-[3.7em] xl:translate-y-[1.3em] bg-[url(/img/ux-ui.gif)]",
             });
             break;
           case 3: // Prototyping
             setJoinBoxState({
               isActive: true,
               className:
-                "translate-x-[-2em] translate-y-[3.3em] sm:translate-x-[-1.5em] sm:translate-y-[3em] md:translate-x-[0.2em] md:translate-y-[2.5em] lg:translate-x-[10em] lg:translate-y-[3em] bg-[url(/img/prototyping.gif)]",
+                "translate-x-[-2em] translate-y-[3.3em] sm:translate-x-[-1.5em] sm:translate-y-[3em] md:translate-x-[0.2em] md:translate-y-[2.5em] lg:translate-x-[10em] lg:translate-y-[3em] xl:translate-x-[9.5em] xl:translate-y-[3em] bg-[url(/img/prototyping.gif)]",
             });
             break;
           case 4: // Rich Media
             setJoinBoxState({
               isActive: true,
               className:
-                "translate-x-[8.5em] translate-y-[4.5em] sm:translate-x-[9em] sm:translate-y-[4.3em] md:translate-x-[11em] md:translate-y-[4.5em] lg:translate-x-[4em] lg:translate-y-[4.6em] bg-[url(/img/rich-media.gif)]",
+                "translate-x-[8.5em] translate-y-[4.5em] sm:translate-x-[9em] sm:translate-y-[4.3em] md:translate-x-[11em] md:translate-y-[4.5em] lg:translate-x-[4em] lg:translate-y-[4.6em] xl:translate-x-[4.8em] xl:translate-y-[4.6em] bg-[url(/img/rich-media.gif)]",
             });
             break;
           case 5: // Motion Design
             setJoinBoxState({
               isActive: true,
               className:
-                "translate-x-[0.8em] translate-y-[7.1em] sm:translate-x-[1.2em] sm:translate-y-[6.8em] md:translate-x-[11.5em] md:translate-y-[8.2em] lg:translate-x-[5em] lg:translate-y-[6.5em] bg-[url(/img/motion-design.gif)]",
+                "translate-x-[9.5em] translate-y-[9em] sm:translate-x-[9.5em] sm:translate-y-[8.5em] md:translate-x-[11.5em] md:translate-y-[8.2em] lg:translate-x-[5em] lg:translate-y-[6.5em] xl:translate-x-[5.5em] xl:translate-y-[6.3em] bg-[url(/img/motion-design.gif)]",
             });
             break;
           default:
@@ -98,14 +98,15 @@ const Skills: React.FC = () => {
         }
       }
     },
-    [isXL, setJoinBoxState]
+    [isTouchDevice, setJoinBoxState]
   );
 
   useEffect(() => {
-    if (isXL) {
+    if (!isTouchDevice) {
       updateJoinBox(0);
       return;
     }
+    // console.log("ScrollTrigger is active for Skills component");
     const listElement = listRef.current;
     if (!listElement) return;
 
@@ -135,9 +136,10 @@ const Skills: React.FC = () => {
     });
 
     return () => {
+      // console.log("ScrollTrigger for Skills component removed");
       st.kill();
     };
-  }, [isXL, updateJoinBox]);
+  }, [isTouchDevice, updateJoinBox]);
 
   return (
     <div className="relative flex items-center justify-center overflow-hidden pt-32 md:pl-[20vw] 2xl:pl-60">

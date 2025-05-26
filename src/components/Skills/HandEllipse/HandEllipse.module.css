@@ -32,7 +32,7 @@
   }
 }
 
-.hand-ellipse-draw {
+/* .hand-ellipse-draw {
   stroke-dasharray: 440%;
   animation: drawIn 0.25s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
   display: none;
@@ -42,28 +42,21 @@
   stroke-dasharray: 440%;
   animation: drawOut 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
   display: block;
+} */
+
+.hand-ellipse-wrapper .hand-ellipse {
+  stroke-dasharray: 440%;
+  animation: drawOut 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
 }
 
-@media (max-width: 1279px) {
-  .hand-ellipse-wrapper[is-selected="true"] .hand-ellipse {
-    stroke-dasharray: 440%;
-    animation: drawIn 0.25s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
-  }
-
-  .hand-ellipse-wrapper[is-selected="false"] .hand-ellipse {
-    stroke-dasharray: 440%;
-    animation: drawOut 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
-  }
+.hand-ellipse-wrapper[is-selected="true"] .hand-ellipse {
+  stroke-dasharray: 440%;
+  animation: drawIn 0.25s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
 }
 
-@media (min-width: 1280px) {
-  .hand-ellipse-wrapper:hover .hand-ellipse {
+@media (pointer: fine) and (hover: hover) {
+  body:not(.touch-device) .hand-ellipse-wrapper:hover .hand-ellipse {
     stroke-dasharray: 440%;
     animation: drawIn 0.25s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
-  }
-
-  .hand-ellipse-wrapper .hand-ellipse {
-    stroke-dasharray: 440%;
-    animation: drawOut 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) forwards;
   }
 }

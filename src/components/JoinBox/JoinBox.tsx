@@ -10,7 +10,7 @@ const JoinBox: React.FC<JoinBoxProps> = ({
   return (
     isActive && (
       <div
-        className={`absolute rounded-xl bg-center bg-cover bg-no-repeat w-16 h-auto aspect-square bg-turquesa transition-transform duration-400 ${className}`}
+        className={`absolute rounded-xl bg-center bg-cover bg-no-repeat w-16 h-auto aspect-square bg-turquesa transition-transform duration-400 animate-[fadeIn_1s] ${className}`}
       ></div>
     )
   );

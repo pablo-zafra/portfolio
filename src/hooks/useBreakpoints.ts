@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const breakpoints = {
   sm: 640,
@@ -13,8 +13,17 @@ export const useBreakpoints = () => {
   const [isTablet, setIsTablet] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const [isXL, setIsXL] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const hasTouched = useRef(false);
 
   useEffect(() => {
+    const handleTouchStart = () => {
+      console.log("Touch detected");
+      hasTouched.current = true;
+      setIsTouchDevice(true);
+      document.body.classList.add("touch-device");
+    };
+
     const handleResize = () => {
       setIsMobile(window.innerWidth < breakpoints.md);
       setIsTablet(
@@ -27,6 +36,11 @@ export const useBreakpoints = () => {
 
     handleResize();
 
+    window.addEventListener("touchstart", handleTouchStart, {
+      passive: true,
+      once: true,
+    });
+
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -34,5 +48,5 @@ export const useBreakpoints = () => {
     };
   }, []);
 
-  return { isMobile, isTablet, isDesktop, isXL };
+  return { isMobile, isTablet, isDesktop, isXL, isTouchDevice };
 };
