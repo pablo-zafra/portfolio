@@ -5,7 +5,7 @@ interface CursorData {
   className?: string;
   message?: string;
   icon?: string;
-  elementTrigger?: HTMLDivElement | null;
+  parent?: HTMLDivElement | null;
 }
 
 interface CursorContextType {
@@ -22,6 +22,7 @@ export const CursorProvider: React.FC<{ children: ReactNode }> = ({
     className: "",
     message: "",
     icon: undefined,
+    parent: null,
   });
 
   return (

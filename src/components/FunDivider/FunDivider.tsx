@@ -1,7 +1,7 @@
 "use client";
 import { logs } from "../../data";
 import { BinaryValues } from "./BinaryValues";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./FunDivider.module.css";
 
 interface FunDividerOptions {
@@ -15,12 +15,12 @@ const FunDivider: React.FC<FunDividerOptions> = ({ top, bottom }) => {
 
   useEffect(() => {
     setClientRandomizedLogs([...logs].sort(() => Math.random() - 0.5));
-  }, [logs]);
+  }, []);
 
   return (
     <div className="w-full overflow-x-clip overflow-y-visible">
       <div
-        className={`relative z-30 h-0 overflow-visible transition-transform duration-400 ease-linear`}
+        className={`relative z-9 h-0 overflow-visible transition-transform duration-400 ease-linear`}
       >
         <div className="absolute -translate-y-1/2">
           {top ? <div className={`${top} pb-30 w-full`}></div> : null}

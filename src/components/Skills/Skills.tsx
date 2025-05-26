@@ -2,14 +2,24 @@
 import HandEllipse from "./HandEllipse/HandEllipse";
 import { Headphones } from "../3dModels";
 import { useBreakpoints, useCursor, useInView } from "../../hooks";
-import { useState, useRef, useEffect } from "react"; // Import useRef and useEffect
+import { useState, useRef, useEffect, useCallback } from "react";
 import { SpinTheHeadphones } from "../HandWrittenCTAs";
-import { gsap } from "gsap"; // Import gsap
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger"; // Import ScrollTrigger
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import JoinBox from "../JoinBox/JoinBox";
 
-gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 const Skills: React.FC = () => {
+  const listRef = useRef<HTMLUListElement>(null);
+  const [ctaView, setCtaView] = useState(true);
+  const [listHighlight, setListHighlight] = useState(0);
+  const [joinBoxState, setJoinBoxState] = useState({
+    isActive: false,
+    className: "",
+  });
+  const { isXL } = useBreakpoints();
+
   const spinCursor = useCursor({
     className: "w-20! rotate-26! text-md -translate-y-2/3 -translate-x-3/5",
     message: "Spin it!",
@@ -40,14 +50,60 @@ const Skills: React.FC = () => {
     offsetTop: 200,
     offsetBottom: 200,
   });
-  const [ctaView, setCtaView] = useState(true);
 
-  const listRef = useRef<HTMLUListElement>(null); // Create a ref for the ul element
-  const [listHighlight, setListHighlight] = useState(0);
-  const { isMobile } = useBreakpoints();
+  const updateJoinBox = useCallback(
+    (step = 0) => {
+      if (isXL) {
+        setJoinBoxState({ isActive: false, className: "" });
+        return;
+      } else {
+        switch (step) {
+          case 1: // Front-end Development
+            setJoinBoxState({
+              isActive: true,
+              className:
+                "translate-x-[0.5em] translate-y-[-3em] sm:translate-x-[0.5em] sm:translate-y-[-2.8em] md:translate-x-[-0.5em] md:translate-y-[-2.5em] lg:translate-x-[-1em] lg:translate-y-[-2em] bg-[url(/img/front-end.gif)]",
+            });
+            break;
+          case 2: // UX/UI Design
+            setJoinBoxState({
+              isActive: true,
+              className:
+                "translate-x-[9em] translate-y-[1.5em] md:translate-x-[10.5em] md:translate-y-[1.5em] lg:translate-x-[3.5em] lg:translate-y-[1.1em] bg-[url(/img/ux-ui.gif)]",
+            });
+            break;
+          case 3: // Prototyping
+            setJoinBoxState({
+              isActive: true,
+              className:
+                "translate-x-[-2em] translate-y-[3.3em] sm:translate-x-[-1.5em] sm:translate-y-[3em] md:translate-x-[0.2em] md:translate-y-[2.5em] lg:translate-x-[10em] lg:translate-y-[3em] bg-[url(/img/prototyping.gif)]",
+            });
+            break;
+          case 4: // Rich Media
+            setJoinBoxState({
+              isActive: true,
+              className:
+                "translate-x-[8.5em] translate-y-[4.5em] sm:translate-x-[9em] sm:translate-y-[4.3em] md:translate-x-[11em] md:translate-y-[4.5em] lg:translate-x-[4em] lg:translate-y-[4.6em] bg-[url(/img/rich-media.gif)]",
+            });
+            break;
+          case 5: // Motion Design
+            setJoinBoxState({
+              isActive: true,
+              className:
+                "translate-x-[0.8em] translate-y-[7.1em] sm:translate-x-[1.2em] sm:translate-y-[6.8em] md:translate-x-[11.5em] md:translate-y-[8.2em] lg:translate-x-[5em] lg:translate-y-[6.5em] bg-[url(/img/motion-design.gif)]",
+            });
+            break;
+          default:
+            setJoinBoxState({ isActive: false, className: "" });
+        }
+      }
+    },
+    [isXL, setJoinBoxState]
+  );
 
   useEffect(() => {
-    if (!isMobile) {
+    if (isXL) {
+      updateJoinBox(0);
       return;
     }
     const listElement = listRef.current;
@@ -58,31 +114,30 @@ const Skills: React.FC = () => {
 
     const st = ScrollTrigger.create({
       trigger: listElement,
-      start: "top 70%", // Start when the top of the ul hits 70% from the top of the viewport
-      end: "bottom 40%", // End when the bottom of the ul hits 30% from the bottom of the viewport
+      start: "top 70%",
+      end: "bottom 40%",
       scrub: true,
       onUpdate: (self) => {
-        // Calculate the current step based on scroll progress (0 to 1)
-        // Map progress (0 to 1) to steps (1 to numItems)
         const step = Math.min(
           numItems,
           Math.floor(self.progress * numItems) + 1
         );
         setListHighlight(step);
+        updateJoinBox(step);
+        // console.log("step: ", step);
       },
       onToggle: (self) => {
-        // Set attribute to 0 when the trigger is inactive (scrolled out of range)
         if (!self.isActive) {
           setListHighlight(0);
+          updateJoinBox(0);
         }
       },
     });
 
-    // Cleanup function to destroy ScrollTrigger instance on component unmount
     return () => {
       st.kill();
     };
-  }, [isMobile]); // Empty dependency array means this effect runs once on mount and cleans up on unmount
+  }, [isXL, updateJoinBox]);
 
   return (
     <div className="relative flex items-center justify-center overflow-hidden pt-32 md:pl-[20vw] 2xl:pl-60">
@@ -114,43 +169,48 @@ const Skills: React.FC = () => {
             Skills
           </h2>
         </div>
-        <ul
-          ref={listRef}
-          className="flex flex-col gap-3 text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl leading-snug sm:my-[-0.3em] font-semibold whitespace-nowrap"
-          data-mobile-child-highlighted={listHighlight}
-        >
-          <div className="box-highlighted w-36! text-md rounded-xl! bg-turquesa"></div>
-          <li className="relative w-fit h-fit md:px-8">
-            <span ref={frontendCursor} className="relativeº">
-              Front-end Development
-              <HandEllipse flipY={true} highlighted={listHighlight === 1} />
-            </span>
-          </li>
-          <li className="relative w-fit h-fit ml-[2em] md:ml-[3em] lg:ml-[5em] md:px-6">
-            <span ref={uxuiCursor} className="relativeº">
-              UX/UI Design
-              <HandEllipse flipX={true} highlighted={listHighlight === 2} />
-            </span>
-          </li>
-          <li className="relative w-fit h-fit ml-[1em] md:ml-[2em] lg:ml-[3em] md:px-6">
-            <span ref={prototypingCursor} className="relativeº">
-              Prototyping
-              <HandEllipse flipY={true} highlighted={listHighlight === 3} />
-            </span>
-          </li>
-          <li className="relative w-fit h-fit ml-[3em] md:ml-[4em] lg:ml-[6em] md:px-6">
-            <span ref={richmediaCursor} className="relativeº">
-              Rich Media
-              <HandEllipse highlighted={listHighlight === 4} />
-            </span>
-          </li>
-          <li className="relative w-fit h-fit ml-[4em] md:ml-[5em] lg:ml-[7em] md:px-6">
-            <span ref={motiondesignCursor} className="relativeº">
-              Motion Design
-              <HandEllipse flipX={true} highlighted={listHighlight === 5} />
-            </span>
-          </li>
-        </ul>
+        <div className="relative text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl ">
+          <JoinBox
+            isActive={joinBoxState.isActive}
+            className={joinBoxState.className}
+          />
+          <ul
+            ref={listRef}
+            className="flex flex-col gap-3 leading-snug sm:my-[-0.3em] font-semibold whitespace-nowrap"
+            data-mobile-child-highlighted={listHighlight}
+          >
+            <li className="relative w-fit h-fit md:px-8">
+              <span ref={frontendCursor} className="relativeº">
+                Front-end Development
+                <HandEllipse flipY={true} highlighted={listHighlight === 1} />
+              </span>
+            </li>
+            <li className="relative w-fit h-fit ml-[2em] md:ml-[3em] lg:ml-[5em] md:px-6">
+              <span ref={uxuiCursor} className="relativeº">
+                UX/UI Design
+                <HandEllipse flipX={true} highlighted={listHighlight === 2} />
+              </span>
+            </li>
+            <li className="relative w-fit h-fit ml-[1em] md:ml-[2em] lg:ml-[3em] md:px-6">
+              <span ref={prototypingCursor} className="relativeº">
+                Prototyping
+                <HandEllipse flipY={true} highlighted={listHighlight === 3} />
+              </span>
+            </li>
+            <li className="relative w-fit h-fit ml-[3em] md:ml-[4em] lg:ml-[6em] md:px-6">
+              <span ref={richmediaCursor} className="relativeº">
+                Rich Media
+                <HandEllipse highlighted={listHighlight === 4} />
+              </span>
+            </li>
+            <li className="relative w-fit h-fit ml-[4em] md:ml-[5em] lg:ml-[7em] md:px-6">
+              <span ref={motiondesignCursor} className="relativeº">
+                Motion Design
+                <HandEllipse flipX={true} highlighted={listHighlight === 5} />
+              </span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );

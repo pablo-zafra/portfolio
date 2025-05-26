@@ -9,7 +9,7 @@ import { useBreakpoints } from "../../hooks";
 const CursorFollower: React.FC = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   const { cursorData } = useCursorContext();
-  const { className, message, icon, elementTrigger } = cursorData;
+  const { className, message, icon } = cursorData;
   const { isXL } = useBreakpoints();
 
   const avaiableIcons: Record<string, React.ReactNode> = {
@@ -19,16 +19,15 @@ const CursorFollower: React.FC = () => {
   };
 
   useEffect(() => {
-    const element = cursorRef.current;
-    if (!element) {
+    const cursorElement = cursorRef.current;
+    if (!cursorElement) {
       return;
     }
 
     const moveCursor = (e: MouseEvent) => {
       const x = e.clientX;
       const y = e.clientY;
-      element.style.left = `${x}px`;
-      element.style.top = `${y}px`;
+      cursorElement.style.translate = `calc(-60% + ${x}px) calc(-75% + ${y}px)`;
     };
 
     if (isXL) {
@@ -42,22 +41,6 @@ const CursorFollower: React.FC = () => {
     };
   }, [isXL]);
 
-  useEffect(() => {
-    if (isXL) {
-      return;
-    }
-    const cursorElement = cursorRef.current; // Accede al elemento DOM real
-    if (!cursorElement) {
-      return;
-    }
-
-    if (elementTrigger instanceof HTMLDivElement) {
-      elementTrigger.appendChild(cursorElement);
-    } else {
-      document.body.appendChild(cursorElement);
-    }
-  }, [elementTrigger, isXL]);
-
   if (!isXL) {
     return null;
   }
@@ -65,7 +48,7 @@ const CursorFollower: React.FC = () => {
   return (
     <div
       ref={cursorRef}
-      className={`fixed bottom-full right-full pointer-events-none z-10 -translate-y-1/2 -translate-x-1/2 flex flex-col justify-center items-center text-center transition-[width,transform,left,top] duration-300 ease-out origin-center bg-turquesa bg-cover rounded-full w-3 p-1 aspect-square overflow-hidden ${className} `}
+      className={`fixed pointer-events-none z-10 origin-center -translate-2/1 transform-gpu flex flex-col justify-center items-center text-center transition-[position,width,translate] duration-600 ease-out bg-turquesa bg-cover rounded-full w-3 p-1 aspect-square overflow-hidden ${className} `}
     >
       {message && <span className="text-white">{message}</span>}
       {icon && <div className="text-white">{avaiableIcons[icon]}</div>}
