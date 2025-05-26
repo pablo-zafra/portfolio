@@ -1,6 +1,5 @@
 export { default as NavBar } from "./NavBar/NavBar";
 export { default as Hero } from "./Hero/Hero";
-export { default as BtnHamburguesa } from "./BtnHamburguesa/BtnHamburguesa";
 export { default as AboutMe } from "./AboutMe/AboutMe";
 export { default as FunDivider } from "./FunDivider/FunDivider";
 export { default as ScrollControll } from "./ScrollControll/ScrollControll";
@@ -8,4 +7,6 @@ export { default as Skills } from "./Skills/Skills";
 export { default as Work } from "./Work/Work";
 export { default as Footer } from "./Footer/Footer";
 export { default as CursorFollower } from "./CursorFollower/CursorFollower";
+export { default as HandEllipse } from "./HandEllipse/HandEllipse";
+export { default as DottedLine } from "./DottedLine/DottedLine";
 export * from "./3dModels";

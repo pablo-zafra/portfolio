@@ -1,24 +1,32 @@
 "use client";
 
 import Image from "next/image";
-import profilePhoto from "../../../public/img/profile-photo.jpg";
-import reactLogo from "../../../public/img/react.png";
-import nextLogo from "../../../public/img/nextjs.png";
-import tsLogo from "../../../public/img/typescript.png";
-import { Pencil } from "../3dModels";
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import styles from "./Hero.module.css";
 import {
   useTextReveal,
   useElementReveal,
   useCursor,
   useInView,
 } from "../../hooks/";
-import DottedLine from "../DottedLine/DottedLine";
-import styles from "./Hero.module.css";
+import { useScrollContext } from "../../context";
+import profilePhoto from "../../../public/img/profile-photo.jpg";
+import reactLogo from "../../../public/img/react.png";
+import nextLogo from "../../../public/img/nextjs.png";
+import tsLogo from "../../../public/img/typescript.png";
+import { Pencil } from "../3dModels";
+import { DottedLine } from "../";
 import SpinThePen from "../HandWrittenCTAs/SpinThePen/SpinThePen";
-import { useState } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Hero: React.FC = () => {
   const [ctaView, setCtaView] = useState(true);
+
+  const introSectionRef = useRef<HTMLDivElement>(null);
+  const { setScrollData } = useScrollContext();
 
   const revealH1 = useTextReveal({
     duration: 1.2,
@@ -61,8 +69,34 @@ const Hero: React.FC = () => {
     offsetBottom: 500,
   });
 
+  useEffect(() => {
+    const element = introSectionRef.current;
+    if (!element) return;
+
+    const st = ScrollTrigger.create({
+      trigger: element,
+      start: "top top",
+      end: "bottom 30%",
+      scrub: true,
+      onToggle: (self) => {
+        if (self.isActive) {
+          setScrollData({
+            current: 1,
+          });
+        }
+      },
+    });
+
+    return () => {
+      st.kill();
+    };
+  }, [setScrollData]);
+
   return (
-    <div className="relative h-screen w-full flex justify-center items-center text-left overflow-hidden">
+    <div
+      ref={introSectionRef}
+      className="relative h-screen w-full flex justify-center items-center text-left overflow-hidden"
+    >
       <div className="relative flex flex-col lg:flex-row justify-center items-center md:items-end max-w-[1480px] gap-26 md:gap-12 2xl:gap-21 translate-y-1/6 lg:-translate-y-1/6">
         <div className="relative flex justify-center items-center">
           <div

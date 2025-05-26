@@ -66,12 +66,26 @@ export const useCursor = ({
     // console.log("MouseUp. isOver: ", isMouseOver, " isDown: ", isMouseDown);
   };
 
+  const handleHighlighted = (element: HTMLDivElement) => {
+    const isHighlighted = element.getAttribute("highlighted") === "true";
+    if (isHighlighted) {
+      setCursorData({
+        className: "highlighted-cursor",
+        message: "Highlighted!",
+        icon: "star",
+      });
+    }
+  };
+
   const applyListeners = (element: HTMLDivElement) => {
     element.addEventListener("mouseenter", handleMouseEnter);
     element.addEventListener("mouseleave", handleMouseLeave);
     element.addEventListener("mousedown", handleMouseDown);
     element.addEventListener("mouseup", handleMouseUp);
     window.addEventListener("mouseup", handleMouseUp);
+
+    // Nuevo listener para el atributo "highlighted"
+    handleHighlighted(element);
   };
 
   const removeListeners = (element: HTMLDivElement) => {

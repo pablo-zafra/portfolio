@@ -8,7 +8,9 @@ interface BtnHamburguesaProps {
 const BtnHamburguesa: React.FC<BtnHamburguesaProps> = ({ opened, onClick }) => {
   return (
     <button
-      className={`${styles.hamburgerButton} ${opened ? styles.opened : ""}`}
+      className={`${styles.hamburgerButton} ${
+        opened ? styles.opened : ""
+      } z-40`}
       onClick={onClick}
       aria-label={opened ? "Cerrar menú" : "Abrir menú"}
     >

@@ -1,9 +1,9 @@
 "use client";
-import HandEllipse from "./HandEllipse/HandEllipse";
 import { Headphones } from "../3dModels";
 import { useBreakpoints, useCursor, useInView } from "../../hooks";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { SpinTheHeadphones } from "../HandWrittenCTAs";
+import { HandEllipse } from "../";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import JoinBox from "../JoinBox/JoinBox";
@@ -182,31 +182,31 @@ const Skills: React.FC = () => {
             data-mobile-child-highlighted={listHighlight}
           >
             <li className="relative w-fit h-fit md:px-8">
-              <span ref={frontendCursor} className="relativeº">
+              <span ref={frontendCursor} className="relative">
                 Front-end Development
                 <HandEllipse flipY={true} highlighted={listHighlight === 1} />
               </span>
             </li>
             <li className="relative w-fit h-fit ml-[2em] md:ml-[3em] lg:ml-[5em] md:px-6">
-              <span ref={uxuiCursor} className="relativeº">
+              <span ref={uxuiCursor} className="relative">
                 UX/UI Design
                 <HandEllipse flipX={true} highlighted={listHighlight === 2} />
               </span>
             </li>
             <li className="relative w-fit h-fit ml-[1em] md:ml-[2em] lg:ml-[3em] md:px-6">
-              <span ref={prototypingCursor} className="relativeº">
+              <span ref={prototypingCursor} className="relative">
                 Prototyping
                 <HandEllipse flipY={true} highlighted={listHighlight === 3} />
               </span>
             </li>
             <li className="relative w-fit h-fit ml-[3em] md:ml-[4em] lg:ml-[6em] md:px-6">
-              <span ref={richmediaCursor} className="relativeº">
+              <span ref={richmediaCursor} className="relative">
                 Rich Media
                 <HandEllipse highlighted={listHighlight === 4} />
               </span>
             </li>
             <li className="relative w-fit h-fit ml-[4em] md:ml-[5em] lg:ml-[7em] md:px-6">
-              <span ref={motiondesignCursor} className="relativeº">
+              <span ref={motiondesignCursor} className="relative">
                 Motion Design
                 <HandEllipse flipX={true} highlighted={listHighlight === 5} />
               </span>

@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Footer, NavBar, ScrollControll } from "../components";
 import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
-import { CursorProvider } from "../context";
+import { CursorProvider, ScrollProvider } from "../context";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,12 +30,14 @@ export default function RootLayout({
         className={`${inter.variable} bg-gray-dark-X font-Inter text-white antialiased grid-pattern`}
       >
         <ScrollControll>
-          <CursorProvider>
-            <LoadingScreen />
-            <NavBar />
-            {children}
-            <Footer />
-          </CursorProvider>
+          <ScrollProvider>
+            <CursorProvider>
+              <LoadingScreen />
+              <NavBar />
+              {children}
+              <Footer />
+            </CursorProvider>
+          </ScrollProvider>
         </ScrollControll>
       </body>
     </html>
