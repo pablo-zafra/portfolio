@@ -1,23 +1,39 @@
 "use client";
 
 import topCurve from "../../../public/img/top-curve.svg";
-import { useCursor, useHighlight } from "../../hooks";
+import { useCursor, useHighlight, useInView } from "../../hooks";
+import { useScrollContext } from "../../context";
+import { useEffect } from "react";
 
 export const AboutMe: React.FC = () => {
   const highlightRef01 = useHighlight();
+  const { setScrollData } = useScrollContext();
   const malagaCursorRef = useCursor({
     className: "w-36! text-md rounded-xl! bg-[url(/img/malaga.gif)]",
   });
 
+  const { inViewportElemRef: AboutRef, isInView: AboutInView } = useInView({
+    start: "top 50%",
+    end: "bottom 50%",
+  });
+
+  useEffect(() => {
+    if (!AboutInView) return;
+    setScrollData({ current: 2 });
+    // console.log("Section In View: About");
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [AboutInView]);
+
   return (
-    <>
+    <div id="about-section" ref={AboutRef}>
       <div
         className={"pb-[12%] bg-no-repeat bg-cover bg-top"}
         style={{ backgroundImage: `url(${topCurve.src})` }}
       ></div>
       <div className="flex justify-center items-center bg-gray-light -mt-1">
         <div className="flex flex-col-reverse px-10 xs:px-14 md:max-w-3xl xl:max-w-5xl mt-6 xl:-mt-[3vw] text-gray-dark">
-          <h2 className="text-3xl xs:text-4xl md:text-6xl leading-relaxed text-center font-bold  my-28 xs:my-36 md:my-42">
+          <h2 className="text-3xl xs:text-4xl md:text-6xl leading-relaxed text-center font-bold  my-28 xs:my-30 md:my-36">
             <div ref={malagaCursorRef} className="p-6 ">
               Based in <span ref={highlightRef01}>Málaga</span>
             </div>
@@ -41,7 +57,7 @@ export const AboutMe: React.FC = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

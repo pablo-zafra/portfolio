@@ -1,9 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
 import {
   useTextReveal,
@@ -20,12 +18,8 @@ import { Pencil } from "../3dModels";
 import { DottedLine } from "../";
 import SpinThePen from "../HandWrittenCTAs/SpinThePen/SpinThePen";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Hero: React.FC = () => {
   const [ctaView, setCtaView] = useState(true);
-
-  const introSectionRef = useRef<HTMLDivElement>(null);
   const { setScrollData } = useScrollContext();
 
   const revealH1 = useTextReveal({
@@ -64,37 +58,29 @@ const Hero: React.FC = () => {
     icon: "threeDRotation",
   });
 
-  const { inViewportElemRef, isInView } = useInView({
-    offsetTop: 200,
-    offsetBottom: 500,
+  const { inViewportElemRef: PencilTriggerRef, isInView: PencilInView } =
+    useInView({
+      start: "top bottom",
+      end: "bottom -50%",
+    });
+
+  const { inViewportElemRef: HeroRef, isInView: HeroInView } = useInView({
+    start: "top bottom",
+    end: "bottom 50%",
   });
 
   useEffect(() => {
-    const element = introSectionRef.current;
-    if (!element) return;
+    if (!HeroInView) return;
+    setScrollData({ current: 1 });
+    // console.log("Section In View: Intro");
 
-    const st = ScrollTrigger.create({
-      trigger: element,
-      start: "top top",
-      end: "bottom 30%",
-      scrub: true,
-      onToggle: (self) => {
-        if (self.isActive) {
-          setScrollData({
-            current: 1,
-          });
-        }
-      },
-    });
-
-    return () => {
-      st.kill();
-    };
-  }, [setScrollData]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [HeroInView]);
 
   return (
     <div
-      ref={introSectionRef}
+      id="hero-section"
+      ref={HeroRef}
       className="relative h-screen w-full flex justify-center items-center text-left overflow-hidden"
     >
       <div className="relative flex flex-col lg:flex-row justify-center items-center md:items-end max-w-[1480px] gap-26 md:gap-12 2xl:gap-21 translate-y-1/6 lg:-translate-y-1/6">
@@ -104,7 +90,7 @@ const Hero: React.FC = () => {
             className="absolute w-9/10 max-h-screen aspect-7/8 lg:translate-x-1/2 lg:translate-y-1/15"
           >
             <div
-              ref={inViewportElemRef}
+              ref={PencilTriggerRef}
               className="w-full h-full"
               onMouseDown={() => setCtaView(false)}
               onMouseUp={() => setCtaView(true)}
@@ -118,7 +104,7 @@ const Hero: React.FC = () => {
               >
                 <SpinThePen />
               </div>
-              {isInView ? <Pencil /> : null}
+              {PencilInView ? <Pencil /> : null}
             </div>
           </div>
           <h1

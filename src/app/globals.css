@@ -12,6 +12,10 @@
   --font-Inter: "Inter", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body::selection {
   background-color: var(--color-turquesa);
   color: white;

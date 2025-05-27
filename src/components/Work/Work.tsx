@@ -1,16 +1,18 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import WorkItem from "./WorkItem/WorkItem";
-import workData from "../../data/works.json";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useBreakpoints } from "../../hooks";
+import { useScrollContext } from "../../context";
+import { useBreakpoints, useInView } from "../../hooks";
+import WorkItem from "./WorkItem/WorkItem";
+import { workData } from "../../data";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Work: React.FC = () => {
   const { isMobile } = useBreakpoints();
+  const { setScrollData } = useScrollContext();
 
   const scrollRef = useRef<HTMLDivElement>(
     null
@@ -20,6 +22,7 @@ const Work: React.FC = () => {
   const scrollLeft = useRef(0);
 
   useEffect(() => {
+    // Draggeable horizontal scroll for mobile devices
     const el = scrollRef.current;
     if (!el || !isMobile) return;
 
@@ -81,8 +84,26 @@ const Work: React.FC = () => {
     };
   }, [isMobile]);
 
+  const { inViewportElemRef: WorkSectionRef, isInView: WorkSectionInView } =
+    useInView({
+      start: "top 50%",
+      end: "bottom 50%",
+    });
+
+  useEffect(() => {
+    if (!WorkSectionInView) return;
+    setScrollData({ current: 4 });
+    // console.log("Section In View: Work");
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [WorkSectionInView]);
+
   return (
-    <div className="relative flex flex-col md:flex-row mb-40 md:mb-32 gap-6">
+    <div
+      id="work-section"
+      ref={WorkSectionRef}
+      className="relative flex flex-col md:flex-row mb-40 md:mb-32 gap-6"
+    >
       <div className="max-md:px-4 md:sticky md:top-0 md:w-36 xl:w-[22vh] md:h-screen flex md:items-center md:justify-center">
         <h2 className="uppercase font-semibold md:-rotate-90 text-5xl md:text-9xl xl:text-[24vh]">
           Work

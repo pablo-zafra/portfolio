@@ -4,15 +4,15 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 interface UseInViewOptions {
-  offsetTop?: number;
-  offsetBottom?: number;
+  start?: string;
+  end?: string;
 }
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const useInView = ({
-  offsetTop = 0,
-  offsetBottom = 0,
+  start = "top bottom",
+  end = "bottom top",
 }: UseInViewOptions = {}) => {
   const inViewportElemRef = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
@@ -26,8 +26,8 @@ export const useInView = ({
 
     scrollTriggerInstance = ScrollTrigger.create({
       trigger: currentElement,
-      start: `top bottom+=${offsetTop}`,
-      end: `bottom top-=${offsetBottom}`,
+      start: start,
+      end: end,
       onEnter: () => {
         setIsInView(true);
       },
@@ -48,7 +48,7 @@ export const useInView = ({
         scrollTriggerInstance = null;
       }
     };
-  }, [offsetTop, offsetBottom]);
+  }, [start, end]);
 
   return { inViewportElemRef, isInView };
 };

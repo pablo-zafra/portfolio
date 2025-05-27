@@ -1,12 +1,12 @@
 "use client";
 import { Headphones } from "../3dModels";
-import { useBreakpoints, useCursor, useInView } from "../../hooks";
 import { useState, useRef, useEffect, useCallback } from "react";
-import { SpinTheHeadphones } from "../HandWrittenCTAs";
-import { HandEllipse } from "../";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import JoinBox from "../JoinBox/JoinBox";
+import { useScrollContext } from "../../context";
+import { useBreakpoints, useCursor, useInView } from "../../hooks";
+import { SpinTheHeadphones } from "../HandWrittenCTAs";
+import { HandEllipse, JoinBox } from "../";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,6 +19,7 @@ const Skills: React.FC = () => {
     className: "",
   });
   const { isTouchDevice } = useBreakpoints();
+  const { setScrollData } = useScrollContext();
 
   const spinCursor = useCursor({
     className: "w-20! rotate-26! text-md -translate-y-2/3 -translate-x-3/5",
@@ -46,9 +47,12 @@ const Skills: React.FC = () => {
     className: "w-36! text-md rounded-xl! bg-[url(/img/motion-design.gif)]",
   });
 
-  const { inViewportElemRef, isInView } = useInView({
-    offsetTop: 200,
-    offsetBottom: 200,
+  const {
+    inViewportElemRef: HeadPhonesTriggerRef,
+    isInView: HeadphonesInView,
+  } = useInView({
+    start: "top 130%",
+    end: "bottom -30%",
   });
 
   const updateJoinBox = useCallback(
@@ -141,15 +145,33 @@ const Skills: React.FC = () => {
     };
   }, [isTouchDevice, updateJoinBox]);
 
+  const { inViewportElemRef: SkillsSectionRef, isInView: SkillsSectionInView } =
+    useInView({
+      start: "top 50%",
+      end: "bottom 50%",
+    });
+
+  useEffect(() => {
+    if (!SkillsSectionInView) return;
+    setScrollData({ current: 3 });
+    // console.log("Section In View: Skills");
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [SkillsSectionInView]);
+
   return (
-    <div className="relative flex items-center justify-center overflow-hidden pt-32 md:pl-[20vw] 2xl:pl-60">
+    <div
+      id="skills-section"
+      ref={SkillsSectionRef}
+      className="relative flex items-center justify-center overflow-hidden pt-32 md:pl-[20vw] 2xl:pl-60"
+    >
       <div className="relative flex flex-col md:flex-row-reverse text-gray-light my-44 sm:my-52 gap-8 md:gap-14 max-md:-translate-y-20">
         <div
           ref={spinCursor}
           className="absolute w-3/2 aspect-square top-4/10 md:-top-14/10 lg:-top-16/10 right-0 md:right-65/100 -rotate-16"
         >
           <div
-            ref={inViewportElemRef}
+            ref={HeadPhonesTriggerRef}
             className="w-full h-full"
             onMouseDown={() => setCtaView(false)}
             onMouseUp={() => setCtaView(true)}
@@ -163,7 +185,7 @@ const Skills: React.FC = () => {
             >
               <SpinTheHeadphones />
             </div>
-            {isInView ? <Headphones /> : null}
+            {HeadphonesInView ? <Headphones /> : null}
           </div>
         </div>
         <div className="max-md:border-b-1 md:border-l-1 border-gray-light border-solid">

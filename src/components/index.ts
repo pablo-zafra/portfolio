@@ -9,4 +9,5 @@ export { default as Footer } from "./Footer/Footer";
 export { default as CursorFollower } from "./CursorFollower/CursorFollower";
 export { default as HandEllipse } from "./HandEllipse/HandEllipse";
 export { default as DottedLine } from "./DottedLine/DottedLine";
+export { default as JoinBox } from "./JoinBox/JoinBox";
 export * from "./3dModels";
