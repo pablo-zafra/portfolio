@@ -5,9 +5,9 @@ import Link from "next/link";
 import logo from "../../../public/img/pablo-zafra-logo.svg";
 import Image from "next/image";
 import BtnHamburguesa from "./BtnHamburguesa/BtnHamburguesa";
-import OffCanvasMenu from "./OffCanvasMenu/OffCanvasMenu";
+import Nav from "./Nav/Nav";
 
-const NavBar: React.FC = () => {
+const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -15,10 +15,10 @@ const NavBar: React.FC = () => {
   };
 
   return (
-    <nav className="fixed z-50 w-screen flex items-center justify-between py-4 px-6">
+    <header className="fixed z-50 w-screen flex items-center justify-between py-3 px-3 lg:py-4  lg:px-4">
       <Link href="/" className="flex items-center">
         <Image
-          className="h-8 w-auto mr-2"
+          className="mx-2 w-16 lg:w-24 h-auto mr-2"
           src={logo}
           alt="Logo"
           width={undefined}
@@ -28,9 +28,9 @@ const NavBar: React.FC = () => {
 
       <BtnHamburguesa opened={menuOpen} onClick={toggleMenu} />
 
-      <OffCanvasMenu opened={menuOpen} onClose={() => setMenuOpen(false)} />
-    </nav>
+      <Nav opened={menuOpen} onClose={() => setMenuOpen(false)} />
+    </header>
   );
 };
 
-export default NavBar;
+export default Header;

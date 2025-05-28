@@ -1,8 +1,17 @@
 @keyframes drawInPalo {
   0% {
+    stroke-dashoffset: 320%;
+  }
+  30% {
+    stroke-dashoffset: 320%;
+  }
+  60% {
     stroke-dashoffset: 160%;
   }
-  50% {
+  70% {
+    stroke-dashoffset: 160%;
+  }
+  95% {
     stroke-dashoffset: 0%;
   }
   100% {
@@ -12,27 +21,30 @@
 
 @keyframes drawInPunta {
   0% {
-    stroke-dashoffset: -40%;
+    stroke-dashoffset: 170%;
   }
-  40% {
-    stroke-dashoffset: -40%;
+  45% {
+    stroke-dashoffset: 170%;
   }
-  50% {
-    stroke-dashoffset: 0%;
+  65% {
+    stroke-dashoffset: 100%;
+  }
+  80% {
+    stroke-dashoffset: 100%;
   }
   100% {
-    stroke-dashoffset: 0%;
+    stroke-dashoffset: 30%;
   }
 }
 
 .palo-draw {
   stroke: white;
-  stroke-dasharray: 150%;
-  animation: drawInPalo 5s ease-in-out alternate infinite;
+  stroke-dasharray: 160%;
+  animation: drawInPalo 5s ease-in-out 2s infinite;
 }
 
 .punta-draw {
   stroke: white;
-  stroke-dasharray: 160%;
-  animation: drawInPunta 5s ease-in-out alternate infinite;
+  stroke-dasharray: 80%;
+  animation: drawInPunta 5s ease-in-out 2s infinite;
 }

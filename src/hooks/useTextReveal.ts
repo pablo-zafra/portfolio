@@ -34,7 +34,7 @@ interface UseTextRevealOptions {
 }
 
 export const useTextReveal = (options: UseTextRevealOptions = {}) => {
-  const elementRef = useRef<HTMLHeadingElement | HTMLParagraphElement>(null);
+  const elementRef = useRef<HTMLDivElement>(null);
 
   const {
     trigger = "bottom right-=100",

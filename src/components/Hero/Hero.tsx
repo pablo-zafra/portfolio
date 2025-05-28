@@ -22,20 +22,22 @@ const Hero: React.FC = () => {
   const [ctaView, setCtaView] = useState(true);
   const { setScrollData } = useScrollContext();
 
-  const revealH1 = useTextReveal({
+  const revealH1Ref = useTextReveal({
     duration: 1.2,
     stagger: 0.11,
   });
 
-  const revealH2 = useTextReveal({
+  const revealDescriptionRef = useTextReveal({
     duration: 1,
     delay: 1,
     stagger: 0.025,
+    start: "top bottom",
   });
 
   const revealLogos = useElementReveal({
     duration: 0.8,
     stagger: 0.15,
+    start: "top bottom",
     y: "40px",
     delay: 1.5,
   });
@@ -47,8 +49,8 @@ const Hero: React.FC = () => {
     animation: "fadeIn",
   });
 
-  const revealTitular = (e: HTMLInputElement | null) => {
-    revealH1.current = e;
+  const revealTitular = (e: HTMLHeadingElement) => {
+    revealH1Ref.current = e;
     revealLines.current = e;
   };
 
@@ -166,11 +168,11 @@ const Hero: React.FC = () => {
             </span>
           </h1>
         </div>
-        <div className="shrink max-w-44 xs:max-w-54 xl:max-w-68 2xl:max-w-80 flex flex-col justify-center items-center md:items-start lg:translate-y-full z-1 relative">
-          <p
-            ref={revealH2}
-            className="font-light text-xs xs:text-sm xl:text-base text-center md:text-left"
-          >
+        <div
+          ref={revealDescriptionRef}
+          className="shrink max-w-44 xs:max-w-54 xl:max-w-68 2xl:max-w-80 flex flex-col justify-center items-center md:items-start lg:translate-y-full z-1 relative"
+        >
+          <p className="font-light text-xs xs:text-sm xl:text-base text-center md:text-left">
             <span className="reveal-text">
               Driven by a passion for crafting interactive and accessible
               solutions, I bring a meticulous approach to development, design,

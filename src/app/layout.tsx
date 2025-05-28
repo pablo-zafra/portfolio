@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Footer, NavBar, ScrollControll } from "../components";
+import { Footer, Header, ScrollControll } from "../components";
 import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
 import { CursorProvider, ScrollProvider } from "../context";
 
@@ -33,7 +33,7 @@ export default function RootLayout({
           <ScrollProvider>
             <CursorProvider>
               <LoadingScreen />
-              <NavBar />
+              <Header />
               {children}
               <Footer />
             </CursorProvider>

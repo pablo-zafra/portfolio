@@ -104,8 +104,8 @@ const Work: React.FC = () => {
       ref={WorkSectionRef}
       className="relative flex flex-col md:flex-row mb-40 md:mb-32 gap-6"
     >
-      <div className="max-md:px-4 md:sticky md:top-0 md:w-36 xl:w-[22vh] md:h-screen flex md:items-center md:justify-center">
-        <h2 className="uppercase font-semibold md:-rotate-90 text-5xl md:text-9xl xl:text-[24vh]">
+      <div className="max-md:px-4 md:sticky md:top-0 md:w-40 xl:w-[18vh] xl:ml-7.5 md:h-screen flex md:items-center md:justify-center">
+        <h2 className="uppercase font-semibold md:-rotate-90 text-5xl md:text-9xl xl:text-[24vh] leading-[0.73em]">
           Work
         </h2>
         <p className="hidden">Take a look to some selected projects</p>

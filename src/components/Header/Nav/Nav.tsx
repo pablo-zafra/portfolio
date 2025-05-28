@@ -1,0 +1,137 @@
+import { useScrollContext } from "../../../context";
+import { HandEllipse } from "../..";
+import { useCursor } from "../../../hooks";
+import Link from "next/link";
+
+interface OffCanvasMenuProps {
+  opened: boolean;
+  onClose: () => void;
+}
+
+const Nav: React.FC<OffCanvasMenuProps> = ({ opened, onClose }) => {
+  const scrollData = useScrollContext();
+  const currentScroll = scrollData.scrollData.current || 1;
+  const introCursorRef = useCursor({
+    className: "w-32 rounded-xl text-3xl bg-[url(/img/screenshots/Intro.jpg)]",
+  });
+  const aboutCursorRef = useCursor({
+    className: "w-32 rounded-xl text-3xl bg-[url(/img/screenshots/About.jpg)]",
+  });
+  const skillsCursorRef = useCursor({
+    className: "w-32 rounded-xl text-3xl bg-[url(/img/screenshots/Skills.jpg)]",
+  });
+  const workCursorRef = useCursor({
+    className: "w-32 rounded-xl text-3xl bg-[url(/img/screenshots/Work.jpg)]",
+  });
+  const contactCursorRef = useCursor({
+    className:
+      "w-32 rounded-xl text-3xl bg-[url(/img/screenshots/Contact.jpg)]",
+  });
+
+  return (
+    <>
+      <nav
+        className={`fixed top-0 left-full ${
+          opened ? "-translate-x-full" : ""
+        } h-screen w-[80dvw] max-w-240  bg-gray-dark-X grid-pattern text-white transition-transform duration-300 ease-in-out z-30 flex flex-col items-center`}
+      >
+        <ul className="flex flex-col justify-center text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold h-full z-32">
+          <span className="flex flex-col justify-center gap-2 md:gap-6">
+            <li className="relative ml-[1em] w-fit cursor-pointer">
+              <span ref={introCursorRef} className="block overflow-hidden">
+                <Link
+                  href="#hero-section"
+                  onClick={onClose}
+                  className={`inline-block relative px-2 py-1 md:px-6 md:py-1 ${
+                    !opened
+                      ? "translate-y-full transition-transform duration-100 delay-100"
+                      : "transition-transform duration-500 ease-out delay-100"
+                  } `}
+                >
+                  Intro
+                  <HandEllipse flipX={true} highlighted={currentScroll === 1} />
+                </Link>
+              </span>
+            </li>
+            <li className="relative ml-[0em] w-fit cursor-pointer">
+              <span ref={aboutCursorRef} className="block overflow-hidden">
+                <Link
+                  href="#about-section"
+                  onClick={onClose}
+                  className={`inline-block relative px-2 py-1 md:px-6 md:py-1 ${
+                    !opened
+                      ? "translate-y-full transition-transform duration-100 delay-100"
+                      : "transition-transform duration-500 ease-out delay-150"
+                  } `}
+                >
+                  About me
+                  <HandEllipse flipY={true} highlighted={currentScroll === 2} />
+                </Link>
+              </span>
+            </li>
+            <li className="relative ml-[2.5em] w-fit -transform cursor-pointer">
+              <span ref={skillsCursorRef} className="block overflow-hidden">
+                <Link
+                  href="#skills-section"
+                  onClick={onClose}
+                  className={`inline-block relative px-2 py-1 md:px-6 md:py-1 ${
+                    !opened
+                      ? "translate-y-full transition-transform duration-100 delay-100"
+                      : "transition-transform duration-500 ease-out delay-200"
+                  } `}
+                >
+                  Skills
+                  <HandEllipse flipX={true} highlighted={currentScroll === 3} />
+                </Link>
+              </span>
+            </li>
+            <li className="relative ml-[3.5em] w-fit cursor-pointer">
+              <span ref={workCursorRef} className="block overflow-hidden">
+                <Link
+                  href="#work-section"
+                  onClick={onClose}
+                  className={`inline-block relative px-2 py-1 md:px-6 md:py-1 ${
+                    !opened
+                      ? "translate-y-full transition-transform duration-100 delay-100"
+                      : "transition-transform duration-500 ease-out delay-250"
+                  } `}
+                >
+                  Work
+                  <HandEllipse
+                    flipX={true}
+                    flipY={true}
+                    highlighted={currentScroll === 4}
+                  />
+                </Link>
+              </span>
+            </li>
+            <li className="relative ml-[1.5em] w-fit cursor-pointer">
+              <span ref={contactCursorRef} className="block overflow-hidden">
+                <Link
+                  href="#contact-section"
+                  onClick={onClose}
+                  className={`inline-block relative px-2 py-1 md:px-6 md:py-1 ${
+                    !opened
+                      ? "translate-y-full transition-transform duration-100 delay-100"
+                      : "transition-transform duration-500 ease-out delay-300"
+                  } `}
+                >
+                  Contact
+                  <HandEllipse flipY={true} highlighted={currentScroll === 5} />
+                </Link>
+              </span>
+            </li>
+          </span>
+        </ul>
+      </nav>
+      {opened && (
+        <div
+          className="fixed top-0 left-0 h-screen w-screen bg-black opacity-80 z-20"
+          onClick={onClose}
+        ></div>
+      )}
+    </>
+  );
+};
+
+export default Nav;
