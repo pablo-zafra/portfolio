@@ -26,32 +26,46 @@ const Work: React.FC = () => {
     const el = scrollRef.current;
     if (!el || !isMobile) return;
 
-    const minScroll = window.innerWidth * 0.5 - 16;
+    el.style.touchAction = "auto"; // O 'none' si necesitas control total
 
-    const timeout = setTimeout(() => {
+    const minScroll = () => window.innerWidth * 0.5 - 16;
+
+    const startPos = setTimeout(() => {
       el.scrollTo({
-        left: minScroll,
+        left: minScroll(),
         behavior: "smooth",
       });
-    }, 600);
+    }, 50);
 
     let scrollTimeout: NodeJS.Timeout | null = null;
 
-    const onScroll = () => {
+    const scrollToClosestSnapPoint = () => {
+      const snapPoints: number[] = workData.map(
+        (item, index) =>
+          minScroll() + (window.innerWidth * 0.23332 + 16) * index
+      );
+      const snapDistances = snapPoints.map((point) =>
+        Math.abs(point - el.scrollLeft)
+      );
+      const closestDistance = Math.min(...snapDistances);
+      const closestSnapIndex = snapDistances.indexOf(closestDistance);
+      const closestSnapPoint = snapPoints[closestSnapIndex];
       if (scrollTimeout) clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(() => {
-        if (el.scrollLeft < minScroll) {
-          el.scrollTo({ left: minScroll, behavior: "smooth" });
-        }
-      }, 50);
+        isDragging.current = false;
+        el.scrollTo({
+          left: closestSnapPoint,
+          behavior: "smooth",
+        });
+      }, 100);
     };
-    el.addEventListener("scroll", onScroll);
 
     const onPointerDown = (e: PointerEvent) => {
       isDragging.current = true;
       startX.current = e.pageX - el.offsetLeft;
       scrollLeft.current = el.scrollLeft;
       el.setPointerCapture(e.pointerId);
+      e.preventDefault();
     };
 
     const onPointerMove = (e: PointerEvent) => {
@@ -61,28 +75,53 @@ const Work: React.FC = () => {
       el.scrollLeft = scrollLeft.current - walk;
     };
 
-    const onPointerUp = (e: PointerEvent) => {
-      isDragging.current = false;
-      el.releasePointerCapture(e.pointerId);
-      if (el.scrollLeft < minScroll) {
-        el.scrollLeft = minScroll;
+    // Creamos una función común para la lógica de finalización del arrastre
+    const endDrag = (e: PointerEvent) => {
+      if (!isDragging.current) return; // Solo si estábamos arrastrando
+      console.log("Pointer Up/Cancel/Leave - ending drag");
+      // Solo liberar la captura si el elemento la tiene
+      if (el.hasPointerCapture(e.pointerId)) {
+        el.releasePointerCapture(e.pointerId);
       }
+      scrollToClosestSnapPoint();
+    };
+
+    const onPointerUp = (e: PointerEvent) => {
+      console.log("Pointer Up");
+      endDrag(e); // Llama a la función común
+    };
+
+    // Es crucial manejar pointercancel también, ya que el navegador puede interrumpir el gesto
+    const onPointerCancel = (e: PointerEvent) => {
+      console.log("Pointer Cancel");
+      endDrag(e); // Llama a la función común
+    };
+
+    const onPointerLeave = (e: PointerEvent) => {
+      console.log("Pointer Leave");
+      // Si el puntero se fue mientras arrastrábamos, también finalizamos el arrastre
+      // Sin embargo, si el puntero se fue y *luego* se soltó el botón, onPointerUp ya se encargó.
+      // `endDrag` ya tiene la protección `if (!isDragging.current) return;`
+      // para evitar esto si el `pointerup` se encargó ya.
+      endDrag(e);
     };
 
     el.addEventListener("pointerdown", onPointerDown);
     el.addEventListener("pointermove", onPointerMove);
     el.addEventListener("pointerup", onPointerUp);
-    el.addEventListener("pointerleave", onPointerUp);
+    el.addEventListener("pointercancel", onPointerCancel); // ¡Añadir este listener!
+    el.addEventListener("pointerleave", onPointerLeave);
 
     return () => {
-      clearTimeout(timeout);
-      el.removeEventListener("scroll", onScroll);
+      clearTimeout(startPos);
       el.removeEventListener("pointerdown", onPointerDown);
       el.removeEventListener("pointermove", onPointerMove);
       el.removeEventListener("pointerup", onPointerUp);
-      el.removeEventListener("pointerleave", onPointerUp);
+      el.removeEventListener("pointercancel", onPointerCancel);
+      el.removeEventListener("pointerleave", onPointerLeave);
+      el.style.removeProperty("touch-action"); // Limpiar el estilo al desmontar
     };
-  }, [isMobile]);
+  }, [isMobile]); // Asegúrate de que las dependencias sean correctas
 
   const { inViewportElemRef: WorkSectionRef, isInView: WorkSectionInView } =
     useInView({

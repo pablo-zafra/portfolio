@@ -18,7 +18,7 @@ export const useBreakpoints = () => {
 
   useEffect(() => {
     const handleTouchStart = () => {
-      console.log("Touch detected");
+      // console.log("Touch detected");
       hasTouched.current = true;
       setIsTouchDevice(true);
       document.body.classList.add("touch-device");
