@@ -60,7 +60,7 @@ const Skills: React.FC = () => {
       setJoinBoxState({ isActive: false, className: "" });
       return;
     } else {
-      console.log("Updating step:", step);
+      // console.log("Updating step:", step);
       if (step <= 0) {
         // Front-end Development
         setJoinBoxState({
@@ -116,6 +116,9 @@ const Skills: React.FC = () => {
   };
 
   useEffect(() => {
+    if (!isTouchDevice) {
+      return;
+    }
     updateJoinBox(listHighlight);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [listHighlight]);
@@ -134,8 +137,8 @@ const Skills: React.FC = () => {
 
     const st = ScrollTrigger.create({
       trigger: listElement,
-      start: "top 70%",
-      end: "bottom 40%",
+      start: "top 85%",
+      end: "bottom 30%",
       scrub: true,
       onUpdate: (self) => {
         const step = Math.min(
@@ -143,7 +146,7 @@ const Skills: React.FC = () => {
           Math.floor(self.progress * totalSteps)
         );
         setListHighlight(step);
-        console.log("step: ", step);
+        // console.log("step: ", step);
       },
     });
 
@@ -203,10 +206,12 @@ const Skills: React.FC = () => {
           </h2>
         </div>
         <div className="relative text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
-          <JoinBox
-            isActive={joinBoxState.isActive}
-            className={joinBoxState.className}
-          />
+          {isTouchDevice && (
+            <JoinBox
+              isActive={joinBoxState.isActive}
+              className={joinBoxState.className}
+            />
+          )}
           <ul
             ref={listRef}
             className="flex flex-col gap-3 leading-snug sm:my-[-0.3em] font-semibold whitespace-nowrap"
