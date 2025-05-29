@@ -13,6 +13,7 @@ export const useBreakpoints = () => {
   const [isTablet, setIsTablet] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const [isXL, setIsXL] = useState(false);
+  const [isResizing, setResizing] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const hasTouched = useRef(false);
 
@@ -32,6 +33,8 @@ export const useBreakpoints = () => {
       );
       setIsDesktop(window.innerWidth >= breakpoints.lg);
       setIsXL(window.innerWidth >= breakpoints.xl);
+      setResizing(true);
+      setResizing(false);
     };
 
     handleResize();
@@ -48,5 +51,5 @@ export const useBreakpoints = () => {
     };
   }, []);
 
-  return { isMobile, isTablet, isDesktop, isXL, isTouchDevice };
+  return { isMobile, isTablet, isDesktop, isXL, isResizing, isTouchDevice };
 };

@@ -9,14 +9,14 @@ import {
 
 export default function Home() {
   return (
-    <>
+    <main>
       <CursorFollower />
       <Hero />
       <AboutMe />
-      <FunDivider top="bg-gray-light" />
+      <FunDivider />
       <Skills />
       <Work />
-      <FunDivider bottom="bg-gray-light" />
-    </>
+      <FunDivider />
+    </main>
   );
 }

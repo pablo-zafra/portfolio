@@ -6,12 +6,12 @@ interface BtnHamburguesaProps {
 const BtnHamburguesa: React.FC<BtnHamburguesaProps> = ({ opened, onClick }) => {
   return (
     <button
-      className={`relative flex flex-col justify-between cursor-pointer p-3 z-40 `}
+      className={`relative w-full h-full flex flex-col justify-between cursor-pointer z-40`}
       onClick={onClick}
       aria-label={opened ? "Cerrar menú" : "Abrir menú"}
     >
       <div
-        className={`relative w-7 lg:w-9 aspect-6/5 transition-transform duration-300 ease-in-out ${
+        className={`relative w-full h-full transition-transform duration-300 ease-in-out ${
           opened ? "rotate-180" : ""
         }`}
       >

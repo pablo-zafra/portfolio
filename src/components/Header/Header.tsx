@@ -2,10 +2,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import logo from "../../../public/img/pablo-zafra-logo.svg";
-import Image from "next/image";
 import BtnHamburguesa from "./BtnHamburguesa/BtnHamburguesa";
 import Nav from "./Nav/Nav";
+import LogoPabloZafra from "./LogoPabloZafra/LogoPabloZafra";
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,19 +14,18 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="fixed z-50 w-screen flex items-center justify-between py-3 px-3 lg:py-4  lg:px-4">
-      <Link href="/" className="flex items-center">
-        <Image
-          className="mx-2 w-16 lg:w-24 h-auto mr-2"
-          src={logo}
-          alt="Logo"
-          width={undefined}
-          height={undefined}
-        />
-      </Link>
+    <header className="">
+      <div className="fixed z-30 w-screen h-14 md:h-16 flex items-center justify-between p-2 md:p-3 mix-blend-difference">
+        <Link href="/" className="relative p-2 h-full">
+          <div className="relative h-full w-auto">
+            <LogoPabloZafra />
+          </div>
+        </Link>
 
-      <BtnHamburguesa opened={menuOpen} onClick={toggleMenu} />
-
+        <div className="p-2.5 h-full aspect-6/5">
+          <BtnHamburguesa opened={menuOpen} onClick={toggleMenu} />
+        </div>
+      </div>
       <Nav opened={menuOpen} onClose={() => setMenuOpen(false)} />
     </header>
   );

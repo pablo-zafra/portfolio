@@ -18,11 +18,11 @@ const FunDivider: React.FC<FunDividerOptions> = ({ top, bottom }) => {
   }, []);
 
   return (
-    <div className="w-full overflow-x-clip overflow-y-visible">
+    <div className="w-full overflow-x-clip z-9">
       <div
-        className={`relative z-9 h-0 overflow-visible transition-transform duration-400 ease-linear`}
+        className={`relative h-fit transition-transform duration-400 ease-linear`}
       >
-        <div className="absolute -translate-y-1/2">
+        <div className="relative -my-1">
           {top ? <div className={`${top} pb-30 w-full`}></div> : null}
           <div className="relative bg-white overflow-x-hidden text-gray-dark text-xs uppercase font-mono">
             <div
