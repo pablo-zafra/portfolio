@@ -1,0 +1,9 @@
+.word {
+  display: inline-block;
+  vertical-align: bottom;
+  overflow: hidden;
+}
+
+.word-inner {
+  display: inline-block;
+}

@@ -1,0 +1,35 @@
+.custom-highlight {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  --animate-width: 0%;
+  --animate-padding-X: 0em;
+}
+
+.custom-highlight::before {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transform-origin: left;
+  width: var(--animate-width);
+  padding-left: var(--animate-padding-X);
+  padding-right: var(--animate-padding-X);
+  content: "";
+  background-color: var(--color-turquesa);
+  border-radius: 100em;
+  margin: -0.2em 0;
+}
+
+.custom-highlight::after {
+  content: attr(highlight-text);
+  position: absolute;
+  inset: 0;
+  color: white;
+  padding: 0.2em 0.3em;
+  margin-top: -0.2em;
+  margin-bottom: -0.2em;
+  overflow: hidden;
+  pointer-events: none;
+  clip-path: inset(0 calc(100% - var(--animate-width)) -0.1em 0 round 100em);
+  border-radius: 100em;
+}

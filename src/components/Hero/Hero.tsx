@@ -80,7 +80,7 @@ const Hero: React.FC = () => {
   }, [HeroInView]);
 
   return (
-    <div
+    <section
       id="hero-section"
       ref={HeroRef}
       className="relative h-screen w-full flex justify-center items-center text-left overflow-hidden"
@@ -207,7 +207,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

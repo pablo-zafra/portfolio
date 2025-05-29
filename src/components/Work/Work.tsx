@@ -107,7 +107,7 @@ const Work: React.FC = () => {
   }, [WorkSectionInView]);
 
   return (
-    <div
+    <section
       id="work-section"
       ref={WorkSectionRef}
       className="relative flex flex-col md:flex-row mb-40 md:mb-32 gap-6"
@@ -141,7 +141,7 @@ const Work: React.FC = () => {
           )}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

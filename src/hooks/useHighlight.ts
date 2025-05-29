@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import styles from "./useHighlight.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,8 +20,8 @@ export const useHighlight = (options?: HighlightAnimationOptions) => {
     const element = elementRef.current;
     if (!element) return;
 
-    if (!element.classList.contains("custom-highlight")) {
-      element.classList.add("custom-highlight");
+    if (!element.classList.contains(styles["custom-highlight"])) {
+      element.classList.add(styles["custom-highlight"]);
     }
 
     // Añadir el atributo highlight-text con el contenido del elemento
@@ -59,7 +60,7 @@ export const useHighlight = (options?: HighlightAnimationOptions) => {
     return () => {
       ScrollTrigger.getById(element.id)?.kill();
       gsap.killTweensOf(element);
-      element.classList.remove("custom-highlight");
+      element.classList.remove(styles["custom-highlight"]);
       element.removeAttribute("highlight-text");
       if (textColor) {
         element.style.removeProperty("color");

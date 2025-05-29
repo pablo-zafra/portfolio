@@ -172,7 +172,7 @@ const Skills: React.FC = () => {
   }, [SkillsSectionInView]);
 
   return (
-    <div
+    <section
       id="skills-section"
       ref={SkillsSectionRef}
       className="relative flex items-center justify-center overflow-hidden pt-32 md:pl-[20vw] 2xl:pl-60"
@@ -250,7 +250,7 @@ const Skills: React.FC = () => {
           </ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
