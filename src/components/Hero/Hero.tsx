@@ -1,83 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
-import {
-  useTextReveal,
-  useElementReveal,
-  useCursor,
-  useInView,
-} from "../../hooks/";
-import { useScrollContext } from "../../context";
-import profilePhoto from "../../../public/img/profile-photo.jpg";
-import reactLogo from "../../../public/img/react.png";
-import nextLogo from "../../../public/img/nextjs.png";
-import tsLogo from "../../../public/img/typescript.png";
 import { Pencil } from "../3dModels";
 import { DottedLine } from "../";
-import SpinThePen from "../HandWrittenCTAs/SpinThePen/SpinThePen";
+import { SpinThePen } from "../HandWrittenCTAs";
+import useHero from "./useHero";
 
 const Hero: React.FC = () => {
-  const [ctaView, setCtaView] = useState(true);
-  const { setScrollData } = useScrollContext();
-
-  const revealH1Ref = useTextReveal({
-    duration: 1.2,
-    stagger: 0.11,
-  });
-
-  const revealDescriptionRef = useTextReveal({
-    duration: 1,
-    delay: 1,
-    stagger: 0.025,
-    start: "top bottom",
-  });
-
-  const revealLogos = useElementReveal({
-    duration: 0.8,
-    stagger: 0.15,
-    start: "top bottom",
-    y: "40px",
-    delay: 1.5,
-  });
-
-  const revealLines = useElementReveal({
-    duration: 3,
-    stagger: 0.2,
-    delay: 0.5,
-    animation: "fadeIn",
-  });
-
-  const revealTitular = (e: HTMLHeadingElement) => {
-    revealH1Ref.current = e;
-    revealLines.current = e;
-  };
-
-  const spinCursor = useCursor({
-    className: "w-20! rotate-26! text-md",
-    message: "Spin it!",
-    icon: "threeDRotation",
-  });
-
-  const { inViewportElemRef: PencilTriggerRef, isInView: PencilInView } =
-    useInView({
-      start: "top bottom",
-      end: "bottom -50%",
-    });
-
-  const { inViewportElemRef: HeroRef, isInView: HeroInView } = useInView({
-    start: "top bottom",
-    end: "bottom 50%",
-  });
-
-  useEffect(() => {
-    if (!HeroInView) return;
-    setScrollData({ current: 1 });
-    // console.log("Section In View: Intro");
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [HeroInView]);
+  const {
+    HeroRef,
+    titularRef,
+    logosRef,
+    descriptionRef,
+    PencilTriggerRef,
+    PencilInView,
+    spinItCursorRef,
+    ctaView,
+    setCtaView,
+  } = useHero();
 
   return (
     <section
@@ -88,7 +29,7 @@ const Hero: React.FC = () => {
       <div className="relative flex flex-col lg:flex-row justify-center items-center md:items-end max-w-[1480px] gap-26 md:gap-12 2xl:gap-21 translate-y-1/6 lg:-translate-y-1/6">
         <div className="relative flex justify-center items-center">
           <div
-            ref={spinCursor}
+            ref={spinItCursorRef}
             className="absolute w-9/10 max-h-screen aspect-7/8 lg:translate-x-1/2 lg:translate-y-1/15"
           >
             <div
@@ -110,7 +51,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
           <h1
-            ref={revealTitular}
+            ref={titularRef}
             className="top-1/2 text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl leading-tight font-semibold z-1 relative whitespace-nowrap"
           >
             <span className="ml-[0.7em] relative reveal-text">Hi! </span>
@@ -118,11 +59,11 @@ const Hero: React.FC = () => {
               className={`relative inline-block align-baseline overflow-visible ${styles.profileImgWrapper}`}
             >
               <Image
-                src={profilePhoto}
+                src="/img/profile-photo.jpg"
                 alt="Pablo"
                 className="absolute w-full h-auto rounded-full bottom-0 translate-y-1/10"
-                width={undefined}
-                height={undefined}
+                width={400}
+                height={400}
               />
             </span>
             <span className="relative">
@@ -169,7 +110,7 @@ const Hero: React.FC = () => {
           </h1>
         </div>
         <div
-          ref={revealDescriptionRef}
+          ref={descriptionRef}
           className="shrink max-w-44 xs:max-w-54 xl:max-w-68 2xl:max-w-80 flex flex-col justify-center items-center md:items-start lg:translate-y-full z-1 relative"
         >
           <p className="font-light text-xs xs:text-sm xl:text-base text-center md:text-left">
@@ -180,28 +121,28 @@ const Hero: React.FC = () => {
               code.
             </span>
           </p>
-          <div ref={revealLogos} className="flex mt-6 h-5 md:h-8 gap-4">
+          <div ref={logosRef} className="flex mt-6 h-5 md:h-8 gap-4">
             <Image
-              src={reactLogo}
+              src="/img/react.png"
               alt="React"
               className="w-auto h-full reveal-element"
-              width={undefined}
+              width={40}
               height={40}
             />
 
             <Image
-              src={nextLogo}
+              src="/img/nextjs.png"
               alt="Next.js"
               className="w-auto h-full reveal-element"
-              width={undefined}
+              width={40}
               height={40}
             />
 
             <Image
-              src={tsLogo}
+              src="/img/typescript.png"
               alt="TypeScript"
               className="w-auto h-full reveal-element"
-              width={undefined}
+              width={40}
               height={40}
             />
           </div>

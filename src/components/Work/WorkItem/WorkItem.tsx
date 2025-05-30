@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
-import { useCursor } from "../../../hooks";
+import useWorkItem from "./useWorkItem";
 
 interface WorkItemProps {
   itemKey: number;
@@ -36,158 +35,8 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
   const bgColor = bg! ? bg : "white";
   const mainImg = `/img/work/${slug}/${slug}.jpg`;
 
-  const imgWrapperRef = useRef(null);
-  const txtWrapperRef = useRef(null);
-
-  const imgCursorRef = useCursor({
-    className: "w-22! rotate-26! text-md ",
-    message: "See project",
-    icon: "arrowOutward",
-  });
-
-  const headingCursorRef = useCursor({
-    className: "w-22! rotate-26! text-md",
-    message: "See project",
-    icon: "arrowOutward",
-  });
-
-  // Animation Img for Desktop
-  useEffect(() => {
-    const imgWrapper = imgWrapperRef.current;
-    if (!imgWrapper || isMobile) return;
-    (imgWrapper as HTMLElement).removeAttribute("style");
-
-    const imgAnimDesktop = gsap.timeline({
-      scrollTrigger: {
-        trigger: imgWrapper,
-        start: "center 90%",
-        end: "center 10%",
-        scrub: true,
-        invalidateOnRefresh: true,
-        id: `imgWrapperTrigger-${itemKey}`,
-      },
-    });
-
-    imgAnimDesktop
-      .from(imgWrapper, { width: "50%", duration: 1, ease: "power1.inOut" })
-      .to(imgWrapper, { width: "100%", duration: 1, ease: "power1.inOut" })
-      .to(imgWrapper, { width: "50%", duration: 1, ease: "power1.inOut" });
-
-    return () => {
-      imgAnimDesktop.scrollTrigger?.kill();
-    };
-  }, [itemKey, isMobile]);
-
-  // Animation Img for Mobile
-  useEffect(() => {
-    const imgWrapper = imgWrapperRef.current;
-    const scroller = itemsContainerRef.current;
-    if (!imgWrapper || !scroller || !isMobile) return;
-    (imgWrapper as HTMLElement).removeAttribute("style");
-
-    const imgAnimMobile = gsap.timeline({
-      scrollTrigger: {
-        trigger: imgWrapper,
-        start: "right 100%",
-        end: "right 6rem",
-        scrub: true,
-        horizontal: true,
-        invalidateOnRefresh: true,
-        id: `imgWrapperTrigger-${itemKey}`,
-        scroller: scroller || undefined,
-      },
-    });
-
-    imgAnimMobile
-      .from(imgWrapper, { height: "50%", duration: 1, ease: "power1.inOut" })
-      .to(imgWrapper, { height: "100%", duration: 2, ease: "power1.inOut" })
-      .to(imgWrapper, { height: "50%", duration: 1, ease: "power1.inOut" });
-
-    return () => {
-      imgAnimMobile.scrollTrigger?.kill();
-    };
-  }, [itemKey, isMobile, itemsContainerRef]);
-
-  // Animation Txt for Desktop
-  useEffect(() => {
-    const txtWrapper = txtWrapperRef.current;
-    if (!txtWrapper || isMobile) return;
-    (txtWrapper as HTMLElement).removeAttribute("style");
-
-    const TxtAnimDesktop = gsap.timeline({
-      scrollTrigger: {
-        trigger: txtWrapper,
-        start: "center 50%",
-        end: "center 20%",
-        scrub: true,
-        invalidateOnRefresh: true,
-        id: `txtWrapperTrigger-${itemKey}`,
-      },
-    });
-
-    TxtAnimDesktop.to(txtWrapper, {
-      opacity: "0",
-      display: "none",
-      duration: 1,
-      ease: "power1.inOut",
-    })
-      .to(txtWrapper, {
-        opacity: "1",
-        display: "flex",
-        duration: 1,
-        ease: "power1.inOut",
-      })
-      .to(txtWrapper, {
-        opacity: "1",
-        display: "flex",
-        duration: 1,
-        ease: "power1.inOut",
-      })
-      .to(txtWrapper, {
-        opacity: "0",
-        display: "none",
-        duration: 1,
-        ease: "power1.inOut",
-      });
-
-    return () => {
-      TxtAnimDesktop.scrollTrigger?.kill();
-    };
-  }, [itemKey, isMobile]);
-
-  // Animation Txt for Mobile
-  useEffect(() => {
-    const txtWrapper = txtWrapperRef.current;
-    const scroller = itemsContainerRef.current;
-    if (!txtWrapper || !scroller || !isMobile) return;
-    (txtWrapper as HTMLElement).removeAttribute("style");
-
-    const TxtAnimMobile = gsap.timeline({
-      scrollTrigger: {
-        trigger: txtWrapper,
-        start: "left 25%",
-        end: "left -10%",
-        scrub: true,
-        horizontal: true,
-        invalidateOnRefresh: true,
-        id: `txtWrapperTrigger-${itemKey}`,
-        scroller: scroller || undefined,
-      },
-    });
-
-    TxtAnimMobile.to(txtWrapper, {
-      opacity: "0",
-      duration: 1,
-      ease: "power1.inOut",
-    })
-      .to(txtWrapper, { opacity: "1", duration: 1, ease: "power1.inOut" })
-      .to(txtWrapper, { opacity: "1", duration: 1, ease: "power1.inOut" })
-      .to(txtWrapper, { opacity: "0", duration: 1, ease: "power1.inOut" });
-
-    return () => {
-      TxtAnimMobile.scrollTrigger?.kill();
-    };
-  }, [itemKey, isMobile, itemsContainerRef]);
+  const { imgWrapperRef, txtWrapperRef, imgCursorRef, headingCursorRef } =
+    useWorkItem({ itemKey, isMobile, itemsContainerRef });
 
   return (
     <div className="relative flex flex-col-reverse w-fit md:flex-row justify-end gap-11 md:w-full overflow-visible">

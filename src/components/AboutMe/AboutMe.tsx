@@ -1,47 +1,23 @@
 "use client";
 
-import topCurve from "../../../public/img/top-curve.svg";
-import {
-  useBreakpoints,
-  useCursor,
-  useHighlight,
-  useInView,
-} from "../../hooks";
-import { useScrollContext } from "../../context";
-import { useEffect } from "react";
 import JoinBox from "../JoinBox/JoinBox";
+import useAboutMe from "./useAboutMe";
 
 export const AboutMe: React.FC = () => {
-  const highlightRef01 = useHighlight();
-  const { setScrollData } = useScrollContext();
-  const malagaCursorRef = useCursor({
-    className: "w-36! text-md rounded-xl! bg-[url(/img/malaga.gif)]",
-  });
-  const { isTouchDevice } = useBreakpoints();
-
-  const { inViewportElemRef: AboutRef, isInView: AboutInView } = useInView({
-    start: "top 50%",
-    end: "bottom 50%",
-  });
-
-  const { inViewportElemRef: JoinBoxRef, isInView: JoinBoxInView } = useInView({
-    start: "top 70%",
-    end: "bottom 30%",
-  });
-
-  useEffect(() => {
-    if (!AboutInView) return;
-    setScrollData({ current: 2 });
-    // console.log("Section In View: About");
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [AboutInView]);
+  const {
+    highlightRef,
+    malagaCursorRef,
+    isTouchDevice,
+    AboutRef,
+    JoinBoxRef,
+    JoinBoxInView,
+  } = useAboutMe();
 
   return (
     <section id="about-section" ref={AboutRef}>
       <div
         className={"pb-[12%] bg-no-repeat bg-cover bg-top"}
-        style={{ backgroundImage: `url(${topCurve.src})` }}
+        style={{ backgroundImage: `url("/img/top-curve.svg")` }}
       ></div>
       <div className="flex justify-center items-center bg-gray-light -mt-1">
         <div className="flex flex-col-reverse px-10 xs:px-14 md:max-w-3xl xl:max-w-5xl mt-6 xl:-mt-[3vw] text-gray-dark">
@@ -55,7 +31,7 @@ export const AboutMe: React.FC = () => {
                   />
                 )}
               </div>
-              Based in <span ref={highlightRef01}>Málaga</span>
+              Based in <span ref={highlightRef}>Málaga</span>
             </div>
           </h2>
           <div className="text-lg sm:text-xl lg:text-2xl font-light">
