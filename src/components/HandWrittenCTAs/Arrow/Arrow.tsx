@@ -1,6 +1,6 @@
 import styles from "./Arrow.module.css";
 
-const Arrow: React.FC = () => {
+export const Arrow: React.FC = () => {
   return (
     <svg viewBox="0 0 53 195" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -22,5 +22,3 @@ const Arrow: React.FC = () => {
     </svg>
   );
 };
-
-export default Arrow;

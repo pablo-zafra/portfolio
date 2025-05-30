@@ -1,6 +1,6 @@
-import { useCursor } from "../../hooks";
+import { useCursor } from "../../../hooks";
 
-const useSkillsCursors = () => {
+export const useSkillsCursors = () => {
   const spinCursorRef = useCursor({
     className: "w-20! rotate-26! text-md -translate-y-2/3 -translate-x-3/5",
     message: "Spin it!",
@@ -36,5 +36,3 @@ const useSkillsCursors = () => {
     motiondesignCursorRef,
   };
 };
-
-export default useSkillsCursors;

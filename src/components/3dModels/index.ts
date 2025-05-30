@@ -1,2 +1,2 @@
-export { default as Pencil } from "./Pencil/Pencil";
-export { default as Headphones } from "./Headphones/Headphones";
+export { Pencil } from "./Pencil";
+export { Headphones } from "./Headphones";

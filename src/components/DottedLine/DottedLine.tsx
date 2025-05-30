@@ -8,7 +8,7 @@ interface DottedLineProps {
   delay?: number;
 }
 
-const DottedLine: React.FC<DottedLineProps> = ({
+export const DottedLine: React.FC<DottedLineProps> = ({
   long = "100%",
   direction = "horizontal",
   className = "",
@@ -33,5 +33,3 @@ const DottedLine: React.FC<DottedLineProps> = ({
     </div>
   );
 };
-
-export default DottedLine;

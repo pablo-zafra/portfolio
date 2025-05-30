@@ -1,14 +1,17 @@
 "use client";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { Headphones } from "../3dModels";
-import { SpinTheHeadphones } from "../HandWrittenCTAs";
-import { HandEllipse, JoinBox } from "../";
-import useSkills from "./useSkills";
+import {
+  Headphones,
+  SpinTheHeadphones,
+  HandEllipse,
+  JoinBox,
+} from "../../../components";
+import { useSkills } from "./useSkills";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Skills: React.FC = () => {
+export const Skills: React.FC = () => {
   const {
     listRef,
     SkillsSectionRef,
@@ -113,5 +116,3 @@ const Skills: React.FC = () => {
     </section>
   );
 };
-
-export default Skills;

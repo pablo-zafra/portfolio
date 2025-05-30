@@ -1,9 +1,9 @@
 import { useScrollContext } from "@/context";
 import { useBreakpoints, useInView } from "@/hooks";
 import { useEffect, useRef, useState } from "react";
-import useSkillsCursors from "./useSkillsCursors";
+import { useSkillsCursors } from "./useSkillsCursors";
 
-const useSkills = () => {
+export const useSkills = () => {
   const listRef = useRef<HTMLUListElement>(null);
   const [ctaView, setCtaView] = useState(true);
   const [listHighlight, setListHighlight] = useState(0);
@@ -157,5 +157,3 @@ const useSkills = () => {
     joinBoxState,
   };
 };
-
-export default useSkills;

@@ -4,7 +4,7 @@ interface FormatEmailProps {
   email?: string;
 }
 
-const FormatEmail: React.FC<FormatEmailProps> = ({
+export const FormatEmail: React.FC<FormatEmailProps> = ({
   email = "",
 }: FormatEmailProps) => {
   const { isMobile } = useBreakpoints();
@@ -23,5 +23,3 @@ const FormatEmail: React.FC<FormatEmailProps> = ({
   }
   return email;
 };
-
-export default FormatEmail;

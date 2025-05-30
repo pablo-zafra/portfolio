@@ -1,10 +1,10 @@
-import { useScrollContext } from "../../context";
-import { workData } from "../../data";
-import { useBreakpoints, useInView } from "../../hooks";
 import { useEffect } from "react";
-import useWorkMobileDrag from "./useWorkMobileDrag";
+import { workData } from "../../../data";
+import { useScrollContext } from "../../../context";
+import { useBreakpoints, useInView } from "../../../hooks";
+import { useWorkMobileDrag } from "./useWorkMobileDrag";
 
-const useWork = () => {
+export const useWork = () => {
   const { isMobile } = useBreakpoints();
   const { setScrollData } = useScrollContext();
 
@@ -31,5 +31,3 @@ const useWork = () => {
     isMobile,
   };
 };
-
-export default useWork;

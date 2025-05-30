@@ -6,7 +6,7 @@ import BtnHamburguesa from "./BtnHamburguesa/BtnHamburguesa";
 import Nav from "./Nav/Nav";
 import LogoPabloZafra from "./LogoPabloZafra/LogoPabloZafra";
 
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -30,5 +30,3 @@ const Header: React.FC = () => {
     </header>
   );
 };
-
-export default Header;

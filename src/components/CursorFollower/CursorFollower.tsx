@@ -1,10 +1,10 @@
 "use client";
-import useCursorForllower from "./useCursorForllower";
+import { useCursorForllower } from "./useCursorForllower";
 import ThreeDRotationIcon from "@mui/icons-material/ThreeDRotation";
 import ForwardToInboxIcon from "@mui/icons-material/ForwardToInbox";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
-const CursorFollower: React.FC = () => {
+export const CursorFollower: React.FC = () => {
   const { className, message, icon, cursorRef, isXL, isTouchDevice } =
     useCursorForllower();
 
@@ -28,5 +28,3 @@ const CursorFollower: React.FC = () => {
     </div>
   );
 };
-
-export default CursorFollower;

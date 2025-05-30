@@ -3,7 +3,7 @@ interface JoinBoxProps {
   className?: string;
 }
 
-const JoinBox: React.FC<JoinBoxProps> = ({
+export const JoinBox: React.FC<JoinBoxProps> = ({
   isActive = false,
   className = "",
 }) => {
@@ -15,5 +15,3 @@ const JoinBox: React.FC<JoinBoxProps> = ({
     ></div>
   );
 };
-
-export default JoinBox;

@@ -5,10 +5,10 @@ import {
   useElementReveal,
   useInView,
   useTextReveal,
-} from "../../hooks";
-import { useScrollContext } from "../../context";
+} from "../../../hooks";
+import { useScrollContext } from "../../../context";
 
-const useHero = () => {
+export const useHero = () => {
   const [ctaView, setCtaView] = useState(true);
   const { setScrollData } = useScrollContext();
 
@@ -81,5 +81,3 @@ const useHero = () => {
     setCtaView,
   };
 };
-
-export default useHero;

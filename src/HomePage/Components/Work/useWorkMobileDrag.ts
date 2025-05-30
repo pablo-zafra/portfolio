@@ -1,9 +1,9 @@
-import { workData } from "../../data";
-import { isSafari } from "../../helpers";
-import { useBreakpoints } from "../../hooks";
+import { workData } from "../../../data";
+import { isSafari } from "../../../helpers";
+import { useBreakpoints } from "../../../hooks";
 import { useEffect, useRef } from "react";
 
-const useWorkMobileDrag = () => {
+export const useWorkMobileDrag = () => {
   const isDragging = useRef(false);
   const { isMobile, isResizing } = useBreakpoints();
   const safari: boolean = isSafari();
@@ -85,5 +85,3 @@ const useWorkMobileDrag = () => {
 
   return draggeableOnMobileRef;
 };
-
-export default useWorkMobileDrag;

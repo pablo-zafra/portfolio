@@ -10,7 +10,7 @@ interface UseWorkItemAnimImgProps {
 
 gsap.registerPlugin(ScrollTrigger);
 
-const useWorkItemAnimImg = ({
+export const useWorkItemAnimImg = ({
   itemKey,
   isMobile,
   itemsContainerRef,
@@ -80,5 +80,3 @@ const useWorkItemAnimImg = ({
     imgWrapperRef,
   };
 };
-
-export default useWorkItemAnimImg;

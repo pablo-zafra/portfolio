@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 
-const ScrollControll: React.FC<{ children: React.ReactNode }> = ({
+export const ScrollControll: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   useEffect(() => {
@@ -29,5 +29,3 @@ const ScrollControll: React.FC<{ children: React.ReactNode }> = ({
 
   return <>{children}</>;
 };
-
-export default ScrollControll;

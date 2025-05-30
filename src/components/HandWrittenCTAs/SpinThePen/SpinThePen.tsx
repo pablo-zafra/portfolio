@@ -1,6 +1,6 @@
 import { Arrow } from "../.";
 
-const SpinThePen: React.FC = () => {
+export const SpinThePen: React.FC = () => {
   return (
     <div className="absolute right-1/8 lg:right-1/3 top-0 xl:top-6 pointer-events-none flex flex-col justify-center items-center z-20 opacity-0 animate-[fadeIn_3s_2s_forwards]">
       <div className="w-20 lg:w-26 h-auto">
@@ -33,5 +33,3 @@ const SpinThePen: React.FC = () => {
     </div>
   );
 };
-
-export default SpinThePen;

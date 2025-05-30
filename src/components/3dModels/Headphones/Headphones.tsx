@@ -6,7 +6,7 @@ import { useRef } from "react";
 import { Object3D, Vector3 } from "three";
 import styles from "./Headphones.module.css";
 
-const PencilModel: React.FC = () => {
+const HeadPhonesModel: React.FC = () => {
   const { scene } = useGLTF("/3dmodels/headphones/scene.gltf");
   const ref = useRef<Object3D>(null);
   const position = new Vector3(0, -0.6, 0);
@@ -16,7 +16,7 @@ const PencilModel: React.FC = () => {
   );
 };
 
-export const Pencil: React.FC = () => {
+export const Headphones: React.FC = () => {
   return (
     <div className={`w-full h-full ${styles["slide-in"]}`}>
       <Canvas camera={{ position: [0, 0, 16], fov: 13 }}>
@@ -32,10 +32,8 @@ export const Pencil: React.FC = () => {
           minPolarAngle={Math.PI / 2}
           maxPolarAngle={Math.PI / 2}
         />
-        <PencilModel />
+        <HeadPhonesModel />
       </Canvas>
     </div>
   );
 };
-
-export default Pencil;

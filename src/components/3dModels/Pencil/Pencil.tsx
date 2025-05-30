@@ -37,5 +37,3 @@ export const Pencil: React.FC = () => {
     </div>
   );
 };
-
-export default Pencil;

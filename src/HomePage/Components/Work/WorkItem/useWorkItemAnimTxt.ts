@@ -10,7 +10,7 @@ interface UseWorkItemAnimTxtProps {
 
 gsap.registerPlugin(ScrollTrigger);
 
-const useWorkItemAnimTxt = ({
+export const useWorkItemAnimTxt = ({
   itemKey,
   isMobile,
   itemsContainerRef,
@@ -104,5 +104,3 @@ const useWorkItemAnimTxt = ({
     txtWrapperRef,
   };
 };
-
-export default useWorkItemAnimTxt;

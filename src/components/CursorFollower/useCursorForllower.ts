@@ -2,7 +2,7 @@ import { useCursorContext } from "../../context";
 import { useBreakpoints } from "../../hooks";
 import { useEffect, useRef } from "react";
 
-const useCursorForllower = () => {
+export const useCursorForllower = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   const { cursorData } = useCursorContext();
   const { className, message, icon } = cursorData;
@@ -40,5 +40,3 @@ const useCursorForllower = () => {
     isXL,
   };
 };
-
-export default useCursorForllower;

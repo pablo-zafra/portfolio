@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useScrollContext } from "../../context";
 import { useCursor, useInView } from "../../hooks";
 
-const useFooter = () => {
+export const useFooter = () => {
   const [email, setEmail] = useState("");
   const { setScrollData } = useScrollContext();
   const footerRef = useRef<HTMLElement>(null);
@@ -61,5 +61,3 @@ const useFooter = () => {
     ContactSectionInView,
   };
 };
-
-export default useFooter;

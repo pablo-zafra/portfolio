@@ -1,8 +1,8 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useCursor } from "../../../hooks";
-import useWorkItemAnimTxt from "./useWorkItemAnimTxt";
-import useWorkItemAnimImg from "./useWorkItemAnimImg";
+import { useCursor } from "../../../../hooks";
+import { useWorkItemAnimTxt } from "./useWorkItemAnimTxt";
+import { useWorkItemAnimImg } from "./useWorkItemAnimImg";
 
 interface UseWorkItemProps {
   itemKey: number;
@@ -12,7 +12,7 @@ interface UseWorkItemProps {
 
 gsap.registerPlugin(ScrollTrigger);
 
-const useWorkItem = ({
+export const useWorkItem = ({
   itemKey,
   isMobile,
   itemsContainerRef,
@@ -48,5 +48,3 @@ const useWorkItem = ({
     headingCursorRef,
   };
 };
-
-export default useWorkItem;

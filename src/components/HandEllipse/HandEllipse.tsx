@@ -6,7 +6,7 @@ type Props = {
   highlighted?: boolean;
 };
 
-const HandEllipse: React.FC<Props> = ({
+export const HandEllipse: React.FC<Props> = ({
   flipX = false,
   flipY = false,
   highlighted = false,
@@ -37,5 +37,3 @@ const HandEllipse: React.FC<Props> = ({
     </div>
   );
 };
-
-export default HandEllipse;

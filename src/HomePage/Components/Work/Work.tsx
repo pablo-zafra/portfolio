@@ -2,12 +2,21 @@
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import useWork from "./useWork";
-import WorkItem from "./WorkItem/WorkItem";
+import { WorkItem } from "./WorkItem";
+import { useWork } from "./useWork";
+
+interface WorkDataItem {
+  titleLines: string[];
+  tags?: string[];
+  slug?: string;
+  bg?: string;
+  link?: string;
+  newTab?: boolean;
+}
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Work: React.FC = () => {
+export const Work: React.FC = () => {
   const { workData, draggeableOnMobileRef, WorkSectionRef, isMobile } =
     useWork();
 
@@ -29,7 +38,10 @@ const Work: React.FC = () => {
       >
         <div className="relative flex gap-4 max-md:w-fit md:flex-col md:items-end md:gap-16 md:pt-24 md:pb-86 md:pl-0 md:pr-20 xl:pr-32">
           {workData.map(
-            ({ titleLines, tags, slug, bg, link, newTab }, index) => (
+            (
+              { titleLines, tags, slug, bg, link, newTab }: WorkDataItem,
+              index: number
+            ) => (
               <WorkItem
                 key={index}
                 itemKey={index}
@@ -49,5 +61,3 @@ const Work: React.FC = () => {
     </section>
   );
 };
-
-export default Work;

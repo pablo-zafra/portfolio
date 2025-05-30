@@ -1,11 +1,5 @@
-import {
-  Hero,
-  AboutMe,
-  FunDivider,
-  Skills,
-  Work,
-  CursorFollower,
-} from "../components";
+import { FunDivider, CursorFollower } from "../components";
+import { Hero, AboutMe, Skills, Work } from "../HomePage";
 
 export default function Home() {
   return (

@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
-import useFooter from "./useFooter";
-import FormatEmail from "./FormatEmail";
+import { useFooter } from "./useFooter";
+import { FormatEmail } from "./FormatEmail";
 
-const Footer: React.FC = () => {
+export const Footer: React.FC = () => {
   const { footerRef, email, emailCursor, ContactSectionRef } = useFooter();
 
   return (
@@ -30,5 +30,3 @@ const Footer: React.FC = () => {
     </footer>
   );
 };
-
-export default Footer;

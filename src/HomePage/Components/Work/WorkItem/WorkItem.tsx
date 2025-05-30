@@ -4,13 +4,13 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
-import useWorkItem from "./useWorkItem";
+import { useWorkItem } from "./useWorkItem";
 
 interface WorkItemProps {
   itemKey: number;
   titleLines: string[];
-  tags: string[];
-  slug: string;
+  tags?: string[];
+  slug?: string;
   bg?: string;
   link?: string;
   newTab?: boolean;
@@ -20,7 +20,7 @@ interface WorkItemProps {
 
 gsap.registerPlugin(ScrollTrigger);
 
-const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
+export const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
   const {
     itemKey,
     titleLines,
@@ -73,13 +73,14 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
             )}
           </div>
           <ul className="flex flex-wrap md:justify-end text-base xl:text-lg text-gray mt-2.5 list-none p-0 m-0 gap-x-1">
-            {tags.map((tag, idx) => (
-              <li key={idx} className="flex items-center">
-                {idx > 0 && <span>&nbsp;</span>}
-                <span className="whitespace-nowrap">{tag}</span>
-                {idx < tags.length - 1 && <span>,</span>}
-              </li>
-            ))}
+            {tags &&
+              tags.map((tag, idx) => (
+                <li key={idx} className="flex items-center">
+                  {idx > 0 && <span>&nbsp;</span>}
+                  <span className="whitespace-nowrap">{tag}</span>
+                  {idx < tags.length - 1 && <span>,</span>}
+                </li>
+              ))}
           </ul>
         </div>
       </div>
@@ -128,5 +129,3 @@ const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
     </div>
   );
 };
-
-export default WorkItem;

@@ -1,6 +1,6 @@
 import { Arrow } from "..";
 
-const SpinTheHeadphones: React.FC = () => {
+export const SpinTheHeadphones: React.FC = () => {
   return (
     <div className="absolute right-1/8 lg:right-1/4 bottom-0 md:bottom-1/15 pointer-events-none flex flex-col-reverse justify-center items-end z-20 animate-[fadeIn_3s_2s_forwards]">
       <div className="w-34 lg:w-44 h-auto rotate-11">
@@ -33,5 +33,3 @@ const SpinTheHeadphones: React.FC = () => {
     </div>
   );
 };
-
-export default SpinTheHeadphones;

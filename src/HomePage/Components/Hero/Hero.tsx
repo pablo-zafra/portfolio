@@ -1,13 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import useHero from "./useHero";
-import { Pencil } from "../3dModels";
-import { DottedLine } from "../";
-import { SpinThePen } from "../HandWrittenCTAs";
+import { useHero } from "./useHero";
+import { Pencil, DottedLine, SpinThePen } from "../../../components";
 import styles from "./Hero.module.css";
 
-const Hero: React.FC = () => {
+export const Hero: React.FC = () => {
   const {
     HeroRef,
     titularRef,
@@ -151,5 +149,3 @@ const Hero: React.FC = () => {
     </section>
   );
 };
-
-export default Hero;

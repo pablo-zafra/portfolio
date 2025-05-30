@@ -9,7 +9,7 @@ interface FunDividerOptions {
   bottom?: string;
 }
 
-const FunDivider: React.FC<FunDividerOptions> = ({ top, bottom }) => {
+export const FunDivider: React.FC<FunDividerOptions> = ({ top, bottom }) => {
   const [clientRandomizedLogs, setClientRandomizedLogs] =
     useState<string[]>(logs);
 
@@ -52,5 +52,3 @@ const FunDivider: React.FC<FunDividerOptions> = ({ top, bottom }) => {
     </div>
   );
 };
-
-export default FunDivider;

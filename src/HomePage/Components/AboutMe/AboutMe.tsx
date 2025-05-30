@@ -1,7 +1,7 @@
 "use client";
 
-import JoinBox from "../JoinBox/JoinBox";
-import useAboutMe from "./useAboutMe";
+import { JoinBox } from "../../../components";
+import { useAboutMe } from "./useAboutMe";
 
 export const AboutMe: React.FC = () => {
   const {
@@ -56,5 +56,3 @@ export const AboutMe: React.FC = () => {
     </section>
   );
 };
-
-export default AboutMe;

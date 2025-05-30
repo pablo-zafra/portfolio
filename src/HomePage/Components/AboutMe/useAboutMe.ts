@@ -1,13 +1,13 @@
-import { useScrollContext } from "../../context";
+import { useScrollContext } from "../../../context";
 import {
   useBreakpoints,
   useCursor,
   useHighlight,
   useInView,
-} from "../../hooks";
+} from "../../../hooks";
 import { useEffect } from "react";
 
-const useAboutMe = () => {
+export const useAboutMe = () => {
   const highlightRef = useHighlight();
   const { setScrollData } = useScrollContext();
   const malagaCursorRef = useCursor({
@@ -43,5 +43,3 @@ const useAboutMe = () => {
     JoinBoxInView,
   };
 };
-
-export default useAboutMe;
