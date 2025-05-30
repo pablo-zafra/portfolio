@@ -1,5 +1,3 @@
-"use client";
-
 import { useCursorContext } from "../context/CursorContext";
 import { useRef, useEffect, RefObject } from "react";
 import { useBreakpoints } from "../hooks";

@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import styles from "./Hero.module.css";
+import useHero from "./useHero";
 import { Pencil } from "../3dModels";
 import { DottedLine } from "../";
 import { SpinThePen } from "../HandWrittenCTAs";
-import useHero from "./useHero";
+import styles from "./Hero.module.css";
 
 const Hero: React.FC = () => {
   const {

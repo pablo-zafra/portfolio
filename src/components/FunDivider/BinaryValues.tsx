@@ -6,13 +6,17 @@ interface BinaryValuesProps {
   indexOffset: number;
 }
 
-// export const BinaryValues: React.FC<BinaryValuesProps> = ({ indexOffset }) => {
-//   return (
-//     <span className="inline-block text-turquesa">
-//       {binaryValues[indexOffset]}
-//     </span>
-//   );
-// };
+// ** Sin animación **
+
+// // export const BinaryValues: React.FC<BinaryValuesProps> = ({ indexOffset }) => {
+// //   return (
+// //     <span className="inline-block text-turquesa">
+// //       {binaryValues[indexOffset]}
+// //     </span>
+// //   );
+// // };
+
+// ** Con animación **
 
 export const BinaryValues: React.FC<BinaryValuesProps> = ({ indexOffset }) => {
   const [currentIndex, setCurrentIndex] = useState(

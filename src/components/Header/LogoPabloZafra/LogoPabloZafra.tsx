@@ -1,5 +1,3 @@
-import React from "react";
-
 interface LogoProps {
   classSVG?: string;
   classPath?: string;

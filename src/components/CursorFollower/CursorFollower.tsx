@@ -1,45 +1,18 @@
 "use client";
-import { useEffect, useRef } from "react";
-import { useCursorContext } from "@/context/CursorContext";
+import useCursorForllower from "./useCursorForllower";
 import ThreeDRotationIcon from "@mui/icons-material/ThreeDRotation";
 import ForwardToInboxIcon from "@mui/icons-material/ForwardToInbox";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-import { useBreakpoints } from "../../hooks";
 
 const CursorFollower: React.FC = () => {
-  const cursorRef = useRef<HTMLDivElement>(null);
-  const { cursorData } = useCursorContext();
-  const { className, message, icon } = cursorData;
-  const { isXL, isTouchDevice } = useBreakpoints();
+  const { className, message, icon, cursorRef, isXL, isTouchDevice } =
+    useCursorForllower();
 
   const avaiableIcons: Record<string, React.ReactNode> = {
     threeDRotation: <ThreeDRotationIcon />,
     forwardToInbox: <ForwardToInboxIcon />,
     arrowOutward: <ArrowOutwardIcon />,
   };
-
-  useEffect(() => {
-    const cursorElement = cursorRef.current;
-    if (!cursorElement) {
-      return;
-    }
-
-    const moveCursor = (e: MouseEvent) => {
-      const x = e.clientX;
-      const y = e.clientY;
-      cursorElement.style.translate = `calc(-60% + ${x}px) calc(-75% + ${y}px)`;
-    };
-
-    if (isXL) {
-      window.addEventListener("mousemove", moveCursor);
-    } else {
-      window.removeEventListener("mousemove", moveCursor);
-    }
-
-    return () => {
-      window.removeEventListener("mousemove", moveCursor);
-    };
-  }, [isXL]);
 
   if (!isXL || isTouchDevice) {
     return null;

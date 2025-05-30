@@ -2,8 +2,8 @@
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import WorkItem from "./WorkItem/WorkItem";
 import useWork from "./useWork";
+import WorkItem from "./WorkItem/WorkItem";
 
 gsap.registerPlugin(ScrollTrigger);
 

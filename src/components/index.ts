@@ -1,6 +1,6 @@
 export { default as Header } from "./Header/Header";
 export { default as Hero } from "./Hero/Hero";
-export { default as AboutMe } from "./AboutMe/AboutMe";
+export { AboutMe } from "./AboutMe/";
 export { default as FunDivider } from "./FunDivider/FunDivider";
 export { default as ScrollControll } from "./ScrollControll/ScrollControll";
 export { default as Skills } from "./Skills/Skills";

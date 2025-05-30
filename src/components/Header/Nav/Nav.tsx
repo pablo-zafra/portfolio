@@ -1,7 +1,7 @@
-import { useScrollContext } from "../../../context";
-import { HandEllipse } from "../..";
-import { useCursor } from "../../../hooks";
+"use client";
 import Link from "next/link";
+import useNav from "./useNav";
+import { HandEllipse } from "../..";
 
 interface OffCanvasMenuProps {
   opened: boolean;
@@ -9,24 +9,14 @@ interface OffCanvasMenuProps {
 }
 
 const Nav: React.FC<OffCanvasMenuProps> = ({ opened, onClose }) => {
-  const scrollData = useScrollContext();
-  const currentScroll = scrollData.scrollData.current || 1;
-  const introCursorRef = useCursor({
-    className: "w-32 rounded-xl text-3xl bg-[url(/img/screenshots/Intro.jpg)]",
-  });
-  const aboutCursorRef = useCursor({
-    className: "w-32 rounded-xl text-3xl bg-[url(/img/screenshots/About.jpg)]",
-  });
-  const skillsCursorRef = useCursor({
-    className: "w-32 rounded-xl text-3xl bg-[url(/img/screenshots/Skills.jpg)]",
-  });
-  const workCursorRef = useCursor({
-    className: "w-32 rounded-xl text-3xl bg-[url(/img/screenshots/Work.jpg)]",
-  });
-  const contactCursorRef = useCursor({
-    className:
-      "w-32 rounded-xl text-3xl bg-[url(/img/screenshots/Contact.jpg)]",
-  });
+  const {
+    introCursorRef,
+    aboutCursorRef,
+    skillsCursorRef,
+    workCursorRef,
+    contactCursorRef,
+    currentScroll,
+  } = useNav();
 
   return (
     <>
