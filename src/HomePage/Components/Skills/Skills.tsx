@@ -1,6 +1,4 @@
 "use client";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import {
   Headphones,
   SpinTheHeadphones,
@@ -8,8 +6,6 @@ import {
   JoinBox,
 } from "../../../components";
 import { useSkills } from "./useSkills";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const Skills: React.FC = () => {
   const {
@@ -38,7 +34,7 @@ export const Skills: React.FC = () => {
     <section
       id="skills-section"
       ref={SkillsSectionRef}
-      className="relative flex items-center justify-center overflow-hidden pt-32 md:pl-[20vw] 2xl:pl-60"
+      className="relative flex items-center justify-center overflow-hidden py-12 md:pl-[20vw] 2xl:pl-60"
     >
       <div className="relative flex flex-col md:flex-row-reverse text-gray-light my-44 sm:my-52 gap-8 md:gap-14 max-md:-translate-y-20">
         <div
