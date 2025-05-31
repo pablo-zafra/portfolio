@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Footer, Header, ScrollControll } from "../components";
+import { Footer, FunDivider, Header, ScrollControll } from "../components";
 import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
 import { CursorProvider, ScrollProvider } from "../context";
 
@@ -14,6 +14,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Pablo Zafra",
   description: "Frontend developer, UI/UX designer, Motion Designer",
+  icons: {
+    icon: "img/pencil.svg",
+  },
 };
 
 export default function RootLayout({
@@ -35,6 +38,7 @@ export default function RootLayout({
               <LoadingScreen />
               <Header />
               {children}
+              <FunDivider />
               <Footer />
             </CursorProvider>
           </ScrollProvider>

@@ -30,7 +30,7 @@ const Nav: React.FC<OffCanvasMenuProps> = ({ opened, onClose }) => {
             <li className="relative ml-[1em] w-fit cursor-pointer">
               <span ref={introCursorRef} className="block overflow-hidden">
                 <Link
-                  href="#hero-section"
+                  href="/#hero-section"
                   onClick={onClose}
                   className={`inline-block relative px-2 py-1 md:px-6 md:py-1 ${
                     !opened
@@ -46,7 +46,7 @@ const Nav: React.FC<OffCanvasMenuProps> = ({ opened, onClose }) => {
             <li className="relative ml-[0em] w-fit cursor-pointer">
               <span ref={aboutCursorRef} className="block overflow-hidden">
                 <Link
-                  href="#about-section"
+                  href="/#about-section"
                   onClick={onClose}
                   className={`inline-block relative px-2 py-1 md:px-6 md:py-1 ${
                     !opened
@@ -62,7 +62,7 @@ const Nav: React.FC<OffCanvasMenuProps> = ({ opened, onClose }) => {
             <li className="relative ml-[2.5em] w-fit -transform cursor-pointer">
               <span ref={skillsCursorRef} className="block overflow-hidden">
                 <Link
-                  href="#skills-section"
+                  href="/#skills-section"
                   onClick={onClose}
                   className={`inline-block relative px-2 py-1 md:px-6 md:py-1 ${
                     !opened
@@ -78,7 +78,7 @@ const Nav: React.FC<OffCanvasMenuProps> = ({ opened, onClose }) => {
             <li className="relative ml-[3.5em] w-fit cursor-pointer">
               <span ref={workCursorRef} className="block overflow-hidden">
                 <Link
-                  href="#work-section"
+                  href="/#work-section"
                   onClick={onClose}
                   className={`inline-block relative px-2 py-1 md:px-6 md:py-1 ${
                     !opened
@@ -98,7 +98,7 @@ const Nav: React.FC<OffCanvasMenuProps> = ({ opened, onClose }) => {
             <li className="relative ml-[1.5em] w-fit cursor-pointer">
               <span ref={contactCursorRef} className="block overflow-hidden">
                 <Link
-                  href="#contact-section"
+                  href="/#contact-section"
                   onClick={onClose}
                   className={`inline-block relative px-2 py-1 md:px-6 md:py-1 ${
                     !opened

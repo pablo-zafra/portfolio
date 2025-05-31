@@ -1,7 +1,7 @@
 import { FunDivider, CursorFollower } from "../components";
 import { Hero, AboutMe, Skills, Work } from "../HomePage";
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <main>
       <CursorFollower />
@@ -10,7 +10,8 @@ export default function Home() {
       <FunDivider />
       <Skills />
       <Work />
-      <FunDivider />
     </main>
   );
-}
+};
+
+export default Home;
