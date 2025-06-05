@@ -1,2 +1,5 @@
 export * from "./Heading";
-export * from "./MainImg";
+export * from "./ImgBg";
+export * from "./CustomH2";
+export * from "./CustomH3";
+export * from "./CustomP";
