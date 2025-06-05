@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { Heading, MainImg } from "../components";
 
 export const metadata: Metadata = {
   title: "Local TV Network Brand Restyling",
@@ -8,6 +8,9 @@ export const metadata: Metadata = {
 
 const BrandRestyling: React.FC = () => {
   const slug = "local-tv-network-brand-restyling";
+  const title = "Local TV Network Brand Restyling";
+  const description =
+    "Trying to maintain the brand's identity while keeping it consistent with the modern digital landscape. This project was an important step in the brand's evolution and helped to establish a strong and recognizable brand identity.";
 
   const bgColor = "#d2d2d2";
   const mainImg = `/img/work/${slug}/${slug}.jpg`;
@@ -15,28 +18,8 @@ const BrandRestyling: React.FC = () => {
   return (
     <main className="min-h-screen flex flex-col items-center">
       <div className="flex flex-col items-center max-w-5xl w-full py-28 gap-6">
-        <div className="flex flex-col w-full max-w-3xl px-6 gap-4">
-          <h1 className="text-4xl font-bold">
-            Local TV Network Brand Restyling
-          </h1>
-          <p className="text-lg font-light">
-            Trying to maintain the brand&apos;s identity while keeping it
-            consistent with the modern digital landscape. This project was an
-            important step in the brand&apos;s evolution and helped to establish
-            a strong and recognizable brand identity.
-          </p>
-        </div>
-        <div
-          className={`relative flex flex-col items-center w-full aspect-5/3 rounded-lg overflow-hidden bg-[${bgColor}] `}
-        >
-          <Image
-            width={1920}
-            height={1080}
-            src={mainImg}
-            alt="Local TV Network Brand Restyling"
-            className="h-full w-auto"
-          />
-        </div>
+        <Heading title={title} description={description} />
+        <MainImg imgURL={mainImg} bgColor={bgColor} alt="" />
         <div className="flex flex-col w-full max-w-3xl px-6 gap-4">
           <h2 className="text-2xl font-bold">
             Local TV Network Brand Restyling

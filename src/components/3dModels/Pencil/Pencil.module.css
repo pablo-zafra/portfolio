@@ -1,6 +1,6 @@
 @keyframes slide-in {
   from {
-    transform: translate(300%, -50%);
+    transform: translate(600%, -50%);
   }
   to {
     transform: translate(0, 0);
@@ -8,7 +8,7 @@
 }
 
 .slide-in {
-  transform: translate(300%, -50%);
+  transform: translate(600%, -50%);
 }
 
 .slide-in:has(canvas[data-engine]) {
