@@ -14,7 +14,7 @@ export const Heading: React.FC<HeadingProps> = ({
   tagList = "UI/UX, Frontend Development",
 }) => {
   return (
-    <GridContainer className="px-4 md:px-6">
+    <GridContainer>
       <div
         className={`col-span-8 md:col-span-10 xl:col-span-8 md:col-start-2 xl:col-start-3 relative ${className}`}
       >

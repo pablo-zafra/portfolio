@@ -33,7 +33,7 @@ export const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
     itemsContainerRef,
   } = WorkItemProps;
   const bgColor = bg! ? bg : "white";
-  const mainImg = `/img/work/${slug}/${slug}.jpg`;
+  const mainImg = `/media/work/${slug}/${slug}.jpg`;
 
   const { imgWrapperRef, txtWrapperRef, imgCursorRef, headingCursorRef } =
     useWorkItem({ itemKey, isMobile, itemsContainerRef });

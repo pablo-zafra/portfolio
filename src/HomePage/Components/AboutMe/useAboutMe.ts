@@ -11,7 +11,7 @@ export const useAboutMe = () => {
   const highlightRef = useHighlight();
   const { setScrollData } = useScrollContext();
   const malagaCursorRef = useCursor({
-    className: "w-36! text-md rounded-xl! bg-[url(/img/malaga.gif)]",
+    className: "w-36! text-md rounded-xl! bg-[url(/media/malaga.gif)]",
   });
   const { isTouchDevice } = useBreakpoints();
 

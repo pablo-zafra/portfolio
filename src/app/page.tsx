@@ -1,10 +1,9 @@
-import { FunDivider, CursorFollower } from "../components";
+import { FunDivider } from "../components";
 import { Hero, AboutMe, Skills, Work } from "../HomePage";
 
 const Home: React.FC = () => {
   return (
     <main>
-      <CursorFollower />
       <Hero />
       <AboutMe />
       <FunDivider />

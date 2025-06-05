@@ -1,22 +1,29 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation"; // Correcto para App Router
 import styles from "./LoadingScreen.module.css";
 
 export const LoadingScreen: React.FC = () => {
   const [loading, setLoading] = useState(true);
+  const pathname = usePathname();
+
+  const handleLoad = () =>
+    setTimeout(() => {
+      setLoading(false);
+    }, 200);
 
   useEffect(() => {
+    setLoading(true);
     if (document.readyState === "complete") {
-      setLoading(false);
+      handleLoad();
       return;
     }
 
-    const handleLoad = () => setLoading(false);
     window.addEventListener("load", handleLoad);
 
     return () => window.removeEventListener("load", handleLoad);
-  }, []);
+  }, [pathname]);
 
   return (
     <>

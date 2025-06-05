@@ -8,23 +8,23 @@ export const useSkillsCursors = () => {
   });
 
   const frontendCursorRef = useCursor({
-    className: "w-36! text-md rounded-xl! bg-[url(/img/front-end.gif)]",
+    className: "w-36! text-md rounded-xl! bg-[url(/media/front-end.gif)]",
   });
 
   const uxuiCursorRef = useCursor({
-    className: "w-36! text-md rounded-xl! bg-[url(/img/ux-ui.gif)]",
+    className: "w-36! text-md rounded-xl! bg-[url(/media/ux-ui.gif)]",
   });
 
   const prototypingCursorRef = useCursor({
-    className: "w-36! text-md rounded-xl! bg-[url(/img/prototyping.gif)]",
+    className: "w-36! text-md rounded-xl! bg-[url(/media/prototyping.gif)]",
   });
 
   const richmediaCursorRef = useCursor({
-    className: "w-36! text-md rounded-xl! bg-[url(/img/rich-media.gif)]",
+    className: "w-36! text-md rounded-xl! bg-[url(/media/rich-media.gif)]",
   });
 
   const motiondesignCursorRef = useCursor({
-    className: "w-36! text-md rounded-xl! bg-[url(/img/motion-design.gif)]",
+    className: "w-36! text-md rounded-xl! bg-[url(/media/motion-design.gif)]",
   });
 
   return {

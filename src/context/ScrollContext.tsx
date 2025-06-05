@@ -16,7 +16,7 @@ export const ScrollProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [scrollData, setScrollData] = useState<ScrollData>({
-    current: 1,
+    current: 0,
   });
 
   return (

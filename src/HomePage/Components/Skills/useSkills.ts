@@ -53,14 +53,14 @@ export const useSkills = () => {
         setJoinBoxState({
           isActive: false,
           className:
-            "translate-x-[0.5em] translate-y-[-3em] sm:translate-x-[0.5em] sm:translate-y-[-2.8em] md:translate-x-[12em] md:translate-y-[-2.5em] lg:translate-x-[13em] lg:translate-y-[-1em] xl:translate-x-[12.8em] xl:translate-y-[-0.5em] bg-[url(/img/front-end.gif)]",
+            "translate-x-[0.5em] translate-y-[-3em] sm:translate-x-[0.5em] sm:translate-y-[-2.8em] md:translate-x-[12em] md:translate-y-[-2.5em] lg:translate-x-[13em] lg:translate-y-[-1em] xl:translate-x-[12.8em] xl:translate-y-[-0.5em] bg-[url(/media/front-end.gif)]",
         });
       } else if (step === 1) {
         // Front-end Development
         setJoinBoxState({
           isActive: true,
           className:
-            "translate-x-[0.5em] translate-y-[-3em] sm:translate-x-[0.5em] sm:translate-y-[-2.8em] md:translate-x-[12em] md:translate-y-[-2.5em] lg:translate-x-[13em] lg:translate-y-[-1em] xl:translate-x-[12.8em] xl:translate-y-[-0.5em] bg-[url(/img/front-end.gif)]",
+            "translate-x-[0.5em] translate-y-[-3em] sm:translate-x-[0.5em] sm:translate-y-[-2.8em] md:translate-x-[12em] md:translate-y-[-2.5em] lg:translate-x-[13em] lg:translate-y-[-1em] xl:translate-x-[12.8em] xl:translate-y-[-0.5em] bg-[url(/media/front-end.gif)]",
         });
       } else if (step === 2) {
         // UX/UI Design
@@ -68,35 +68,35 @@ export const useSkills = () => {
         setJoinBoxState({
           isActive: true,
           className:
-            "translate-x-[9em] translate-y-[1.5em] md:translate-x-[10.5em] md:translate-y-[1.5em] lg:translate-x-[3.5em] lg:translate-y-[1.1em] xl:translate-x-[3.7em] xl:translate-y-[1.3em] bg-[url(/img/ux-ui.gif)]",
+            "translate-x-[9em] translate-y-[1.5em] md:translate-x-[10.5em] md:translate-y-[1.5em] lg:translate-x-[3.5em] lg:translate-y-[1.1em] xl:translate-x-[3.7em] xl:translate-y-[1.3em] bg-[url(/media/ux-ui.gif)]",
         });
       } else if (step === 3) {
         // Prototyping
         setJoinBoxState({
           isActive: true,
           className:
-            "translate-x-[-2em] translate-y-[3.3em] sm:translate-x-[-1.5em] sm:translate-y-[3em] md:translate-x-[0.2em] md:translate-y-[2.5em] lg:translate-x-[10em] lg:translate-y-[3em] xl:translate-x-[9.5em] xl:translate-y-[3em] bg-[url(/img/prototyping.gif)]",
+            "translate-x-[-2em] translate-y-[3.3em] sm:translate-x-[-1.5em] sm:translate-y-[3em] md:translate-x-[0.2em] md:translate-y-[2.5em] lg:translate-x-[10em] lg:translate-y-[3em] xl:translate-x-[9.5em] xl:translate-y-[3em] bg-[url(/media/prototyping.gif)]",
         });
       } else if (step === 4) {
         // Rich Media
         setJoinBoxState({
           isActive: true,
           className:
-            "translate-x-[8.5em] translate-y-[4.5em] sm:translate-x-[9em] sm:translate-y-[4.3em] md:translate-x-[11em] md:translate-y-[4.5em] lg:translate-x-[4em] lg:translate-y-[4.6em] xl:translate-x-[4.8em] xl:translate-y-[4.6em] bg-[url(/img/rich-media.gif)]",
+            "translate-x-[8.5em] translate-y-[4.5em] sm:translate-x-[9em] sm:translate-y-[4.3em] md:translate-x-[11em] md:translate-y-[4.5em] lg:translate-x-[4em] lg:translate-y-[4.6em] xl:translate-x-[4.8em] xl:translate-y-[4.6em] bg-[url(/media/rich-media.gif)]",
         });
       } else if (step === 5) {
         // Motion Design
         setJoinBoxState({
           isActive: true,
           className:
-            "translate-x-[9.5em] translate-y-[9em] sm:translate-x-[9.5em] sm:translate-y-[8.5em] md:translate-x-[11.5em] md:translate-y-[8.2em] lg:translate-x-[5em] lg:translate-y-[6.5em] xl:translate-x-[5.5em] xl:translate-y-[6.3em] bg-[url(/img/motion-design.gif)]",
+            "translate-x-[9.5em] translate-y-[9em] sm:translate-x-[9.5em] sm:translate-y-[8.5em] md:translate-x-[11.5em] md:translate-y-[8.2em] lg:translate-x-[5em] lg:translate-y-[6.5em] xl:translate-x-[5.5em] xl:translate-y-[6.3em] bg-[url(/media/motion-design.gif)]",
         });
       } else {
         // Motion Design
         setJoinBoxState({
           isActive: false,
           className:
-            "translate-x-[9.5em] translate-y-[9em] sm:translate-x-[9.5em] sm:translate-y-[8.5em] md:translate-x-[11.5em] md:translate-y-[8.2em] lg:translate-x-[5em] lg:translate-y-[6.5em] xl:translate-x-[5.5em] xl:translate-y-[6.3em] bg-[url(/img/motion-design.gif)]",
+            "translate-x-[9.5em] translate-y-[9em] sm:translate-x-[9.5em] sm:translate-y-[8.5em] md:translate-x-[11.5em] md:translate-y-[8.2em] lg:translate-x-[5em] lg:translate-y-[6.5em] xl:translate-x-[5.5em] xl:translate-y-[6.3em] bg-[url(/media/motion-design.gif)]",
         });
       }
     }

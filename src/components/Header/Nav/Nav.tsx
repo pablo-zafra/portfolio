@@ -23,9 +23,9 @@ const Nav: React.FC<OffCanvasMenuProps> = ({ opened, onClose }) => {
       <nav
         className={`fixed top-0 left-full ${
           opened ? "-translate-x-full" : ""
-        } h-screen w-[80dvw] max-w-240  bg-gray-dark-X grid-pattern text-white transition-transform duration-300 ease-in-out z-30 flex flex-col items-center`}
+        } h-screen w-[80dvw] max-w-240  bg-gray-dark-X grid-pattern text-white transition-transform duration-300 ease-in-out flex flex-col items-center z-20`}
       >
-        <ul className="flex flex-col justify-center text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold h-full z-32">
+        <ul className="flex flex-col justify-center text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold h-full">
           <span className="flex flex-col justify-center gap-2 md:gap-6">
             <li className="relative ml-[1em] w-fit cursor-pointer">
               <span ref={introCursorRef} className="block overflow-hidden">
@@ -116,7 +116,7 @@ const Nav: React.FC<OffCanvasMenuProps> = ({ opened, onClose }) => {
       </nav>
       {opened && (
         <div
-          className="fixed top-0 left-0 h-screen w-screen bg-black opacity-80 z-20"
+          className="fixed top-0 left-0 h-screen w-screen bg-black opacity-80 z-19"
           onClick={onClose}
         ></div>
       )}

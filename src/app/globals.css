@@ -16,9 +16,26 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-weight: 400;
+}
+
+b {
+  font-weight: 700;
+}
+
 body::selection {
   background-color: var(--color-turquesa);
   color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
 }
 
 .grid-pattern {

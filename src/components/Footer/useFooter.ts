@@ -16,8 +16,10 @@ export const useFooter = () => {
     end: "bottom top",
   });
 
+  const isHomePage = () => window.location.pathname === "/";
+
   useEffect(() => {
-    if (!ContactSectionInView) return;
+    if (!ContactSectionInView || !isHomePage()) return;
     setScrollData({ current: 5 });
     // console.log("Section In View: Contact");
 

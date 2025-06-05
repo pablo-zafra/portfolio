@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Footer, FunDivider, Header, ScrollControll } from "../components";
+import {
+  CursorFollower,
+  Footer,
+  FunDivider,
+  Header,
+  ScrollControll,
+} from "../components";
 import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
 import { CursorProvider, ScrollProvider } from "../context";
 
@@ -35,6 +41,7 @@ export const RootLayout = ({
         <ScrollControll>
           <ScrollProvider>
             <CursorProvider>
+              <CursorFollower />
               <LoadingScreen />
               <Header />
               {children}
