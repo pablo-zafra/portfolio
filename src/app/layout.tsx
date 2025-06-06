@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title: "Pablo Zafra",
   description: "Frontend developer, UI/UX designer, Motion Designer",
   icons: {
-    icon: "img/pencil.svg",
+    icon: "media/pencil.svg",
   },
 };
 

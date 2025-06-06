@@ -57,7 +57,7 @@ export const Hero: React.FC = () => {
               className={`relative inline-block align-baseline overflow-visible ${styles.profileImgWrapper}`}
             >
               <Image
-                src="/img/profile-photo.jpg"
+                src="/media/profile-photo.jpg"
                 alt="Pablo"
                 className="absolute w-full h-auto rounded-full bottom-0 translate-y-1/10"
                 width={400}
@@ -121,7 +121,7 @@ export const Hero: React.FC = () => {
           </p>
           <div ref={logosRef} className="flex mt-6 h-5 md:h-8 gap-4">
             <Image
-              src="/img/react.png"
+              src="/media/react.png"
               alt="React"
               className="w-auto h-full reveal-element"
               width={40}
@@ -129,7 +129,7 @@ export const Hero: React.FC = () => {
             />
 
             <Image
-              src="/img/nextjs.png"
+              src="/media/nextjs.png"
               alt="Next.js"
               className="w-auto h-full reveal-element"
               width={40}
@@ -137,7 +137,7 @@ export const Hero: React.FC = () => {
             />
 
             <Image
-              src="/img/typescript.png"
+              src="/media/typescript.png"
               alt="TypeScript"
               className="w-auto h-full reveal-element"
               width={40}

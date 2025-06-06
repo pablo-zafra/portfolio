@@ -1,3 +1,13 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Pablo Zafra",
+  description: "Frontend developer, UI/UX designer, Motion Designer",
+  icons: {
+    icon: "media/pencil.svg",
+  },
+};
+
 export const RootLayout = ({
   children,
 }: Readonly<{
