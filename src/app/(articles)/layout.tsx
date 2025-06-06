@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   },
 };
 
-export const Layout = ({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) => {
+}>) {
   return (
     <main className="min-h-screen flex flex-col items-center">
       <div className="flex flex-col items-center max-w-5xl xl:max-w-6xl w-full py-16 gap-10">
@@ -27,6 +27,4 @@ export const Layout = ({
       </div>
     </main>
   );
-};
-
-export default Layout;
+}

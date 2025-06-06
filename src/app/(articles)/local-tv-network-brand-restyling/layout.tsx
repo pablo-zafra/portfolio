@@ -8,12 +8,10 @@ export const metadata: Metadata = {
   },
 };
 
-export const Layout = ({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) => {
+}>) {
   return <>{children}</>;
-};
-
-export default Layout;
+}
