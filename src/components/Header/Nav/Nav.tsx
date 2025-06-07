@@ -16,7 +16,6 @@ const Nav: React.FC<OffCanvasMenuProps> = ({ opened, onClose }) => {
     workCursorRef,
     contactCursorRef,
     currentScroll,
-    preloadableImgs,
   } = useNav();
 
   return (
@@ -118,14 +117,6 @@ const Nav: React.FC<OffCanvasMenuProps> = ({ opened, onClose }) => {
           className="fixed top-0 left-0 h-screen w-screen bg-black opacity-80 z-19"
           onClick={onClose}
         ></div>
-      )}
-      {preloadableImgs && (
-        <>
-          <link rel="preload" href="/media/screenshots/Intro.jpg" as="image" />
-          <link rel="preload" href="/media/screenshots/About.jpg" as="image" />
-          <link rel="preload" href="/media/screenshots/Skills.jpg" as="image" />
-          <link rel="preload" href="/media/screenshots/Work.jpg" as="image" />
-        </>
       )}
     </>
   );
