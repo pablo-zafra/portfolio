@@ -15,7 +15,7 @@ export const useSkills = () => {
     isActive: false,
     className: "",
   });
-  const { isTouchDevice, isDesktop } = useBreakpoints();
+  const { isTouchDevice } = useBreakpoints();
   const { setScrollData } = useScrollContext();
   const [preloadableImgs, setPreloadableImgs] = useState(false);
 
@@ -150,11 +150,11 @@ export const useSkills = () => {
   }, [listHighlight]);
 
   useEffect(() => {
-    if (isDesktop && SkillsSectionInView && !preloadableImgs) {
-      // console.log("preloadable imgs!");
+    if (SkillsSectionInView && !preloadableImgs) {
+      // console.log("preloadableImgs Skills");
       setPreloadableImgs(true);
     }
-  }, [isDesktop, SkillsSectionInView, preloadableImgs]);
+  }, [SkillsSectionInView, preloadableImgs]);
 
   return {
     listRef,

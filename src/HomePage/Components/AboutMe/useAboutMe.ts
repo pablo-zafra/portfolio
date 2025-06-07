@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 export const useAboutMe = () => {
   const highlightRef = useHighlight();
   const { setScrollData } = useScrollContext();
-  const { isDesktop } = useBreakpoints();
   const [preloadableImgs, setPreloadableImgs] = useState(false);
 
   const malagaCursorRef = useCursor({
@@ -37,10 +36,11 @@ export const useAboutMe = () => {
   }, [AboutInView]);
 
   useEffect(() => {
-    if (isDesktop && AboutInView && !preloadableImgs) {
+    if (AboutInView && !preloadableImgs) {
       setPreloadableImgs(true);
+      // console.log("preloadableImgs About");
     }
-  }, [isDesktop, AboutInView, preloadableImgs]);
+  }, [AboutInView, preloadableImgs]);
 
   return {
     highlightRef,

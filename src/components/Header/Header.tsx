@@ -17,7 +17,10 @@ export const Header: React.FC = () => {
   };
 
   useEffect(() => {
-    if (menuOpen && isDesktop && !preloadableImgs) setPreloadableImgs(true);
+    if (menuOpen && isDesktop && !preloadableImgs) {
+      setPreloadableImgs(true);
+      // console.log("preloadableImgs Header");
+    }
   }, [menuOpen, isDesktop, preloadableImgs]);
 
   return (
