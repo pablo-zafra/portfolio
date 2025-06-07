@@ -26,17 +26,17 @@ export const FunDivider: React.FC<FunDividerOptions> = ({ top, bottom }) => {
           {top ? <div className={`${top} pb-30 w-full`}></div> : null}
           <div className="relative bg-white overflow-x-hidden text-gray-dark text-xs uppercase font-mono">
             <div
-              className={`${styles["left-scrolling"]} flex flex-row gap-4 w-fit p-2 h-fit`}
+              className={`${styles["left-scrolling"]} flex flex-row gap-4 w-fit p-2 h-fit bg-white text-gray-dark`}
             >
-              <div className="flex flex-row gap-3 shrink-0">
+              <div className="flex flex-row gap-3 shrink-0 bg-white text-gray-dark">
                 {clientRandomizedLogs.map((log, index) => (
                   <div key={`first-${index}`} className="flex flex-row gap-3">
-                    <span className="whitespace-nowrap">{log}</span>
+                    <span className="whitespace-nowrap ">{log}</span>
                     <BinaryValues indexOffset={index} />
                   </div>
                 ))}
               </div>
-              <div className="flex flex-row gap-3 shrink-0">
+              <div className="flex flex-row gap-3 shrink-0 bg-white text-gray-dark">
                 {clientRandomizedLogs.map((log, index) => (
                   <div key={`second-${index}`} className="flex flex-row gap-3">
                     <span className="whitespace-nowrap">{log}</span>

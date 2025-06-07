@@ -61,6 +61,12 @@ export const useHero = () => {
     end: "bottom 50%",
   });
 
+  const { inViewportElemRef: scrollArrowRef, isInView: scrollArrowInView } =
+    useInView({
+      start: "top bottom",
+      end: "bottom 60%",
+    });
+
   useEffect(() => {
     if (!HeroInView) return;
     setScrollData({ current: 1 });
@@ -77,7 +83,9 @@ export const useHero = () => {
     PencilTriggerRef,
     PencilInView,
     spinItCursorRef,
+    scrollArrowRef,
     ctaView,
     setCtaView,
+    scrollArrowInView,
   };
 };

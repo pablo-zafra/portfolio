@@ -56,7 +56,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="max-h-100 overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-::-webkit-scrollbar-track]:bg-gray-dark-X [&::-webkit-scrollbar-thumb]:bg-gray [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-turquesa"
+      className="max-h-100 overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-gray-dark-X [&::-webkit-scrollbar-thumb]:bg-gray [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-turquesa"
     >
       <body
         className={`${inter.variable} bg-gray-dark-X font-Inter text-white antialiased grid-pattern`}

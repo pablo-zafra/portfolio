@@ -19,6 +19,7 @@ export const Skills: React.FC = () => {
     setCtaView,
     listHighlight,
     joinBoxState,
+    preloadableImgs,
   } = useSkills();
 
   const {
@@ -109,6 +110,17 @@ export const Skills: React.FC = () => {
           </ul>
         </div>
       </div>
+      <div className="scroll-keeper bg-transparent absolute right-0 h-full w-5/20 md:hidden"></div>
+      <div className="scroll-keeper bg-transparent absolute left-0 h-full w-5/20 md:hidden"></div>
+      {preloadableImgs && (
+        <>
+          <link rel="preload" href="/media/front-end.gif" as="image" />
+          <link rel="preload" href="/media/ux-ui.gif" as="image" />
+          <link rel="preload" href="/media/prototyping.gif" as="image" />
+          <link rel="preload" href="/media/rich-media.gif" as="image" />
+          <link rel="preload" href="/media/motion-design.gif" as="image" />
+        </>
+      )}
     </section>
   );
 };

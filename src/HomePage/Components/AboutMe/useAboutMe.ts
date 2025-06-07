@@ -5,11 +5,14 @@ import {
   useHighlight,
   useInView,
 } from "../../../hooks";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const useAboutMe = () => {
   const highlightRef = useHighlight();
   const { setScrollData } = useScrollContext();
+  const { isDesktop } = useBreakpoints();
+  const [preloadableImgs, setPreloadableImgs] = useState(false);
+
   const malagaCursorRef = useCursor({
     className: "w-36! text-md rounded-xl! bg-[url(/media/malaga.gif)]",
   });
@@ -33,6 +36,12 @@ export const useAboutMe = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [AboutInView]);
 
+  useEffect(() => {
+    if (isDesktop && AboutInView && !preloadableImgs) {
+      setPreloadableImgs(true);
+    }
+  }, [isDesktop, AboutInView, preloadableImgs]);
+
   return {
     highlightRef,
     malagaCursorRef,
@@ -41,5 +50,6 @@ export const useAboutMe = () => {
     AboutInView,
     JoinBoxRef,
     JoinBoxInView,
+    preloadableImgs,
   };
 };
