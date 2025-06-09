@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { usePathname } from "next/navigation";
 
 interface UseWorkItemAnimImgProps {
   itemKey: number;
@@ -16,8 +17,9 @@ export const useWorkItemAnimImg = ({
   itemsContainerRef,
 }: UseWorkItemAnimImgProps) => {
   const imgWrapperRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
-  // ** --------- Animation Img for Desktop --------- ** //
+  // ** --------- Animación de Imagen para Escritorio --------- ** //
 
   useEffect(() => {
     const imgWrapper = imgWrapperRef.current;
@@ -31,7 +33,7 @@ export const useWorkItemAnimImg = ({
         end: "center 10%",
         scrub: true,
         invalidateOnRefresh: true,
-        id: `imgWrapperTrigger-${itemKey}`,
+        id: `imgWrapperTrigger-desktop-${itemKey}`,
       },
     });
 
@@ -45,7 +47,7 @@ export const useWorkItemAnimImg = ({
     };
   }, [itemKey, isMobile]);
 
-  // ** --------- Animation Img for Mobile --------- ** //
+  // ** --------- Animación de Imagen para Móvil --------- ** //
 
   useEffect(() => {
     const imgWrapper = imgWrapperRef.current;
@@ -61,7 +63,7 @@ export const useWorkItemAnimImg = ({
         scrub: true,
         horizontal: true,
         invalidateOnRefresh: true,
-        id: `imgWrapperTrigger-${itemKey}`,
+        id: `imgWrapperTrigger-mobile-${itemKey}`, // ID único para diferenciar del escritorio
         scroller: scroller || undefined,
       },
     });
@@ -75,6 +77,15 @@ export const useWorkItemAnimImg = ({
       imgAnimMobile.scrollTrigger?.kill();
     };
   }, [itemKey, isMobile, itemsContainerRef]);
+
+  // ** --------- Refrescar ScrollTrigger al Cambiar el Pathname --------- ** //
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [pathname]);
 
   return {
     imgWrapperRef,

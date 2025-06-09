@@ -39,17 +39,24 @@ export const ScrollControll: React.FC<{ children: React.ReactNode }> = ({
 
   useEffect(() => {
     if (lenisRef.current) {
-      lenisRef.current.resize();
+      const timeoutId = setTimeout(() => {
+        if (lenisRef.current) {
+          lenisRef.current.resize();
 
-      if (window.location.hash) {
-        const id = window.location.hash.substring(1);
-        const targetElement = document.getElementById(id);
-        if (targetElement) {
-          lenisRef.current.scrollTo(targetElement, { offset: 0 });
+          if (window.location.hash) {
+            const id = window.location.hash.substring(1);
+            const targetElement = document.getElementById(id);
+            if (targetElement) {
+              lenisRef.current.scrollTo(0, { immediate: true });
+              lenisRef.current.scrollTo(targetElement, { offset: 0 });
+            }
+          } else {
+            lenisRef.current.scrollTo(0, { immediate: true });
+          }
         }
-      } else {
-        lenisRef.current.scrollTo(0, { immediate: true });
-      }
+      }, 200);
+
+      return () => clearTimeout(timeoutId);
     }
   }, [pathname]);
 

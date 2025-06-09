@@ -22,10 +22,13 @@ export const Work: React.FC = () => {
 
   return (
     <section
-      id="work-section"
       ref={WorkSectionRef}
       className="relative flex flex-col md:flex-row mb-40 md:mb-32 gap-6"
     >
+      <div
+        className="absolute w-0 h-0 bg-transparent invisible opacity-0 top-[-13vh]"
+        id="work-section"
+      ></div>
       <div className="max-md:px-4 md:sticky md:top-0 md:w-40 xl:w-[18vh] xl:ml-4 md:h-screen flex md:items-center md:justify-center">
         <h2 className="uppercase font-semibold md:-rotate-90 text-5xl md:text-9xl xl:text-[24vh] leading-[0.73em]">
           Work

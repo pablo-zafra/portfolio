@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { usePathname } from "next/navigation";
 
 interface UseWorkItemAnimTxtProps {
   itemKey: number;
@@ -16,6 +17,7 @@ export const useWorkItemAnimTxt = ({
   itemsContainerRef,
 }: UseWorkItemAnimTxtProps) => {
   const txtWrapperRef = useRef(null);
+  const pathname = usePathname();
 
   // ** --------- Animation Txt for Desktop --------- ** //
 
@@ -99,6 +101,14 @@ export const useWorkItemAnimTxt = ({
       TxtAnimMobile.scrollTrigger?.kill();
     };
   }, [itemKey, isMobile, itemsContainerRef]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [pathname]);
 
   return {
     txtWrapperRef,
