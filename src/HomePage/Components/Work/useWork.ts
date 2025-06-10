@@ -30,8 +30,8 @@ export const useWork = () => {
   useEffect(() => {
     if (isResizing !== prevIsResizingRef.current) {
       // Necesario para que no se ejecute al montarse
-      // console.log("isResizing changed: ", isResizing);
-      if (!isResizing && lenis) {
+      // console.log("useWork: isResizing changed: ", isResizing);
+      if (!isResizing && !isMobile && lenis) {
         lenis.scrollTo(0, { offset: 0, duration: 0.3 });
         // console.log("Scrolling to 0. Isresizing: ", isResizing);
         setTimeout(() => {
@@ -43,7 +43,7 @@ export const useWork = () => {
       }
     }
     prevIsResizingRef.current = isResizing;
-  }, [isResizing, lenis]);
+  }, [isResizing, isMobile, lenis]);
 
   useEffect(() => {
     if (timeToRefreshGsap !== prevTimeToRefreshGsapRef.current) {

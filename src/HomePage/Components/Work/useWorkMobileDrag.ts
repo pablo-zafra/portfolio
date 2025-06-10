@@ -17,23 +17,36 @@ export const useWorkMobileDrag = () => {
     // Draggeable horizontal scroll for mobile devices
     const el = draggeableOnMobileRef.current;
     if (!el || !isMobile) return;
+    console.log("draggeableOnMobile loaded. Resizing: ", isResizing);
 
     const minScroll = () => window.innerWidth * 0.5 - 16;
     const maxScroll = () =>
       minScroll() + (window.innerWidth * 0.23332 + 16) * workData.length - 1;
 
-    const startPos = setTimeout(() => {
+    const resetScroll = () => {
       el.scrollTo({
-        left: minScroll(),
-        behavior: "smooth",
+        left: 0,
       });
-    }, 50);
+      scrollTimeout.current = setTimeout(() => {
+        el.scrollTo({
+          left: minScroll(),
+          behavior: "smooth",
+        });
+        console.log("initial pos set");
+      }, 250);
+    };
+
+    resetScroll();
 
     const scrollToClosestSnapPoint = () => {
+      if (isResizing) {
+        return;
+      }
       const snapPoints: number[] = workData.map(
         (item, index) =>
           minScroll() + (window.innerWidth * 0.23332 + 16) * index
       );
+      // console.log("Snap points:", snapPoints);
       const snapDistances = snapPoints.map((point) =>
         Math.abs(point - el.scrollLeft)
       );
@@ -73,7 +86,7 @@ export const useWorkMobileDrag = () => {
     }
 
     return () => {
-      clearTimeout(startPos);
+      if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
       if (safari) {
         el.removeEventListener("scroll", onScroll);
       } else {
