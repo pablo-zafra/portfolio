@@ -22,7 +22,7 @@ export const Work: React.FC = () => {
     draggeableOnMobileRef,
     WorkSectionRef,
     isMobile,
-    isResizing,
+    refreshScrollTrigger,
   } = useWork();
 
   return (
@@ -60,7 +60,7 @@ export const Work: React.FC = () => {
                 link={link}
                 newTab={newTab}
                 isMobile={isMobile}
-                isResizing={isResizing}
+                refreshScrollTrigger={refreshScrollTrigger}
                 itemsContainerRef={draggeableOnMobileRef}
               />
             )

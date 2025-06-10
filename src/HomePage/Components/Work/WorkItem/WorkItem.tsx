@@ -15,7 +15,7 @@ interface WorkItemProps {
   link?: string;
   newTab?: boolean;
   isMobile: boolean;
-  isResizing: boolean;
+  refreshScrollTrigger: boolean;
   itemsContainerRef: React.RefObject<HTMLDivElement>;
 }
 
@@ -31,14 +31,14 @@ export const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
     link,
     newTab,
     isMobile,
-    isResizing,
+    refreshScrollTrigger,
     itemsContainerRef,
   } = WorkItemProps;
   const bgColor = bg! ? bg : "white";
   const mainImg = `/media/work/${slug}/${slug}.jpg`;
 
   const { imgWrapperRef, txtWrapperRef, imgCursorRef, headingCursorRef } =
-    useWorkItem({ itemKey, isMobile, isResizing, itemsContainerRef });
+    useWorkItem({ itemKey, isMobile, refreshScrollTrigger, itemsContainerRef });
 
   return (
     <div className="relative flex flex-col-reverse w-fit md:flex-row justify-end gap-11 md:w-full overflow-visible">

@@ -19,7 +19,7 @@ export const useBreakpoints = () => {
 
   const debounceResizingFalse = useDebouncedCallback(
     () => setResizing(false),
-    200
+    400
   );
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export const useBreakpoints = () => {
       document.body.classList.add("touch-device");
     };
 
-    const handleResize = () => {
+    const updateValues = () => {
       setIsMobile(window.innerWidth < breakpoints.md);
       setIsTablet(
         window.innerWidth >= breakpoints.md &&
@@ -38,16 +38,28 @@ export const useBreakpoints = () => {
       );
       setIsDesktop(window.innerWidth >= breakpoints.lg);
       setIsXL(window.innerWidth >= breakpoints.xl);
-      setResizing(true);
       debounceResizingFalse();
     };
 
-    handleResize();
+    updateValues();
 
     window.addEventListener("touchstart", handleTouchStart, {
       passive: true,
       once: true,
     });
+
+    window.addEventListener("resize", updateValues);
+
+    return () => {
+      window.removeEventListener("resize", updateValues);
+    };
+  }, [debounceResizingFalse]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setResizing(true);
+      debounceResizingFalse();
+    };
 
     window.addEventListener("resize", handleResize);
 
@@ -55,6 +67,10 @@ export const useBreakpoints = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [debounceResizingFalse]);
+
+  // useEffect(() => {
+  //   console.log("isResizing changed: ", isResizing);
+  // }, [isResizing]);
 
   return { isMobile, isTablet, isDesktop, isXL, isResizing, isTouchDevice };
 };

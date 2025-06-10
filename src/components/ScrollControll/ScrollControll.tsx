@@ -1,15 +1,25 @@
 "use client";
-import { useEffect, useRef, createContext, useContext } from "react";
+import { useEffect, useRef, createContext, useContext, useState } from "react"; // Importa useState
 import Lenis from "lenis";
 import { usePathname } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 
-const LenisContext = createContext<Lenis | null>(null);
+interface LenisContextType {
+  lenisInstance: Lenis | null;
+  timeToRefreshGsap: boolean;
+}
+
+// Inicializa el contexto con un objeto que incluye el estado de "listo"
+const LenisContext = createContext<LenisContextType>({
+  lenisInstance: null,
+  timeToRefreshGsap: false,
+});
 
 export const ScrollControll: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const lenisRef = useRef<Lenis | null>(null);
+  const [timeToRefreshGsap, setTimeToRefreshGsap] = useState(false);
   const pathname = usePathname();
   const contentRef = useRef<HTMLDivElement>(null);
   const resizeObserverRef = useRef<ResizeObserver | null>(null);
@@ -20,6 +30,15 @@ export const ScrollControll: React.FC<{ children: React.ReactNode }> = ({
     }
   };
 
+  const refresGsapOrder = () => {
+    setTimeout(() => {
+      setTimeToRefreshGsap(true);
+    }, 200);
+    setTimeout(() => {
+      setTimeToRefreshGsap(false);
+    }, 400);
+  };
+
   const refreshScroll = () => {
     if (lenisRef.current) {
       refreshLenis();
@@ -28,12 +47,14 @@ export const ScrollControll: React.FC<{ children: React.ReactNode }> = ({
         const targetElement = document.getElementById(id);
         if (targetElement) {
           lenisRef.current.scrollTo(0, { immediate: true });
+          refresGsapOrder();
+          refreshLenis();
           lenisRef.current.scrollTo(targetElement, { offset: 0 });
         }
       } else {
         lenisRef.current.scrollTo(0, { immediate: true });
+        refreshLenis();
       }
-      refreshLenis();
     }
   };
 
@@ -41,7 +62,13 @@ export const ScrollControll: React.FC<{ children: React.ReactNode }> = ({
   const debouncedRefreshScroll = useDebouncedCallback(refreshScroll, 200);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    // Init Lenis
+    if (typeof window === "undefined") {
+      // console.log(
+      //   "ScrollControll: Running on server, Lenis won't initialize yet."
+      // );
+      return;
+    }
 
     if (!lenisRef.current) {
       const lenis = new Lenis({
@@ -72,6 +99,7 @@ export const ScrollControll: React.FC<{ children: React.ReactNode }> = ({
   }, [debouncedRefreshLenis]);
 
   useEffect(() => {
+    // Para refrescar cuando cambie el tamaño de contenido
     if (!lenisRef.current || !contentRef.current) return;
 
     if (!resizeObserverRef.current) {
@@ -94,7 +122,12 @@ export const ScrollControll: React.FC<{ children: React.ReactNode }> = ({
   }, [pathname, debouncedRefreshScroll]);
 
   return (
-    <LenisContext.Provider value={lenisRef.current}>
+    <LenisContext.Provider
+      value={{
+        lenisInstance: lenisRef.current,
+        timeToRefreshGsap,
+      }}
+    >
       <div ref={contentRef}>{children}</div>
     </LenisContext.Provider>
   );
