@@ -2,6 +2,7 @@
 import { useEffect, useRef, createContext, useContext } from "react";
 import Lenis from "lenis";
 import { usePathname } from "next/navigation";
+import { useDebouncedCallback } from "use-debounce";
 
 const LenisContext = createContext<Lenis | null>(null);
 
@@ -10,6 +11,34 @@ export const ScrollControll: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const lenisRef = useRef<Lenis | null>(null);
   const pathname = usePathname();
+  const contentRef = useRef<HTMLDivElement>(null);
+  const resizeObserverRef = useRef<ResizeObserver | null>(null);
+
+  const refreshLenis = () => {
+    if (lenisRef.current) {
+      lenisRef.current.resize();
+    }
+  };
+
+  const refreshScroll = () => {
+    if (lenisRef.current) {
+      refreshLenis();
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        const targetElement = document.getElementById(id);
+        if (targetElement) {
+          lenisRef.current.scrollTo(0, { immediate: true });
+          lenisRef.current.scrollTo(targetElement, { offset: 0 });
+        }
+      } else {
+        lenisRef.current.scrollTo(0, { immediate: true });
+      }
+      refreshLenis();
+    }
+  };
+
+  const debouncedRefreshLenis = useDebouncedCallback(refreshLenis, 200);
+  const debouncedRefreshScroll = useDebouncedCallback(refreshScroll, 200);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -33,36 +62,40 @@ export const ScrollControll: React.FC<{ children: React.ReactNode }> = ({
       return () => {
         lenis.destroy();
         lenisRef.current = null;
+        if (resizeObserverRef.current) {
+          resizeObserverRef.current.disconnect();
+          resizeObserverRef.current = null;
+        }
+        debouncedRefreshLenis.cancel();
       };
     }
-  }, []);
+  }, [debouncedRefreshLenis]);
 
   useEffect(() => {
-    if (lenisRef.current) {
-      const timeoutId = setTimeout(() => {
-        if (lenisRef.current) {
-          lenisRef.current.resize();
+    if (!lenisRef.current || !contentRef.current) return;
 
-          if (window.location.hash) {
-            const id = window.location.hash.substring(1);
-            const targetElement = document.getElementById(id);
-            if (targetElement) {
-              lenisRef.current.scrollTo(0, { immediate: true });
-              lenisRef.current.scrollTo(targetElement, { offset: 0 });
-            }
-          } else {
-            lenisRef.current.scrollTo(0, { immediate: true });
-          }
-        }
-      }, 200);
-
-      return () => clearTimeout(timeoutId);
+    if (!resizeObserverRef.current) {
+      resizeObserverRef.current = new ResizeObserver(() => {
+        debouncedRefreshLenis();
+      });
     }
-  }, [pathname]);
+
+    resizeObserverRef.current.observe(contentRef.current);
+
+    return () => {
+      if (resizeObserverRef.current) {
+        resizeObserverRef.current.disconnect();
+      }
+    };
+  }, [debouncedRefreshLenis]);
+
+  useEffect(() => {
+    debouncedRefreshScroll();
+  }, [pathname, debouncedRefreshScroll]);
 
   return (
     <LenisContext.Provider value={lenisRef.current}>
-      {children}
+      <div ref={contentRef}>{children}</div>
     </LenisContext.Provider>
   );
 };

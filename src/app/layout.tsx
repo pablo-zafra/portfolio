@@ -64,9 +64,9 @@ export default function RootLayout({
         <ScrollControll>
           <ScrollProvider>
             <CursorProvider>
-              <CursorFollower />
               <LoadingScreen />
               <Header />
+              <CursorFollower />
               {children}
               <FunDivider />
               <Footer />

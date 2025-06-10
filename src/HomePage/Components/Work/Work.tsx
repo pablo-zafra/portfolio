@@ -17,8 +17,13 @@ interface WorkDataItem {
 gsap.registerPlugin(ScrollTrigger);
 
 export const Work: React.FC = () => {
-  const { workData, draggeableOnMobileRef, WorkSectionRef, isMobile } =
-    useWork();
+  const {
+    workData,
+    draggeableOnMobileRef,
+    WorkSectionRef,
+    isMobile,
+    isResizing,
+  } = useWork();
 
   return (
     <section
@@ -26,7 +31,7 @@ export const Work: React.FC = () => {
       className="relative flex flex-col md:flex-row mb-40 md:mb-32 gap-6"
     >
       <div
-        className="absolute w-0 h-0 bg-transparent invisible opacity-0 top-[-13vh]"
+        className="absolute w-0 h-0 bg-transparent invisible opacity-0 top-[-16vh]"
         id="work-section"
       ></div>
       <div className="max-md:px-4 md:sticky md:top-0 md:w-40 xl:w-[18vh] xl:ml-4 md:h-screen flex md:items-center md:justify-center">
@@ -55,6 +60,7 @@ export const Work: React.FC = () => {
                 link={link}
                 newTab={newTab}
                 isMobile={isMobile}
+                isResizing={isResizing}
                 itemsContainerRef={draggeableOnMobileRef}
               />
             )

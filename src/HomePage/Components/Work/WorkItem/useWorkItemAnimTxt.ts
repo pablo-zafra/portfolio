@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 interface UseWorkItemAnimTxtProps {
   itemKey: number;
   isMobile: boolean;
+  isResizing: boolean;
   itemsContainerRef: React.RefObject<HTMLDivElement>;
 }
 
@@ -14,6 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
 export const useWorkItemAnimTxt = ({
   itemKey,
   isMobile,
+  isResizing,
   itemsContainerRef,
 }: UseWorkItemAnimTxtProps) => {
   const txtWrapperRef = useRef(null);
@@ -105,10 +107,14 @@ export const useWorkItemAnimTxt = ({
   useEffect(() => {
     const timer = setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 200);
+    }, 600);
 
     return () => clearTimeout(timer);
   }, [pathname]);
+
+  useEffect(() => {
+    ScrollTrigger.refresh();
+  }, [isResizing]);
 
   return {
     txtWrapperRef,

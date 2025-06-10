@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useDebouncedCallback } from "use-debounce";
 
 const breakpoints = {
   sm: 640,
@@ -15,6 +16,11 @@ export const useBreakpoints = () => {
   const [isResizing, setResizing] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const hasTouched = useRef(false);
+
+  const debounceResizingFalse = useDebouncedCallback(
+    () => setResizing(false),
+    200
+  );
 
   useEffect(() => {
     const handleTouchStart = () => {
@@ -33,7 +39,7 @@ export const useBreakpoints = () => {
       setIsDesktop(window.innerWidth >= breakpoints.lg);
       setIsXL(window.innerWidth >= breakpoints.xl);
       setResizing(true);
-      setResizing(false);
+      debounceResizingFalse();
     };
 
     handleResize();
@@ -48,7 +54,7 @@ export const useBreakpoints = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [debounceResizingFalse]);
 
   return { isMobile, isTablet, isDesktop, isXL, isResizing, isTouchDevice };
 };

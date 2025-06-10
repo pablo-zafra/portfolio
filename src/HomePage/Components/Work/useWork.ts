@@ -5,7 +5,7 @@ import { useBreakpoints, useInView } from "../../../hooks";
 import { useWorkMobileDrag } from "./useWorkMobileDrag";
 
 export const useWork = () => {
-  const { isMobile } = useBreakpoints();
+  const { isMobile, isResizing } = useBreakpoints();
   const { setScrollData } = useScrollContext();
 
   const { inViewportElemRef: WorkSectionRef, isInView: WorkSectionInView } =
@@ -29,5 +29,6 @@ export const useWork = () => {
     WorkSectionRef,
     draggeableOnMobileRef,
     isMobile,
+    isResizing,
   };
 };
