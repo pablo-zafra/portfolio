@@ -3,6 +3,8 @@ import { useCursorForllower } from "./useCursorForllower";
 import ThreeDRotationIcon from "@mui/icons-material/ThreeDRotation";
 import ForwardToInboxIcon from "@mui/icons-material/ForwardToInbox";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 export const CursorFollower: React.FC = () => {
   const { className, message, icon, cursorRef, isXL, isTouchDevice } =
@@ -12,6 +14,8 @@ export const CursorFollower: React.FC = () => {
     threeDRotation: <ThreeDRotationIcon />,
     forwardToInbox: <ForwardToInboxIcon />,
     arrowOutward: <ArrowOutwardIcon />,
+    linkedin: <LinkedInIcon />,
+    github: <GitHubIcon />,
   };
 
   if (!isXL || isTouchDevice) {

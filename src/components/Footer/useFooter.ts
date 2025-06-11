@@ -55,11 +55,23 @@ export const useFooter = () => {
     icon: "forwardToInbox",
   });
 
+  const linkedinCursor = useCursor({
+    className: "w-14! rotate-18! text-md -translate-y-2/3 -translate-x-3/5",
+    icon: "linkedin",
+  });
+
+  const githubCursor = useCursor({
+    className: "w-14! rotate-18! text-md -translate-y-2/3 -translate-x-3/5",
+    icon: "github",
+  });
+
   return {
     footerRef,
-    email,
     emailCursor,
+    linkedinCursor,
+    githubCursor,
     ContactSectionRef,
     ContactSectionInView,
+    email,
   };
 };

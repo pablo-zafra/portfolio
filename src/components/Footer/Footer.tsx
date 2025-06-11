@@ -4,7 +4,14 @@ import { useFooter } from "./useFooter";
 import { FormatEmail } from "./FormatEmail";
 
 export const Footer: React.FC = () => {
-  const { footerRef, email, emailCursor, ContactSectionRef } = useFooter();
+  const {
+    footerRef,
+    email,
+    emailCursor,
+    linkedinCursor,
+    githubCursor,
+    ContactSectionRef,
+  } = useFooter();
 
   return (
     <footer
@@ -20,12 +27,32 @@ export const Footer: React.FC = () => {
         <div ref={emailCursor}>
           {email && (
             <Link href={`mailto:${email}`}>
-              <p className="text-[13vw] md:text-[8vw] 2xl:text-9xl">
+              <p className="text-[13vw] md:text-[8vw] 2xl:text-9xl md:-ml-0.5 lg:-ml-1 xl:-ml-1.5">
                 <FormatEmail email={email} />
               </p>
             </Link>
           )}
         </div>
+        <ul className="text-xl md:text-2xl lg:text-3xl flex gap-11 mt-6 -mb-4">
+          <li>
+            <Link
+              href="https://www.linkedin.com/in/pablo-zafra/"
+              target="_blank"
+              className="hover:underline"
+            >
+              <span ref={linkedinCursor}>LinkedIn</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="https://github.com/pablo-zafra"
+              target="_blank"
+              className="hover:underline"
+            >
+              <span ref={githubCursor}>GitHub</span>
+            </Link>
+          </li>
+        </ul>
       </div>
     </footer>
   );
