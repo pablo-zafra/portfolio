@@ -1,20 +1,15 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface UseWorkItemAnimImgProps {
   itemKey: number;
   isMobile: boolean;
-  refreshScrollTrigger?: boolean;
   itemsContainerRef: React.RefObject<HTMLDivElement>;
 }
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const useWorkItemAnimImg = ({
   itemKey,
   isMobile,
-  refreshScrollTrigger,
   itemsContainerRef,
 }: UseWorkItemAnimImgProps) => {
   const imgWrapperRef = useRef<HTMLDivElement>(null);
@@ -73,11 +68,6 @@ export const useWorkItemAnimImg = ({
       imgAnimMobile.scrollTrigger?.kill();
     };
   }, [itemKey, isMobile, itemsContainerRef]);
-
-  useEffect(() => {
-    ScrollTrigger.refresh();
-    // console.log("refreshedScrollTriggerIMG");
-  }, [refreshScrollTrigger]);
 
   return {
     imgWrapperRef,

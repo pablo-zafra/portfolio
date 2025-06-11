@@ -1,20 +1,15 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface UseWorkItemAnimTxtProps {
   itemKey: number;
   isMobile: boolean;
-  refreshScrollTrigger: boolean;
   itemsContainerRef: React.RefObject<HTMLDivElement>;
 }
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const useWorkItemAnimTxt = ({
   itemKey,
   isMobile,
-  refreshScrollTrigger,
   itemsContainerRef,
 }: UseWorkItemAnimTxtProps) => {
   const txtWrapperRef = useRef(null);
@@ -101,11 +96,6 @@ export const useWorkItemAnimTxt = ({
       TxtAnimMobile.scrollTrigger?.kill();
     };
   }, [itemKey, isMobile, itemsContainerRef]);
-
-  useEffect(() => {
-    ScrollTrigger.refresh();
-    // console.log("refreshedScrollTriggerTXT");
-  }, [refreshScrollTrigger]);
 
   return {
     txtWrapperRef,

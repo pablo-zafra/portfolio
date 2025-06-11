@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { workData } from "../../../data";
 import { useScrollContext } from "../../../context";
 import { useBreakpoints, useInView } from "../../../hooks";
@@ -6,16 +6,14 @@ import { useWorkMobileDrag } from "./useWorkMobileDrag";
 import { useLenis } from "../../../components/ScrollControll/ScrollControll";
 
 export const useWork = () => {
-  const [refreshScrollTrigger, setRefreshScrollTrigger] = useState(false);
   const { isMobile, isResizing } = useBreakpoints();
   const { setScrollData } = useScrollContext();
   const {
     lenisInstance: lenis,
     isLenisReady = false,
-    timeToRefreshGsap,
+    refreshScrollTrigger,
   } = useLenis();
   const prevIsResizingRef = useRef(isResizing);
-  const prevTimeToRefreshGsapRef = useRef(timeToRefreshGsap);
 
   const { inViewportElemRef: WorkSectionRef, isInView: WorkSectionInView } =
     useInView({
@@ -31,38 +29,23 @@ export const useWork = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [WorkSectionInView]);
 
+  const resetScroll = useCallback(() => {
+    console.log("useWork: resetScroll(). Lenis: ", lenis);
+    lenis?.scrollTo(0, { offset: 0, duration: 0.3 });
+    refreshScrollTrigger({ duration: 0.3 });
+    // console.log("useWork: resetScroll(). refreshScrollTrigger ordered.");
+  }, [lenis, refreshScrollTrigger]);
+
   useEffect(() => {
     if (isResizing !== prevIsResizingRef.current) {
       // Condicionante, necesario para que no se ejecute al montarse
       console.log("useWork: isResizing changed: ", isResizing);
       if (!isResizing && !isMobile && lenis && isLenisReady) {
-        lenis.scrollTo(0, { offset: 0, duration: 0.3 });
-        console.log(
-          "Scrolling to 0. Isresizing: ",
-          isResizing,
-          "isMobile: ",
-          isMobile,
-          "lenis: ",
-          lenis
-        );
-        setTimeout(() => {
-          setRefreshScrollTrigger(true);
-        }, 500);
-        setTimeout(() => {
-          setRefreshScrollTrigger(false);
-        }, 600);
+        resetScroll();
       }
     }
     prevIsResizingRef.current = isResizing;
-  }, [isResizing, isMobile, lenis, isLenisReady]);
-
-  useEffect(() => {
-    if (timeToRefreshGsap !== prevTimeToRefreshGsapRef.current) {
-      setRefreshScrollTrigger(timeToRefreshGsap);
-      // console.log("Refresh Scroll Trigger Changed: ", timeToRefreshGsap);
-    }
-    prevTimeToRefreshGsapRef.current = timeToRefreshGsap;
-  }, [timeToRefreshGsap]);
+  }, [isResizing, isMobile, lenis, isLenisReady, resetScroll]);
 
   const draggeableOnMobileRef = useWorkMobileDrag();
 
@@ -71,6 +54,5 @@ export const useWork = () => {
     WorkSectionRef,
     draggeableOnMobileRef,
     isMobile,
-    refreshScrollTrigger,
   };
 };

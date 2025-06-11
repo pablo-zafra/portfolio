@@ -1,5 +1,3 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useCursor } from "../../../../hooks";
 import { useWorkItemAnimTxt } from "./useWorkItemAnimTxt";
 import { useWorkItemAnimImg } from "./useWorkItemAnimImg";
@@ -7,16 +5,13 @@ import { useWorkItemAnimImg } from "./useWorkItemAnimImg";
 interface UseWorkItemProps {
   itemKey: number;
   isMobile: boolean;
-  refreshScrollTrigger: boolean;
   itemsContainerRef: React.RefObject<HTMLDivElement>;
 }
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const useWorkItem = ({
   itemKey,
   isMobile,
-  refreshScrollTrigger,
+
   itemsContainerRef,
 }: UseWorkItemProps) => {
   const imgCursorRef = useCursor({
@@ -34,14 +29,12 @@ export const useWorkItem = ({
   const { imgWrapperRef } = useWorkItemAnimImg({
     itemKey,
     isMobile,
-    refreshScrollTrigger,
     itemsContainerRef,
   });
 
   const { txtWrapperRef } = useWorkItemAnimTxt({
     itemKey,
     isMobile,
-    refreshScrollTrigger,
     itemsContainerRef,
   });
 
