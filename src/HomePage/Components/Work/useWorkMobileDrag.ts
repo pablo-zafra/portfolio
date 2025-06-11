@@ -24,6 +24,9 @@ export const useWorkMobileDrag = () => {
       minScroll() + (window.innerWidth * 0.23332 + 16) * workData.length - 1;
 
     const resetScroll = () => {
+      if (isResizing) {
+        return;
+      }
       el.scrollTo({
         left: 0,
       });

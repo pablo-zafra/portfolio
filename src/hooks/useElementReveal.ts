@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface UseElementRevealOptions {
   trigger?: string;
@@ -46,8 +45,6 @@ export const useElementReveal = (options: UseElementRevealOptions = {}) => {
   } = options;
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
     const element = elementRef.current;
     if (!element) return;
 

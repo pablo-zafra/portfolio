@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 interface LenisContextType {
   lenisInstance: Lenis | null;
   isLenisReady: boolean;
-  refreshScrollTrigger: (options?: { duration?: number }) => void;
+  refreshScrollTrigger: (options?: { delay?: number }) => void;
 }
 
 // Inicializa el contexto con un objeto que incluye el estado de "listo"
@@ -38,41 +38,36 @@ export const ScrollControll: React.FC<{ children: React.ReactNode }> = ({
     }
   };
 
-  const refreshScrollTrigger = ({
-    duration = 0,
-  }: { duration?: number } = {}) => {
-    if (duration > 0) {
+  const refreshScrollTrigger = ({ delay = 0 }: { delay?: number } = {}) => {
+    if (delay > 0) {
       setTimeout(() => {
         ScrollTrigger.refresh();
-        // console.log("refreshScrollTrigger done after duration");
-      }, duration * 1000);
+        // console.log("refreshScrollTrigger done after delay");
+      }, delay * 1000);
     } else {
       ScrollTrigger.refresh();
       // console.log("refreshScrollTrigger done immediately");
     }
   };
 
-  const refreshScroll = async () => {
-    if (lenisRef.current) {
-      try {
-        if (window.location.hash) {
-          const id = window.location.hash.substring(1);
-          const targetElement = document.getElementById(id);
+  const refreshScroll = () => {
+    if (!lenisRef.current) {
+      return;
+    }
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      const targetElement = document.getElementById(id);
 
-          if (targetElement) {
-            await lenisRef.current.scrollTo(0, { immediate: true });
-            ScrollTrigger.refresh();
-            refreshLenis();
-            await lenisRef.current.scrollTo(targetElement, { offset: 0 });
-          }
-        } else {
-          await lenisRef.current.scrollTo(0, { immediate: true });
-          ScrollTrigger.refresh();
-          refreshLenis();
-        }
-      } catch (error) {
-        console.error("Error durante el refreshScroll:", error);
+      if (targetElement) {
+        lenisRef.current.scrollTo(0, { immediate: true });
+        refreshScrollTrigger({ delay: 0.1 });
+        refreshLenis();
+        lenisRef.current.scrollTo(targetElement, { offset: 0 });
       }
+    } else {
+      lenisRef.current.scrollTo(0, { immediate: true });
+      refreshScrollTrigger();
+      refreshLenis();
     }
   };
 

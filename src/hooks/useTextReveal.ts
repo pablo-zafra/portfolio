@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./useTextReveal.module.css";
 
 interface UseTextRevealOptions {
@@ -25,8 +24,6 @@ export const useTextReveal = (options: UseTextRevealOptions = {}) => {
   } = options;
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
     const element = elementRef.current;
     if (!element) return;
 

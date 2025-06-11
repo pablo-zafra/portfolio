@@ -1,7 +1,5 @@
 "use client";
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { WorkItem } from "./WorkItem";
 import { useWork } from "./useWork";
 
@@ -14,16 +12,9 @@ interface WorkDataItem {
   newTab?: boolean;
 }
 
-gsap.registerPlugin(ScrollTrigger);
-
 export const Work: React.FC = () => {
-  const {
-    workData,
-    draggeableOnMobileRef,
-    WorkSectionRef,
-    isMobile,
-    refreshScrollTrigger,
-  } = useWork();
+  const { workData, draggeableOnMobileRef, WorkSectionRef, isMobile } =
+    useWork();
 
   return (
     <section
@@ -60,7 +51,6 @@ export const Work: React.FC = () => {
                 link={link}
                 newTab={newTab}
                 isMobile={isMobile}
-                refreshScrollTrigger={refreshScrollTrigger}
                 itemsContainerRef={draggeableOnMobileRef}
               />
             )

@@ -1,11 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useScrollContext } from "../../../context";
 import { useBreakpoints, useInView } from "../../../hooks";
 import { useSkillsCursors } from "./useSkillsCursors";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const useSkills = () => {
   const listRef = useRef<HTMLUListElement>(null);

@@ -3,8 +3,6 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "./useHighlight.module.css";
 
-gsap.registerPlugin(ScrollTrigger);
-
 interface HighlightAnimationOptions {
   textColor?: string;
   underlineColor?: string;

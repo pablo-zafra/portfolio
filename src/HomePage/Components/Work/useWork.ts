@@ -32,7 +32,7 @@ export const useWork = () => {
   const resetScroll = useCallback(() => {
     console.log("useWork: resetScroll(). Lenis: ", lenis);
     lenis?.scrollTo(0, { offset: 0, duration: 0.3 });
-    refreshScrollTrigger({ duration: 0.3 });
+    refreshScrollTrigger({ delay: 0.3 });
     // console.log("useWork: resetScroll(). refreshScrollTrigger ordered.");
   }, [lenis, refreshScrollTrigger]);
 

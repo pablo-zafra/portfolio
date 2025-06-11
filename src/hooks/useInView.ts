@@ -1,13 +1,10 @@
 import { useRef, useEffect, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface UseInViewOptions {
   start?: string;
   end?: string;
 }
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const useInView = ({
   start = "top bottom",

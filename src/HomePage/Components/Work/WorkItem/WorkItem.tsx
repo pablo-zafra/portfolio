@@ -1,7 +1,5 @@
 "use client";
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
 import { useWorkItem } from "./useWorkItem";
@@ -15,11 +13,8 @@ interface WorkItemProps {
   link?: string;
   newTab?: boolean;
   isMobile: boolean;
-  refreshScrollTrigger: boolean;
   itemsContainerRef: React.RefObject<HTMLDivElement>;
 }
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
   const {
@@ -31,14 +26,13 @@ export const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
     link,
     newTab,
     isMobile,
-    refreshScrollTrigger,
     itemsContainerRef,
   } = WorkItemProps;
   const bgColor = bg! ? bg : "white";
   const mainImg = `/media/work/${slug}/${slug}.jpg`;
 
   const { imgWrapperRef, txtWrapperRef, imgCursorRef, headingCursorRef } =
-    useWorkItem({ itemKey, isMobile, refreshScrollTrigger, itemsContainerRef });
+    useWorkItem({ itemKey, isMobile, itemsContainerRef });
 
   return (
     <div className="relative flex flex-col-reverse w-fit md:flex-row justify-end gap-11 md:w-full overflow-visible">
