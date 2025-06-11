@@ -48,7 +48,7 @@ export const Hero: React.FC = () => {
                 >
                   <SpinThePen />
                 </div>
-                {PencilInView ? <Pencil /> : null}
+                <Pencil className={`${PencilInView ? "block" : "hidden"}`} />
               </div>
             </div>
             <h1

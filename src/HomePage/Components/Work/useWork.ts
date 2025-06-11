@@ -30,7 +30,7 @@ export const useWork = () => {
   }, [WorkSectionInView]);
 
   const resetScroll = useCallback(() => {
-    console.log("useWork: resetScroll(). Lenis: ", lenis);
+    // console.log("useWork: resetScroll(). Lenis: ", lenis);
     lenis?.scrollTo(0, { offset: 0, duration: 0.3 });
     refreshScrollTrigger({ delay: 0.3 });
     // console.log("useWork: resetScroll(). refreshScrollTrigger ordered.");
@@ -39,7 +39,7 @@ export const useWork = () => {
   useEffect(() => {
     if (isResizing !== prevIsResizingRef.current) {
       // Condicionante, necesario para que no se ejecute al montarse
-      console.log("useWork: isResizing changed: ", isResizing);
+      // console.log("useWork: isResizing changed: ", isResizing);
       if (!isResizing && !isMobile && lenis && isLenisReady) {
         resetScroll();
       }

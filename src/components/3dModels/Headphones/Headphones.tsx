@@ -6,6 +6,10 @@ import { useRef } from "react";
 import { Object3D, Vector3 } from "three";
 import styles from "./Headphones.module.css";
 
+interface Props {
+  className?: string;
+}
+
 const HeadPhonesModel: React.FC = () => {
   const { scene } = useGLTF("/3dmodels/headphones/scene.gltf");
   const ref = useRef<Object3D>(null);
@@ -16,9 +20,9 @@ const HeadPhonesModel: React.FC = () => {
   );
 };
 
-export const Headphones: React.FC = () => {
+export const Headphones: React.FC<Props> = ({ className }) => {
   return (
-    <div className={`w-full h-full ${styles["slide-in"]}`}>
+    <div className={`w-full h-full ${styles["slide-in"]} ${className}`}>
       <Canvas camera={{ position: [0, 0, 16], fov: 13 }}>
         <ambientLight intensity={1.3} />
         <directionalLight position={[0, 10, 0]} intensity={2} />

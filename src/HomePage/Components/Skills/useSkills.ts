@@ -14,7 +14,6 @@ export const useSkills = () => {
   });
   const { isTouchDevice } = useBreakpoints();
   const { setScrollData } = useScrollContext();
-  const [preloadableImgs, setPreloadableImgs] = useState(false);
 
   const { inViewportElemRef: SkillsSectionRef, isInView: SkillsSectionInView } =
     useInView({
@@ -146,13 +145,6 @@ export const useSkills = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [listHighlight]);
 
-  useEffect(() => {
-    if (SkillsSectionInView && !preloadableImgs) {
-      // console.log("preloadableImgs Skills");
-      setPreloadableImgs(true);
-    }
-  }, [SkillsSectionInView, preloadableImgs]);
-
   return {
     listRef,
     SkillsSectionRef,
@@ -164,6 +156,5 @@ export const useSkills = () => {
     setCtaView,
     listHighlight,
     joinBoxState,
-    preloadableImgs,
   };
 };

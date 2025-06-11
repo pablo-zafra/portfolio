@@ -19,7 +19,6 @@ export const Skills: React.FC = () => {
     setCtaView,
     listHighlight,
     joinBoxState,
-    preloadableImgs,
   } = useSkills();
 
   const {
@@ -57,7 +56,9 @@ export const Skills: React.FC = () => {
             >
               <SpinTheHeadphones />
             </div>
-            {HeadphonesInView ? <Headphones /> : null}
+            <Headphones
+              className={`${HeadphonesInView ? "block" : "hidden"}`}
+            />
           </div>
         </div>
         <div className="max-md:border-b-1 md:border-l-1 border-gray-light border-solid">
@@ -112,15 +113,11 @@ export const Skills: React.FC = () => {
       </div>
       <div className="scroll-keeper bg-transparent absolute right-0 h-full w-5/20 md:hidden"></div>
       <div className="scroll-keeper bg-transparent absolute left-0 h-full w-5/20 md:hidden"></div>
-      {preloadableImgs && (
-        <>
-          <link rel="preload" href="/media/front-end.gif" as="image" />
-          <link rel="preload" href="/media/ux-ui.gif" as="image" />
-          <link rel="preload" href="/media/prototyping.gif" as="image" />
-          <link rel="preload" href="/media/rich-media.gif" as="image" />
-          <link rel="preload" href="/media/motion-design.gif" as="image" />
-        </>
-      )}
+      <link rel="prefetch" href="/media/front-end.gif" as="image" />
+      <link rel="prefetch" href="/media/ux-ui.gif" as="image" />
+      <link rel="prefetch" href="/media/prototyping.gif" as="image" />
+      <link rel="prefetch" href="/media/rich-media.gif" as="image" />
+      <link rel="prefetch" href="/media/motion-design.gif" as="image" />
     </section>
   );
 };

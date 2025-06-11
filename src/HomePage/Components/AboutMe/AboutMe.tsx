@@ -11,7 +11,6 @@ export const AboutMe: React.FC = () => {
     AboutRef,
     JoinBoxRef,
     JoinBoxInView,
-    preloadableImgs,
   } = useAboutMe();
 
   return (
@@ -54,11 +53,7 @@ export const AboutMe: React.FC = () => {
           </div>
         </div>
       </div>
-      {preloadableImgs && (
-        <>
-          <link rel="preload" href="/media/malaga.gif" as="image" />
-        </>
-      )}
+      <link rel="prefetch" href="/media/malaga.gif" as="image" />
     </section>
   );
 };

@@ -5,12 +5,11 @@ import {
   useHighlight,
   useInView,
 } from "../../../hooks";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export const useAboutMe = () => {
   const highlightRef = useHighlight();
   const { setScrollData } = useScrollContext();
-  const [preloadableImgs, setPreloadableImgs] = useState(false);
 
   const malagaCursorRef = useCursor({
     className: "w-36! text-md rounded-xl! bg-[url(/media/malaga.gif)]",
@@ -35,13 +34,6 @@ export const useAboutMe = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [AboutInView]);
 
-  useEffect(() => {
-    if (AboutInView && !preloadableImgs) {
-      setPreloadableImgs(true);
-      // console.log("preloadableImgs About");
-    }
-  }, [AboutInView, preloadableImgs]);
-
   return {
     highlightRef,
     malagaCursorRef,
@@ -50,6 +42,5 @@ export const useAboutMe = () => {
     AboutInView,
     JoinBoxRef,
     JoinBoxInView,
-    preloadableImgs,
   };
 };
