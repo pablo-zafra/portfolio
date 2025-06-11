@@ -25,7 +25,7 @@ export const useSkills = () => {
     inViewportElemRef: HeadPhonesTriggerRef,
     isInView: HeadphonesInView,
   } = useInView({
-    start: "top 130%",
+    start: "top 80%",
     end: "bottom -30%",
   });
 
