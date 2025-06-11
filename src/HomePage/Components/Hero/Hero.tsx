@@ -14,7 +14,6 @@ export const Hero: React.FC = () => {
     PencilTriggerRef,
     PencilInView,
     spinItCursorRef,
-    scrollArrowRef,
     ctaView,
     setCtaView,
     scrollArrowInView,
@@ -151,7 +150,6 @@ export const Hero: React.FC = () => {
         </div>
         <div className="md:absolute md:right-0 md:bottom-0 opacity-0 animate-[fadeIn_2s_ease-in-out_3.5s_forwards]">
           <div
-            ref={scrollArrowRef}
             className={`text-2xl xs:text-3xl md:text-6xl lg:text-7xl xl:text-8xl font-thin p-4 md:p-6 animate-[customBounce_2s_ease-in-out_alternate_infinite] ${
               scrollArrowInView ? "opacity-100" : "opacity-0"
             } transition-opacity`}

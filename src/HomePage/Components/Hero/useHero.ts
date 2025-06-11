@@ -56,16 +56,22 @@ export const useHero = () => {
       end: "bottom -50%",
     });
 
-  const { inViewportElemRef: HeroRef, isInView: HeroInView } = useInView({
-    start: "top bottom",
-    end: "bottom 50%",
-  });
-
-  const { inViewportElemRef: scrollArrowRef, isInView: scrollArrowInView } =
+  const { inViewportElemRef: HeroForSectionContextRef, isInView: HeroInView } =
     useInView({
       start: "top bottom",
-      end: "bottom 60%",
+      end: "bottom 50%",
     });
+
+  const { inViewportElemRef: HeroForArrowRef, isInView: scrollArrowInView } =
+    useInView({
+      start: "top bottom",
+      end: "bottom 95%",
+    });
+
+  const HeroRef = (element: HTMLDivElement) => {
+    HeroForSectionContextRef.current = element;
+    HeroForArrowRef.current = element;
+  };
 
   useEffect(() => {
     if (!HeroInView) return;
@@ -83,7 +89,6 @@ export const useHero = () => {
     PencilTriggerRef,
     PencilInView,
     spinItCursorRef,
-    scrollArrowRef,
     ctaView,
     setCtaView,
     scrollArrowInView,
