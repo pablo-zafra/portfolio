@@ -17,7 +17,7 @@ export const useWorkMobileDrag = () => {
     // Draggeable horizontal scroll for mobile devices
     const el = draggeableOnMobileRef.current;
     if (!el || !isMobile) return;
-    console.log("draggeableOnMobile loaded. Resizing: ", isResizing);
+    // console.log("draggeableOnMobile loaded. Resizing: ", isResizing);
 
     const minScroll = () => window.innerWidth * 0.5 - 16;
     const maxScroll = () =>
@@ -32,7 +32,7 @@ export const useWorkMobileDrag = () => {
           left: minScroll(),
           behavior: "smooth",
         });
-        console.log("initial pos set");
+        // console.log("initial pos set");
       }, 250);
     };
 

@@ -9,7 +9,11 @@ export const useWork = () => {
   const [refreshScrollTrigger, setRefreshScrollTrigger] = useState(false);
   const { isMobile, isResizing } = useBreakpoints();
   const { setScrollData } = useScrollContext();
-  const { lenisInstance: lenis, timeToRefreshGsap } = useLenis();
+  const {
+    lenisInstance: lenis,
+    isLenisReady = false,
+    timeToRefreshGsap,
+  } = useLenis();
   const prevIsResizingRef = useRef(isResizing);
   const prevTimeToRefreshGsapRef = useRef(timeToRefreshGsap);
 
@@ -29,21 +33,28 @@ export const useWork = () => {
 
   useEffect(() => {
     if (isResizing !== prevIsResizingRef.current) {
-      // Necesario para que no se ejecute al montarse
-      // console.log("useWork: isResizing changed: ", isResizing);
-      if (!isResizing && !isMobile && lenis) {
+      // Condicionante, necesario para que no se ejecute al montarse
+      console.log("useWork: isResizing changed: ", isResizing);
+      if (!isResizing && !isMobile && lenis && isLenisReady) {
         lenis.scrollTo(0, { offset: 0, duration: 0.3 });
-        // console.log("Scrolling to 0. Isresizing: ", isResizing);
+        console.log(
+          "Scrolling to 0. Isresizing: ",
+          isResizing,
+          "isMobile: ",
+          isMobile,
+          "lenis: ",
+          lenis
+        );
         setTimeout(() => {
           setRefreshScrollTrigger(true);
-        }, 600);
+        }, 500);
         setTimeout(() => {
           setRefreshScrollTrigger(false);
-        }, 700);
+        }, 600);
       }
     }
     prevIsResizingRef.current = isResizing;
-  }, [isResizing, isMobile, lenis]);
+  }, [isResizing, isMobile, lenis, isLenisReady]);
 
   useEffect(() => {
     if (timeToRefreshGsap !== prevTimeToRefreshGsapRef.current) {
