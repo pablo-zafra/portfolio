@@ -1,17 +1,22 @@
+import { useEffect, useRef } from "react";
 import { workData } from "../../../data";
+import { useLenis } from "../../../components";
 import { isSafari } from "../../../helpers";
 import { useBreakpoints } from "../../../hooks";
-import { useEffect, useRef } from "react";
 
 export const useWorkMobileDrag = () => {
   const isDragging = useRef(false);
   const { isMobile, isResizing } = useBreakpoints();
   const safari: boolean = isSafari();
   const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
+  const refreshScrollTriggerTimeout = useRef<NodeJS.Timeout | null>(null);
+  const { refreshScrollTrigger } = useLenis();
 
   const draggeableOnMobileRef = useRef<HTMLDivElement>(
     null
   ) as React.RefObject<HTMLDivElement>;
+
+  const workItemLength = workData.length;
 
   useEffect(() => {
     // Draggeable horizontal scroll for mobile devices
@@ -22,6 +27,12 @@ export const useWorkMobileDrag = () => {
     const minScroll = () => window.innerWidth * 0.5 - 16;
     const maxScroll = () =>
       minScroll() + (window.innerWidth * 0.23332 + 16) * workData.length - 1;
+    const snapPoints = (length: number) => {
+      return Array.from({ length: length }).map(
+        (_, index) => minScroll() + (window.innerWidth * 0.23332 + 16) * index
+        // El primer argumento de map (el elemento actual) no se usa, por eso se pone '_'
+      );
+    };
 
     const resetScroll = () => {
       if (isResizing) {
@@ -30,13 +41,18 @@ export const useWorkMobileDrag = () => {
       el.scrollTo({
         left: 0,
       });
+
+      refreshScrollTriggerTimeout.current = setTimeout(() => {
+        refreshScrollTrigger();
+      }, 300);
+
       scrollTimeout.current = setTimeout(() => {
         el.scrollTo({
           left: minScroll(),
           behavior: "smooth",
         });
         // console.log("initial pos set");
-      }, 250);
+      }, 500);
     };
 
     resetScroll();
@@ -45,17 +61,14 @@ export const useWorkMobileDrag = () => {
       if (isResizing) {
         return;
       }
-      const snapPoints: number[] = workData.map(
-        (item, index) =>
-          minScroll() + (window.innerWidth * 0.23332 + 16) * index
-      );
       // console.log("Snap points:", snapPoints);
-      const snapDistances = snapPoints.map((point) =>
+      const points = snapPoints(workItemLength);
+      const snapDistances = points.map((point) =>
         Math.abs(point - el.scrollLeft)
       );
       const closestDistance = Math.min(...snapDistances);
       const closestSnapIndex = snapDistances.indexOf(closestDistance);
-      const closestSnapPoint = snapPoints[closestSnapIndex];
+      const closestSnapPoint = points[closestSnapIndex];
       isDragging.current = false;
       el.scrollTo({
         left: closestSnapPoint,
@@ -97,7 +110,7 @@ export const useWorkMobileDrag = () => {
       }
       el.style.removeProperty("touch-action");
     };
-  }, [isMobile, isResizing, safari]);
+  }, [isMobile, isResizing, refreshScrollTrigger, safari, workItemLength]);
 
   return draggeableOnMobileRef;
 };

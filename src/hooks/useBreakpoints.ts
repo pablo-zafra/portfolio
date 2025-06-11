@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect, useRef } from "react";
 import { useDebouncedCallback } from "use-debounce";
 
@@ -16,6 +17,7 @@ export const useBreakpoints = () => {
   const [isResizing, setResizing] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const hasTouched = useRef(false);
+  const previousWidth = useRef(1360);
 
   const debounceResizingFalse = useDebouncedCallback(
     () => setResizing(false),
@@ -23,8 +25,11 @@ export const useBreakpoints = () => {
   );
 
   useEffect(() => {
+    previousWidth.current = window.innerWidth;
+  }, []);
+
+  useEffect(() => {
     const handleTouchStart = () => {
-      // console.log("Touch detected");
       hasTouched.current = true;
       setIsTouchDevice(true);
       document.body.classList.add("touch-device");
@@ -43,6 +48,21 @@ export const useBreakpoints = () => {
 
     updateValues();
 
+    const handleResize = () => {
+      if (window.innerWidth < breakpoints.md) {
+        // En mobile ignoramos el resize vertical,
+        // porque ocurre demasiado y no nos afecta
+        if (previousWidth.current !== window.innerWidth) {
+          setResizing(true);
+          debounceResizingFalse();
+          previousWidth.current = window.innerWidth;
+        }
+      } else {
+        setResizing(true);
+        debounceResizingFalse();
+      }
+    };
+
     window.addEventListener("touchstart", handleTouchStart, {
       passive: true,
       once: true,
@@ -50,27 +70,14 @@ export const useBreakpoints = () => {
 
     window.addEventListener("resize", updateValues);
 
-    return () => {
-      window.removeEventListener("resize", updateValues);
-    };
-  }, [debounceResizingFalse]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setResizing(true);
-      debounceResizingFalse();
-    };
-
     window.addEventListener("resize", handleResize);
 
     return () => {
+      window.removeEventListener("resize", updateValues);
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("touchstart", handleTouchStart);
     };
   }, [debounceResizingFalse]);
-
-  // useEffect(() => {
-  //   console.log("isResizing changed: ", isResizing);
-  // }, [isResizing]);
 
   return { isMobile, isTablet, isDesktop, isXL, isResizing, isTouchDevice };
 };
