@@ -34,7 +34,7 @@ export const useFooter = () => {
       (entries) => {
         const entry = entries[0];
         if (entry.isIntersecting) {
-          const encodedEmail = "aG9sYUBwYWJsb3phZnJhLmVz";
+          const encodedEmail = "aG9sYUBwYWJsb3phZnJhLmRldg==";
           setEmail(atob(encodedEmail));
         }
       },
