@@ -1,7 +1,7 @@
 [
   {
     "titleLines": ["Custom", "Brand Days", "Collection"],
-    "tags": ["Rich Media", "UX/UI", "Visual Design"],
+    "tags": ["Rich Media", "UX/UI"],
     "slug": "custom-brand-days-collection",
     "bg": "#fff",
     "link": "https://www.youtube.com/watch?v=WqaLhw7b0T4",
@@ -9,7 +9,7 @@
   },
   {
     "titleLines": ["Mediakit El País"],
-    "tags": ["Front-end", "UX/UI"],
+    "tags": ["Front end", "UX/UI"],
     "slug": "mediakit-elpais",
     "bg": "#59e0db",
     "link": "https://adops.prisabs.com/test/ftp/mediakits/elpais/index.html",
@@ -17,7 +17,7 @@
   },
   {
     "titleLines": ["Mobile Game App:", "Run Eggplant"],
-    "tags": ["Front-end", "Visual Design", "2D Animation"],
+    "tags": ["Front end", "Visual Design", "2D Animation"],
     "slug": "mobile-game-app-run-eggplant",
     "bg": "#6b1c96",
     "link": "https://www.youtube.com/watch?v=QowZzHUOhzM",
@@ -25,14 +25,14 @@
   },
   {
     "titleLines": ["Local TV Network", "Brand Restyling"],
-    "tags": ["Visual Design", "UX/UI", "Motion Graphics"],
+    "tags": ["Visual Design", "UX/UI", "Motion Design"],
     "slug": "local-tv-network-brand-restyling",
     "link": "./local-tv-network-brand-restyling",
     "bg": "#d2d2d2"
   },
   {
     "titleLines": ["Wedding Invitation", "Landing Page"],
-    "tags": ["Wordpress", "UX/UI"],
+    "tags": ["Front end", "Wordpress", "UX/UI"],
     "slug": "wedding-invitation",
     "bg": "#a83636",
     "link": "https://melitayhector.pablozafra.dev/?utm_source=familia_fernandez_%28test%29&utm_medium=1&utm_campaign=Familia%20Fern%C3%A1ndez%20%28Test%29",
@@ -40,7 +40,7 @@
   },
   {
     "titleLines": ["Cafe Custom", "Website Menu"],
-    "tags": ["Wordpress", "UX/UI", "Visual Design"],
+    "tags": ["Front end", "Wordpress", "UX/UI"],
     "slug": "cafe-custom-responsive-web-menu",
     "bg": "#59a892",
     "link": "https://linda-specialty-coffee-and-brunch.com/carta/",
