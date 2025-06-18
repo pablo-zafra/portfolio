@@ -19,24 +19,24 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Pablo Zafra",
-  description: "Frontend developer, UI/UX designer, Motion Designer",
+  description: "Fron-tend developer, UI/UX designer, Motion Designer",
   icons: {
-    icon: "media/pencil.svg",
+    icon: "media/favicon.png",
   },
   other: {
     google: "notranslate",
   },
   openGraph: {
     title: "Pablo Zafra",
-    description: "Frontend developer, UI/UX designer, Motion Designer",
-    url: "https://pablozafra.es",
+    description: "Front-end developer, UI/UX designer, Motion Designer",
+    url: "https://pablozafra.dev",
     siteName: "Pablo Zafra Portafolio",
     images: [
       {
-        url: "https://www.pablozafra.es/media/og-main-img.jpg",
+        url: "https://www.pablozafra.dev/media/og-main-img.jpg",
         width: 1200,
         height: 630,
-        alt: "Pablo Zafra - Frontend developer, UI/UX designer, Motion Designer",
+        alt: "Pablo Zafra - Front-end developer, UI/UX designer, Motion Designer",
       },
     ],
     locale: "en_EN",
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Pablo Zafra",
-    description: "Frontend developer, UI/UX designer, Motion Designer",
-    images: ["https://www.pablozafra.es/media/og-main-img.jpg"],
+    description: "Front-end developer, UI/UX designer, Motion Designer",
+    images: ["https://www.pablozafra.dev/media/og-main-img.jpg"],
   },
 };
 
