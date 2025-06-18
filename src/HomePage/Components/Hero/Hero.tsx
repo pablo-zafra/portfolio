@@ -84,7 +84,7 @@ export const Hero: React.FC = () => {
                 duration={5}
                 className="left-[-2em] reveal-element"
               />
-              <span className="reveal-text">Creative developer</span>
+              <span className="reveal-text">Front-end developer</span>
               <br />
               <DottedLine
                 long="140%"
