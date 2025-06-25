@@ -3,9 +3,9 @@
     "titleLines": [
       "What your favorite",
       "video game says",
-      "about you (spanish)"
+      "about you? (Spanish)"
     ],
-    "tags": ["React", "Next.js", "IA-powered"],
+    "tags": ["Front end", "React", "Next.js", "IA-powered"],
     "slug": "videojuego-favorito",
     "bg": "#d59842",
     "link": "https://loquetuvideojuegofavoritodicedeti.pablozafra.dev/",
