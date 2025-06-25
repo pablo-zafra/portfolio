@@ -1,5 +1,17 @@
 [
   {
+    "titleLines": [
+      "What your favorite",
+      "video game says",
+      "about you (spanish)"
+    ],
+    "tags": ["React", "Next.js", "IA"],
+    "slug": "videojuego-favorito",
+    "bg": "#d59842",
+    "link": "https://loquetuvideojuegofavoritodicedeti.pablozafra.dev/",
+    "newTab": true
+  },
+  {
     "titleLines": ["Custom", "Brand Days", "Collection"],
     "tags": ["Rich Media", "UX/UI"],
     "slug": "custom-brand-days-collection",
