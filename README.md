@@ -4,7 +4,7 @@
 
 ## Stack
 
-This is a [Next.js](https://nextjs.org/) project created with `create-next-app` that uses the following technologies:
+This is a [Next.js](https://nextjs.org/) project that uses the following technologies:
 
 - [React.js](https://react.dev/)
 - [Next.js](https://nextjs.org/)
