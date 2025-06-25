@@ -37,5 +37,5 @@ This website is hosted on [Vercel](https://vercel.com/), taking advantage of aut
 
 ## To do
 
-Add tests
-Improve performance
+- Add tests
+- Improve performance
