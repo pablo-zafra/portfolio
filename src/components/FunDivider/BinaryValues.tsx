@@ -32,7 +32,7 @@ export const BinaryValues: React.FC<BinaryValuesProps> = ({ indexOffset }) => {
   }, []);
 
   return (
-    <span className="inline-block text-turquesa">
+    <span className="inline-block text-turquesa" aria-hidden="true">
       {binaryValues[currentIndex]}
     </span>
   );

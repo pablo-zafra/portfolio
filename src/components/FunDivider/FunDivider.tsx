@@ -28,7 +28,10 @@ export const FunDivider: React.FC<FunDividerOptions> = ({ top, bottom }) => {
             <div
               className={`${styles["left-scrolling"]} flex flex-row gap-4 w-fit p-2 h-fit bg-white text-gray-dark`}
             >
-              <div className="flex flex-row gap-3 shrink-0 bg-white text-gray-dark">
+              <div
+                className="flex flex-row gap-3 shrink-0 bg-white text-gray-dark"
+                aria-hidden="true"
+              >
                 {clientRandomizedLogs.map((log, index) => (
                   <div key={`first-${index}`} className="flex flex-row gap-3">
                     <span className="whitespace-nowrap ">{log}</span>
