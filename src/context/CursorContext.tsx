@@ -1,5 +1,12 @@
 "use client";
-import { createContext, useState, useContext, ReactNode } from "react";
+import {
+  createContext,
+  useState,
+  useContext,
+  ReactNode,
+  useEffect,
+} from "react";
+import { usePathname } from "next/navigation";
 
 interface CursorData {
   className?: string;
@@ -24,6 +31,18 @@ export const CursorProvider: React.FC<{ children: ReactNode }> = ({
     icon: undefined,
     parent: null,
   });
+
+  const pathname = usePathname();
+
+  // Reset cursorData on URL change
+  useEffect(() => {
+    setCursorData({
+      className: "",
+      message: "",
+      icon: undefined,
+      parent: null,
+    });
+  }, [pathname]);
 
   return (
     <CursorContext.Provider value={{ cursorData, setCursorData }}>
