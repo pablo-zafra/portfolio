@@ -36,6 +36,14 @@
     "newTab": true
   },
   {
+    "titleLines": ["Energy company", "website"],
+    "tags": ["Front end", "UX/UI"],
+    "slug": "energy-company-website",
+    "bg": "#87ac24",
+    "link": "https://pinosurenergias.es/",
+    "newTab": true
+  },
+  {
     "titleLines": ["Local TV Network", "Brand Restyling"],
     "tags": ["Visual Design", "UX/UI", "Motion Design"],
     "slug": "local-tv-network-brand-restyling",
