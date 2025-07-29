@@ -65,11 +65,17 @@ export const useFooter = () => {
     icon: "github",
   });
 
+  const calendarCursor = useCursor({
+    className: "w-14! rotate-18! text-md -translate-y-2/3 -translate-x-3/5",
+    icon: "calendar",
+  });
+
   return {
     footerRef,
     emailCursor,
     linkedinCursor,
     githubCursor,
+    calendarCursor,
     ContactSectionRef,
     ContactSectionInView,
     email,

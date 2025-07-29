@@ -23,9 +23,9 @@ const Nav: React.FC<OffCanvasMenuProps> = ({ opened, onClose }) => {
       <nav
         className={`fixed top-0 left-full ${
           opened ? "-translate-x-full" : ""
-        } h-screen w-[80dvw] max-w-240  bg-gray-dark-X grid-pattern text-white transition-transform duration-300 ease-in-out flex flex-col items-center z-20`}
+        } h-screen w-[80dvw] max-w-240  bg-gray-dark-X grid-pattern text-white transition-transform duration-300 ease-in-out flex flex-col items-center justify-center gap-32 z-20`}
       >
-        <ul className="flex flex-col justify-center gap-2 md:gap-6 text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold h-full">
+        <ul className="flex flex-col justify-center gap-2 md:gap-6 text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold h-fit">
           <li className="relative ml-[1em] w-fit cursor-pointer">
             <span ref={introCursorRef} className="block overflow-hidden">
               <Link
@@ -111,6 +111,19 @@ const Nav: React.FC<OffCanvasMenuProps> = ({ opened, onClose }) => {
             </span>
           </li>
         </ul>
+        <span className="block relative overflow-hidden">
+          <Link
+            href="https://calendly.com/pablozafra"
+            target="_blank"
+            className={`inline-block relative p-4 bg-transparent hover:bg-turquesa text-white rounded-full border-white border-1 hover:border-turquesa box-border h-fit ${
+              !opened
+                ? "translate-y-full transition-transform duration-100 delay-100"
+                : "transition-transform duration-500 ease-out delay-300"
+            }`}
+          >
+            Book a meeting
+          </Link>
+        </span>
       </nav>
       {opened && (
         <div

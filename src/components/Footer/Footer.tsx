@@ -10,6 +10,7 @@ export const Footer: React.FC = () => {
     emailCursor,
     linkedinCursor,
     githubCursor,
+    calendarCursor,
     ContactSectionRef,
   } = useFooter();
 
@@ -50,6 +51,15 @@ export const Footer: React.FC = () => {
               className="hover:underline"
             >
               <span ref={githubCursor}>GitHub</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="https://calendly.com/pablozafra"
+              target="_blank"
+              className="hover:underline"
+            >
+              <span ref={calendarCursor}>Book a meeting</span>
             </Link>
           </li>
         </ul>
