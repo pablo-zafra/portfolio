@@ -115,7 +115,7 @@ const Nav: React.FC<OffCanvasMenuProps> = ({ opened, onClose }) => {
           <Link
             href="https://calendly.com/pablozafra"
             target="_blank"
-            className={`inline-block relative p-4 bg-transparent hover:bg-turquesa text-white rounded-full border-white border-1 hover:border-turquesa box-border h-fit ${
+            className={`inline-block relative text-sm md:text-base p-3 md:p-4 bg-transparent hover:bg-turquesa text-white rounded-full border-white border-1 hover:border-turquesa box-border h-fit ${
               !opened
                 ? "translate-y-full transition-transform duration-100 delay-100"
                 : "transition-transform duration-500 ease-out delay-300"
