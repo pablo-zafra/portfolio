@@ -5,7 +5,14 @@
       "video game says",
       "about you? (Spanish)"
     ],
-    "tags": ["Front end", "React", "Next.js", "IA-powered"],
+    "tags": [
+      "IA-powered",
+      "Front end",
+      "React.js",
+      "Next.js",
+      "TailwindCSS",
+      "APIRoutes"
+    ],
     "slug": "videojuego-favorito",
     "bg": "#d59842",
     "link": "https://loquetuvideojuegofavoritodicedeti.pablozafra.dev/",
@@ -13,7 +20,7 @@
   },
   {
     "titleLines": ["Custom", "Brand Days", "Collection"],
-    "tags": ["Rich Media", "UX/UI"],
+    "tags": ["Rich Media", "HTML", "CSS", "JavaScript", "UX/UI"],
     "slug": "custom-brand-days-collection",
     "bg": "#fff",
     "link": "https://www.youtube.com/watch?v=WqaLhw7b0T4",
@@ -21,7 +28,7 @@
   },
   {
     "titleLines": ["Mediakit El País"],
-    "tags": ["Front end", "UX/UI"],
+    "tags": ["Front end", "HTML", "CSS", "JavaScript", "UX/UI"],
     "slug": "mediakit-elpais",
     "bg": "#59e0db",
     "link": "https://adops.prisabs.com/test/ftp/mediakits/elpais/index.html",
@@ -29,18 +36,35 @@
   },
   {
     "titleLines": ["Mobile Game App:", "Run Eggplant"],
-    "tags": ["Front end", "Visual Design", "2D Animation"],
+    "tags": ["Front end", "Unity", "C#", "Visual Design", "2D Animation"],
     "slug": "mobile-game-app-run-eggplant",
     "bg": "#6b1c96",
     "link": "https://www.youtube.com/watch?v=QowZzHUOhzM",
     "newTab": true
   },
   {
-    "titleLines": ["Energy company", "website"],
-    "tags": ["Front end", "UX/UI"],
+    "titleLines": ["Energy company website"],
+    "tags": [
+      "Front end",
+      "Wordpress",
+      "PHP",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "MySQL",
+      "UX/UI"
+    ],
     "slug": "energy-company-website",
     "bg": "#87ac24",
     "link": "https://pinosurenergias.es/",
+    "newTab": true
+  },
+  {
+    "titleLines": ["Music group", "landing page"],
+    "tags": ["Front end", "React.js", "BEM", "SCSS", "UX/UI"],
+    "slug": "useAwareness",
+    "bg": "#000000",
+    "link": "https://useawareness.netlify.app/",
     "newTab": true
   },
   {
@@ -52,7 +76,16 @@
   },
   {
     "titleLines": ["Wedding Invitation", "Landing Page"],
-    "tags": ["Front end", "Wordpress", "UX/UI"],
+    "tags": [
+      "Front end",
+      "Wordpress",
+      "PHP",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "MySQL",
+      "UX/UI"
+    ],
     "slug": "wedding-invitation",
     "bg": "#a83636",
     "link": "https://melitayhector.pablozafra.dev/invitacion/familia-gutierrez",
@@ -60,18 +93,19 @@
   },
   {
     "titleLines": ["Cafe Custom", "Website Menu"],
-    "tags": ["Front end", "Wordpress", "UX/UI"],
+    "tags": [
+      "Front end",
+      "Wordpress",
+      "PHP",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "MySQL",
+      "UX/UI"
+    ],
     "slug": "cafe-custom-responsive-web-menu",
     "bg": "#59a892",
     "link": "https://linda-specialty-coffee-and-brunch.com/carta/",
-    "newTab": true
-  },
-  {
-    "titleLines": ["Motion Graphics", "Corporate Video"],
-    "tags": ["Motion Graphics", "Visual Design"],
-    "slug": "adn-motion-graphics",
-    "bg": "#ffecd4",
-    "link": "https://www.youtube.com/watch?v=6Mnc9KzrhIw",
     "newTab": true
   }
 ]

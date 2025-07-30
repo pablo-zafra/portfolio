@@ -36,7 +36,7 @@ export const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
 
   return (
     <div className="relative flex flex-col-reverse w-fit md:flex-row justify-end gap-11 md:w-full overflow-visible">
-      <div className="flex flex-col sticky left-[-50vw] w-full min-h-34 overflow-visible items-start justify-start md:items-end md:flex-1 md:py-6">
+      <div className="flex flex-col sticky left-[-50vw] w-full min-h-40 overflow-visible items-start justify-start md:items-end md:flex-1 md:py-6">
         <div
           ref={txtWrapperRef}
           className="absolute w-[calc(100vw-2rem)] flex flex-col md:items-end opacity-0 md:justify-center md:sticky md:top-1/2 xl:pl-26 md:right-0 md:h-0 md:w-auto md:text-right md:overflow-visible"
@@ -68,11 +68,10 @@ export const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
               </h3>
             )}
           </div>
-          <ul className="flex flex-wrap md:justify-end text-base xl:text-lg text-gray mt-2.5 list-none p-0 m-0 gap-x-1">
+          <ul className="flex flex-wrap md:justify-end text-base xl:text-lg text-gray mt-2.5 list-none p-0 m-0 gap-x-2 gap-y-0.5">
             {tags &&
               tags.map((tag, idx) => (
                 <li key={idx} className="flex items-center">
-                  {idx > 0 && <span>&nbsp;</span>}
                   <span className="whitespace-nowrap">{tag}</span>
                   {idx < tags.length - 1 && <span>,</span>}
                 </li>
