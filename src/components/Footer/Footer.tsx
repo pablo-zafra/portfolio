@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
           </li>
           <li>
             <Link
-              href="https://calendly.com/pablozafra"
+              href="https://calendly.com/pablozafra/new-meeting"
               target="_blank"
               className="hover:underline"
             >

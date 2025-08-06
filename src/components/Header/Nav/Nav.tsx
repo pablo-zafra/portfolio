@@ -113,7 +113,7 @@ const Nav: React.FC<OffCanvasMenuProps> = ({ opened, onClose }) => {
         </ul>
         <span className="block relative overflow-hidden">
           <Link
-            href="https://calendly.com/pablozafra"
+            href="https://calendly.com/pablozafra/new-meeting"
             target="_blank"
             className={`inline-block relative text-sm md:text-base p-3 md:p-4 bg-transparent hover:bg-turquesa text-white rounded-full border-white border-1 hover:border-turquesa box-border h-fit ${
               !opened
