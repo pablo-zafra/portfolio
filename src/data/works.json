@@ -19,30 +19,6 @@
     "newTab": true
   },
   {
-    "titleLines": ["Custom", "Brand Days", "Collection"],
-    "tags": ["Rich Media", "HTML", "CSS", "JavaScript", "UX/UI"],
-    "slug": "custom-brand-days-collection",
-    "bg": "#fff",
-    "link": "https://www.youtube.com/watch?v=WqaLhw7b0T4",
-    "newTab": true
-  },
-  {
-    "titleLines": ["Mediakit El País"],
-    "tags": ["Front end", "HTML", "CSS", "JavaScript", "UX/UI"],
-    "slug": "mediakit-elpais",
-    "bg": "#59e0db",
-    "link": "https://adops.prisabs.com/test/ftp/mediakits/elpais/index.html",
-    "newTab": true
-  },
-  {
-    "titleLines": ["Mobile Game App:", "Run Eggplant"],
-    "tags": ["Front end", "Unity", "C#", "Visual Design", "2D Animation"],
-    "slug": "mobile-game-app-run-eggplant",
-    "bg": "#6b1c96",
-    "link": "https://www.youtube.com/watch?v=QowZzHUOhzM",
-    "newTab": true
-  },
-  {
     "titleLines": ["Energy company website"],
     "tags": [
       "Front end",
@@ -60,11 +36,19 @@
     "newTab": true
   },
   {
-    "titleLines": ["Music group", "landing page"],
-    "tags": ["Front end", "React.js", "BEM", "SCSS", "UX/UI"],
-    "slug": "useAwareness",
-    "bg": "#000000",
-    "link": "https://useawareness.netlify.app/",
+    "titleLines": ["Custom", "Brand Days", "Collection"],
+    "tags": ["Rich Media", "HTML", "CSS", "JavaScript", "UX/UI"],
+    "slug": "custom-brand-days-collection",
+    "bg": "#fff",
+    "link": "https://www.youtube.com/watch?v=WqaLhw7b0T4",
+    "newTab": true
+  },
+  {
+    "titleLines": ["Mobile Game App:", "Run Eggplant"],
+    "tags": ["Front end", "Unity", "C#", "Visual Design", "2D Animation"],
+    "slug": "mobile-game-app-run-eggplant",
+    "bg": "#6b1c96",
+    "link": "https://www.youtube.com/watch?v=QowZzHUOhzM",
     "newTab": true
   },
   {
@@ -73,39 +57,5 @@
     "slug": "local-tv-network-brand-restyling",
     "link": "./local-tv-network-brand-restyling",
     "bg": "#d2d2d2"
-  },
-  {
-    "titleLines": ["Wedding Invitation", "Landing Page"],
-    "tags": [
-      "Front end",
-      "Wordpress",
-      "PHP",
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "MySQL",
-      "UX/UI"
-    ],
-    "slug": "wedding-invitation",
-    "bg": "#a83636",
-    "link": "https://melitayhector.pablozafra.dev/invitacion/familia-gutierrez",
-    "newTab": true
-  },
-  {
-    "titleLines": ["Cafe Custom", "Website Menu"],
-    "tags": [
-      "Front end",
-      "Wordpress",
-      "PHP",
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "MySQL",
-      "UX/UI"
-    ],
-    "slug": "cafe-custom-responsive-web-menu",
-    "bg": "#59a892",
-    "link": "https://linda-specialty-coffee-and-brunch.com/carta/",
-    "newTab": true
   }
 ]
