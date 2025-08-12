@@ -7,5 +7,6 @@ export * from "./CursorFollower";
 export * from "./HandEllipse";
 export * from "./DottedLine";
 export * from "./JoinBox";
+export * from "./TextHighlight";
 export { SpinThePen, SpinTheHeadphones } from "./HandWrittenCTAs";
 export { Pencil, Headphones } from "./3dModels";

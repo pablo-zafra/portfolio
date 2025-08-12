@@ -1,14 +1,8 @@
 import { useScrollContext } from "../../../context";
-import {
-  useBreakpoints,
-  useCursor,
-  useHighlight,
-  useInView,
-} from "../../../hooks";
+import { useBreakpoints, useCursor, useInView } from "../../../hooks";
 import { useEffect } from "react";
 
 export const useAboutMe = () => {
-  const highlightRef = useHighlight();
   const { setScrollData } = useScrollContext();
 
   const malagaCursorRef = useCursor({
@@ -35,7 +29,6 @@ export const useAboutMe = () => {
   }, [AboutInView]);
 
   return {
-    highlightRef,
     malagaCursorRef,
     isTouchDevice,
     AboutRef,

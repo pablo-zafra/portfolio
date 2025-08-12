@@ -1,11 +1,10 @@
 "use client";
 
-import { JoinBox } from "../../../components";
+import { JoinBox, TextHighlight } from "../../../components";
 import { useAboutMe } from "./useAboutMe";
 
 export const AboutMe: React.FC = () => {
   const {
-    highlightRef,
     malagaCursorRef,
     isTouchDevice,
     AboutRef,
@@ -31,7 +30,7 @@ export const AboutMe: React.FC = () => {
                   />
                 )}
               </div>
-              Based in <span ref={highlightRef}>Málaga</span>
+              Based in <TextHighlight>Málaga</TextHighlight>
             </div>
           </h2>
           <div className="text-lg sm:text-xl lg:text-2xl font-light">
