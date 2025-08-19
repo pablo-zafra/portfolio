@@ -1,5 +1,19 @@
 [
   {
+    "titleLines": ["When text comes", "alive on scroll"],
+    "tags": [
+      "React Component",
+      "NPM Package",
+      "Animation",
+      "Micro-interactions",
+      "Front end"
+    ],
+    "slug": "when-text-comes-alive-on-scroll",
+    "bg": "#8ccce7",
+    "format": "gif",
+    "link": "./when-text-comes-alive-on-scroll"
+  },
+  {
     "titleLines": [
       "What your favorite",
       "video game says",

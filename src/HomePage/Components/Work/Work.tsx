@@ -8,6 +8,7 @@ interface WorkDataItem {
   tags?: string[];
   slug?: string;
   bg?: string;
+  format?: string;
   link?: string;
   newTab?: boolean;
 }
@@ -38,7 +39,15 @@ export const Work: React.FC = () => {
         <div className="relative flex gap-4 max-md:w-fit md:flex-col md:items-end md:gap-16 md:pt-24 md:pb-86 md:pl-0 md:pr-20 xl:pr-32">
           {workData.map(
             (
-              { titleLines, tags, slug, bg, link, newTab }: WorkDataItem,
+              {
+                titleLines,
+                tags,
+                slug,
+                bg,
+                format,
+                link,
+                newTab,
+              }: WorkDataItem,
               index: number
             ) => (
               <WorkItem
@@ -48,6 +57,9 @@ export const Work: React.FC = () => {
                 tags={tags}
                 slug={slug}
                 bg={bg}
+                format={
+                  format === "jpg" || format === "gif" ? format : undefined
+                }
                 link={link}
                 newTab={newTab}
                 isMobile={isMobile}

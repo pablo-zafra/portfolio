@@ -10,6 +10,7 @@ interface WorkItemProps {
   tags?: string[];
   slug?: string;
   bg?: string;
+  format?: "jpg" | "gif";
   link?: string;
   newTab?: boolean;
   isMobile: boolean;
@@ -23,13 +24,15 @@ export const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
     tags,
     slug,
     bg,
+    format,
     link,
     newTab,
     isMobile,
     itemsContainerRef,
   } = WorkItemProps;
   const bgColor = bg! ? bg : "white";
-  const mainImg = `/media/work/${slug}/${slug}.jpg`;
+  const imgFormat = format ? format : "jpg";
+  const mainImg = `/media/work/${slug}/${slug}.${imgFormat}`;
 
   const { imgWrapperRef, txtWrapperRef, imgCursorRef, headingCursorRef } =
     useWorkItem({ itemKey, isMobile, itemsContainerRef });
