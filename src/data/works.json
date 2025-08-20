@@ -50,14 +50,6 @@
     "newTab": true
   },
   {
-    "titleLines": ["Custom", "Brand Days", "Collection"],
-    "tags": ["Rich Media", "HTML", "CSS", "JavaScript", "UX/UI"],
-    "slug": "custom-brand-days-collection",
-    "bg": "#fff",
-    "link": "https://www.youtube.com/watch?v=WqaLhw7b0T4",
-    "newTab": true
-  },
-  {
     "titleLines": ["Mobile Game App:", "Run Eggplant"],
     "tags": ["Front end", "Unity", "C#", "Visual Design", "2D Animation"],
     "slug": "mobile-game-app-run-eggplant",

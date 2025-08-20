@@ -19,6 +19,8 @@ export const useWorkItemAnimImg = ({
     if (!imgWrapper || isMobile) return;
     (imgWrapper as HTMLElement).removeAttribute("style");
 
+    gsap.set(imgWrapper, { width: "50%" });
+
     const imgAnimDesktop = gsap.timeline({
       scrollTrigger: {
         trigger: imgWrapper,
@@ -45,6 +47,8 @@ export const useWorkItemAnimImg = ({
     const scroller = itemsContainerRef.current;
     if (!imgWrapper || !scroller || !isMobile) return;
     (imgWrapper as HTMLElement).removeAttribute("style");
+
+    gsap.set(imgWrapper, { height: "50%" });
 
     const imgAnimMobile = gsap.timeline({
       scrollTrigger: {

@@ -1,5 +1,55 @@
 [
   {
+    "titleLines": ["When text comes", "alive on scroll"],
+    "tags": [
+      "React Component",
+      "NPM Package",
+      "Animation",
+      "Micro-interactions",
+      "Front end"
+    ],
+    "slug": "when-text-comes-alive-on-scroll",
+    "bg": "#8ccce7",
+    "format": "gif",
+    "link": "./when-text-comes-alive-on-scroll"
+  },
+  {
+    "titleLines": [
+      "What your favorite",
+      "video game says",
+      "about you? (Spanish)"
+    ],
+    "tags": [
+      "IA-powered",
+      "Front end",
+      "React.js",
+      "Next.js",
+      "TailwindCSS",
+      "APIRoutes"
+    ],
+    "slug": "videojuego-favorito",
+    "bg": "#d59842",
+    "link": "https://loquetuvideojuegofavoritodicedeti.pablozafra.dev/",
+    "newTab": true
+  },
+  {
+    "titleLines": ["Energy company website"],
+    "tags": [
+      "Front end",
+      "Wordpress",
+      "PHP",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "MySQL",
+      "UX/UI"
+    ],
+    "slug": "energy-company-website",
+    "bg": "#87ac24",
+    "link": "https://pinosurenergias.es/",
+    "newTab": true
+  },
+  {
     "titleLines": ["Custom", "Brand Days", "Collection"],
     "tags": ["Rich Media", "UX/UI", "Visual Design"],
     "slug": "custom-brand-days-collection",

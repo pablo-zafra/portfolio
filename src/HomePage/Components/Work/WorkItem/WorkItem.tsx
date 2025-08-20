@@ -85,14 +85,12 @@ export const WorkItem: React.FC<WorkItemProps> = (WorkItemProps) => {
       <div className="max-md:h-[70vw] w-fit md:flex-1 flex flex-col items-start md:items-end">
         <div
           ref={imgWrapperRef}
-          className={
-            "h-full aspect-2/3 md:w-1/2 md:h-auto md:aspect-4/3 rounded-lg overflow-hidden"
-          }
+          className="h-1/2 aspect-2/3 md:w-1/2 md:h-auto md:aspect-4/3 rounded-lg overflow-hidden"
         >
           <div
             ref={imgCursorRef}
             style={{ backgroundColor: bgColor }}
-            className="relative flex items-center w-full h-full "
+            className="relative flex items-center w-full h-full"
           >
             {link ? (
               <Link
