@@ -38,6 +38,12 @@ const BrandRestyling: React.FC = () => {
       default: "bottom 98%",
       description: "GSAP ScrollTrigger start position",
     },
+    {
+      prop: "end",
+      type: "string",
+      default: "bottom 65%",
+      description: "GSAP ScrollTrigger end position",
+    },
   ];
 
   return (
